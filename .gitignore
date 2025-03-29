@@ -168,3 +168,6 @@ secret.py
 
 # logdir
 logs/
+
+# crontab
+.crontab

@@ -1,7 +1,14 @@
 #!/bin/bash
 
+cd $HOME/ece695aih_project
+
+source /etc/profile.d/modules.sh
+
+source $HOME/.bashrc
+
 source config_rcac.bash
 
+module purge
 module load conda
 module load cuda
 
@@ -26,7 +33,7 @@ do
         recipes/launch_array.slurm recipes/Llama-3.2-1B-Instruct/dvts.yaml \
         --n=$N \
         --seed=0 \
-        --hub_dataset_id=HuggingFaceH4/Llama-3.2-1B-Instruct-dvts-completions
+        --hub_dataset_id=amogh98/Llama-3.2-1B-Instruct-dvts-completions
     done
 done
     

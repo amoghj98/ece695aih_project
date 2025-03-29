@@ -1,7 +1,14 @@
 #!/bin/bash
 
+cd $HOME/ece695aih_project
+
+source /etc/profile.d/modules.sh
+
+source $HOME/.bashrc
+
 source config_rcac.bash
 
+module purge
 module load conda
 module load cuda
 

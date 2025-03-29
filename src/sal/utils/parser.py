@@ -40,6 +40,9 @@ class H4ArgumentParser(HfArgumentParser):
             :obj:`List[dataclass]`: a list of dataclasses with the values from the yaml file and the command line
         """
         arg_list = self.parse_yaml_file(os.path.abspath(yaml_arg))
+        # print('----------------------------------------')
+        # print(other_args)
+        # print('----------------------------------------')
 
         outputs = []
         # strip other args list into dict of key-value pairs

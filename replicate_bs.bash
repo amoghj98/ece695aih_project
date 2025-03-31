@@ -18,9 +18,9 @@ MAIL_TYPE=BEGIN,END,FAIL,TIME_LIMIT_90
 
 for SEED in 0 1 2 3
 do
-    for e in {2..9..2}
+    for e in {8..9..2}
     do
-        N=$(echo 2^$e | bc -l)
+        N=$(echo 2^$1 | bc -l)
         # echo $N
         #
         JOB_NAME="bs_${N}"

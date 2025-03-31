@@ -72,6 +72,10 @@ def main():
 
     merged_config = revisions[0].split("--chunk")[0]
     print(f"Merging {len(revisions)} revisions to create config `{merged_config}`")
+    print('------------------------------------------------------------------------------')
+    print(f'Dataset split: {args.dataset_split}')
+    print(f'ARGS: {args}')
+    print('------------------------------------------------------------------------------')
 
     # Prepare arguments for multiprocessing
     pool_args = [

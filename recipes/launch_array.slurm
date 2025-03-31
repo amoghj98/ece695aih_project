@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name=test_time_compute    # Job name
-#SBATCH --array=1-10%2                  # Array range (this creates 20 tasks with IDs from 1 to 20, with max 8 tasks concurrently)
+#SBATCH --array=1-10%4                  # Array range (this creates 20 tasks with IDs from 1 to 20, with max 8 tasks concurrently)
 #SBATCH --gres=gpu:1                    # Number of GPUs (per node)
 #SBATCH --output=logs/%x/%x-%j_%A_%a.out   # Standard output (%A is replaced by job ID, %a by task ID)
 #SBATCH --error=logs/%x/%x-%j_%A_%a.err    # Standard error

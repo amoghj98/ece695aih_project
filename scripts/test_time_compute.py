@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Modifications to include NVTX annotations for forward pass of base model and reward model - David
+## Second modifications using HF profiling methods: https://huggingface.co/docs/accelerate/en/usage_guides/profiler?cpu+execution+time=PyTorch
 
 import logging
 import time
@@ -22,7 +22,6 @@ import os
 
 import torch
 from torch import nn
-from torch.cuda import nvtx
 from vllm import LLM
 
 from sal.config import Config
@@ -37,7 +36,6 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-os.environ["VLLM_TORCH_PROFILER_DIR"] = "/home/dlimpus/ece695aih_project/scripts/vllm_profile"
 
 APPROACHES = {
     "beam_search": beam_search,
@@ -46,6 +44,8 @@ APPROACHES = {
 }
 
 def main():
+
+    count = 0
 
     parser = H4ArgumentParser(Config)
     config = parser.parse()
@@ -62,8 +62,6 @@ def main():
     )
     prm = load_prm(config)
 
-    llm.start_profile()
-
     dataset = get_dataset(config)
     dataset = dataset.map(
         approach_fn,
@@ -77,7 +75,7 @@ def main():
     dataset = score(dataset, config)
 
     save_dataset(dataset, config)
-    llm.stop_profile()
+    
     logger.info("Done 🔥!")
 
 

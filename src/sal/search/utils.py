@@ -19,6 +19,10 @@ from dataclasses import dataclass
 import numpy as np
 from vllm import LLM, SamplingParams
 
+from torch.profiler import profile, ProfilerActivity, record_function
+import torch
+import time
+
 logger = logging.getLogger()
 
 
@@ -84,75 +88,79 @@ def generate_k_steps(
     sampling_params: SamplingParams,
     beam_width: int,
 ) -> list[Beam]:
-    gen_results = []
-    for i, text in enumerate(templated_convs):
-        for j in range(beam_width):
-            gen_result = GenResult(
-                index=i,
-                initial_prompt=text,
-                first_step_text="",
-                lookahead_text="",
-                stop_reason=None,
-                first_step_stop_reason=None,
-            )
-            gen_results.append(gen_result)
+    with profile(activities=[ProfilerActivity.CUDA]) as prof:
+        with record_function("model_inference"):
+            gen_results = []
+            for i, text in enumerate(templated_convs):
+                for j in range(beam_width):
+                    gen_result = GenResult(
+                        index=i,
+                        initial_prompt=text,
+                        first_step_text="",
+                        lookahead_text="",
+                        stop_reason=None,
+                        first_step_stop_reason=None,
+                    )
+                    gen_results.append(gen_result)
 
-    gen_sampling_params = copy.deepcopy(sampling_params)
+            gen_sampling_params = copy.deepcopy(sampling_params)
 
-    for i in range(lookahead_steps + 1):
-        if i == 1:
-            gen_sampling_params.temperature = 0.0  # greedy for the rest of the steps
-        # get all generations that did not finish with eos
-        current_gen = [
-            gen_results[i]
-            for i in range(len(gen_results))
-            if gen_results[i].stop_reason != "EOS"
-        ]
-        gen_prompts = [
-            gen_result.initial_prompt + gen_result.lookahead_text
-            for gen_result in current_gen
-        ]
-        llm_outputs = llm.generate(gen_prompts, gen_sampling_params, use_tqdm=False)
-        for gen_result, output in zip(current_gen, llm_outputs):
-            gen_text = output.outputs[0].text
-            if i == 0:
-                gen_result.first_step_text = gen_text
-                gen_result.first_step_stop_reason = output.outputs[0].stop_reason
-                if gen_result.first_step_stop_reason is None:
-                    gen_result.first_step_stop_reason = "EOS"
+            for i in range(lookahead_steps + 1):
+                if i == 1:
+                    gen_sampling_params.temperature = 0.0  # greedy for the rest of the steps
+                # get all generations that did not finish with eos
+                current_gen = [
+                    gen_results[i]
+                    for i in range(len(gen_results))
+                    if gen_results[i].stop_reason != "EOS"
+                ]
+                gen_prompts = [
+                    gen_result.initial_prompt + gen_result.lookahead_text
+                    for gen_result in current_gen
+                ]
+                llm_outputs = llm.generate(gen_prompts, gen_sampling_params, use_tqdm=False)
+                
+                for gen_result, output in zip(current_gen, llm_outputs):
+                    gen_text = output.outputs[0].text
+                    if i == 0:
+                        gen_result.first_step_text = gen_text
+                        gen_result.first_step_stop_reason = output.outputs[0].stop_reason
+                        if gen_result.first_step_stop_reason is None:
+                            gen_result.first_step_stop_reason = "EOS"
 
-            gen_result.lookahead_text = gen_result.lookahead_text + gen_text
-            gen_result.stop_reason = output.outputs[0].stop_reason
-            if gen_result.stop_reason is None:
-                gen_result.stop_reason = "EOS"
+                    gen_result.lookahead_text = gen_result.lookahead_text + gen_text
+                    gen_result.stop_reason = output.outputs[0].stop_reason
+                    if gen_result.stop_reason is None:
+                        gen_result.stop_reason = "EOS"
 
-    outputs: list[Beam] = []
+            outputs: list[Beam] = []
 
-    counter = 0
-    for i, text in enumerate(templated_convs):
-        next_texts = []
-        stop_reasons = []
-        lookahead_texts = []
-        for j in range(beam_width):
-            gen_result = gen_results[counter]
-            next_texts.append(gen_result.first_step_text)
-            lookahead_texts.append(gen_result.lookahead_text)
-            stop_reasons.append(gen_result.first_step_stop_reason)
-            counter += 1
+            counter = 0
+            for i, text in enumerate(templated_convs):
+                next_texts = []
+                stop_reasons = []
+                lookahead_texts = []
+                for j in range(beam_width):
+                    gen_result = gen_results[counter]
+                    next_texts.append(gen_result.first_step_text)
+                    lookahead_texts.append(gen_result.lookahead_text)
+                    stop_reasons.append(gen_result.first_step_stop_reason)
+                    counter += 1
 
-        beam_result = Beam(
-            prompt=text,
-            index=i,
-            current_text="",
-            next_texts=next_texts,
-            lookahead_texts=lookahead_texts,
-            stop_reasons=stop_reasons,
-            best_scores=[0.0],
-            all_scores=[],
-            previous_text=None,
-            pruned=False,
-            history=[],
-        )
-        outputs.append(beam_result)
+                beam_result = Beam(
+                    prompt=text,
+                    index=i,
+                    current_text="",
+                    next_texts=next_texts,
+                    lookahead_texts=lookahead_texts,
+                    stop_reasons=stop_reasons,
+                    best_scores=[0.0],
+                    all_scores=[],
+                    previous_text=None,
+                    pruned=False,
+                    history=[],
+                )
+                outputs.append(beam_result)
+    open(f"/home/dlimpus/ece695aih_project/data_50/forward_pass_{generate_k_steps.__name__}_{int(time.time())}.csv", "w").write(prof.key_averages().table(sort_by="cuda_time_total"))
 
     return outputs

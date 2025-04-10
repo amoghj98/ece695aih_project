@@ -25,6 +25,11 @@ from sal.utils.data import get_dataset, save_dataset
 from sal.utils.parser import H4ArgumentParser
 from sal.utils.score import score
 
+from pyJoules.energy_meter import measure_energy
+from pyJoules.handler.csv_handler import CSVHandler
+from pyJoules.device.rapl_device import RaplPackageDomain, RaplDevice
+from pyJoules.device.nvidia_device import NvidiaGPUDevice
+
 logging.basicConfig(level=logging.INFO)
 
 logger = logging.getLogger(__name__)
@@ -55,14 +60,25 @@ def main():
     prm = load_prm(config)
 
     dataset = get_dataset(config)
-    dataset = dataset.map(
-        approach_fn,
-        batched=True,
-        batch_size=config.search_batch_size,
-        fn_kwargs={"config": config, "llm": llm, "prm": prm},
-        desc="Running search",
-        load_from_cache_file=False,
-    )
+
+    devices = [RaplDevice(RaplPackageDomain(0))]  # CPUs
+    for gpu_index in range(num_gpus):             # GPUs
+        devices.append(NvidiaGPUDevice(gpu_index))
+
+    energy_meter = measure_energy(devices=devices)
+    csv_handler = CSVHandler('energy.csv')
+
+    with energy_meter as meter:
+        dataset = dataset.map(
+            approach_fn,
+            batched=True,
+            batch_size=config.search_batch_size,
+            fn_kwargs={"config": config, "llm": llm, "prm": prm},
+            desc="Running search",
+            load_from_cache_file=False,
+        )
+    meter.record(csv_handler)
+    csv_handler.save_data()
 
     dataset = score(dataset, config)
 

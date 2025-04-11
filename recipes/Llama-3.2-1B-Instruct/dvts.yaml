@@ -1,5 +1,6 @@
 # refer to src/sal/config.py for more options
 
+filter_duplicates: true
 approach: dvts
 n: 4
 search_batch_size: 25

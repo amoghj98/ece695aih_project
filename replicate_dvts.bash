@@ -32,7 +32,7 @@ do
         --cpus-per-gpu=14 -A cocosys \
         recipes/launch_array.slurm recipes/Llama-3.2-1B-Instruct/dvts.yaml \
         --n=$N \
-        --seed=0 \
+        --seed=$SEED \
         --hub_dataset_id=amogh98/Llama-3.2-1B-Instruct-dvts-completions
     done
 done

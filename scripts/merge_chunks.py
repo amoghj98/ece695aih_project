@@ -70,6 +70,7 @@ def main():
             if all(filter_string in revision for filter_string in args.filter_strings)
         ]
 
+    print(revisions)
     merged_config = revisions[0].split("--chunk")[0]
     print(f"Merging {len(revisions)} revisions to create config `{merged_config}`")
     print('------------------------------------------------------------------------------')

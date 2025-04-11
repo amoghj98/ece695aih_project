@@ -9,7 +9,8 @@ conda activate sal
 
 MAIL_TYPE=BEGIN,END,FAIL,TIME_LIMIT_90
 
-for DSET in "amogh98/Llama-3.2-1B-Instruct-best_of_n-completions" "amogh98/Llama-3.2-1B-Instruct-dvts-completions" "amogh98/Llama-3.2-1B-Instruct-beam_search-completions"
+#  "amogh98/Llama-3.2-1B-Instruct-best_of_n-completions" "amogh98/Llama-3.2-1B-Instruct-beam_search-completions"
+for DSET in "amogh98/Llama-3.2-1B-Instruct-dvts-completions"
 do
     JOB_NAME=$(cut -d'-' -f5- <<< "$DSET")
     #
@@ -26,5 +27,6 @@ do
     # --n=$N \
     # --seed=$SEED \
     # --hub_dataset_id=amogh98/Llama-3.2-1B-Instruct-best_of_n-completions
+    # add sleep to stall script and prevent the "too many huggingface requests error"
 done
     

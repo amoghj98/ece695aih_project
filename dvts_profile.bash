@@ -30,6 +30,6 @@ do
         recipes/launch_array.slurm recipes/Llama-3.2-1B-Instruct/dvts.yaml \
         --n=256 \
         --seed=$SEED \
-        --hub_dataset_id=TheRealPilot638/TestTimeScalingLlama3.2_HF_profiling_50Q # you will need to specify your own dataset location
+        --hub_dataset_id=TheRealPilot638/TestTimeScalingLlama3.2_dvts_profiling_50Q # you will need to specify your own dataset location
     done
 done

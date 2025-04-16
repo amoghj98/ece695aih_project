@@ -36,7 +36,6 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-
 APPROACHES = {
     "beam_search": beam_search,
     "dvts": dvts,
@@ -44,6 +43,8 @@ APPROACHES = {
 }
 
 def main():
+
+    total_start = time.time()
 
     count = 0
 
@@ -60,9 +61,16 @@ def main():
         seed=config.seed,
         tensor_parallel_size=num_gpus,
     )
+    prm_start = time.time()
     prm = load_prm(config)
+    prm_end = time.time()
+    prm_load_time = prm_end - prm_start
+
+    logger.info(f"PRM load time: {prm_load_time}")
 
     dataset = get_dataset(config)
+
+    dataset_start = time.time()
     dataset = dataset.map(
         approach_fn,
         batched=True,
@@ -71,10 +79,25 @@ def main():
         desc="Running search",
         load_from_cache_file=False,
     )
+    dataset_end = time.time()
+    dataset_time = dataset_end - dataset_start
 
+    logger.info(f"Dataset mapping time: {dataset_time} s")
+
+    score_start = time.time()
     dataset = score(dataset, config)
+    score_end = time.time()
+    score_time = score_end - score_start
+
+    logger.info(f"Scoring time: {score_time} s")
 
     save_dataset(dataset, config)
+
+    total_stop = time.time()
+
+    total_time = total_stop - total_start
+
+    logger.info(f"Total runtime: {total_time}")
     
     logger.info("Done 🔥!")
 

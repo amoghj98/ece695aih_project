@@ -23,79 +23,95 @@ from sal.utils.score import aggregate_scores
 from torch.profiler import profile, ProfilerActivity, record_function
 import time
 
+import logging
+logging.basicConfig(level=logging.INFO)
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
 def best_of_n(x, config: Config, llm: LLM, prm: PRM):
-    with profile(activities=[ProfilerActivity.CUDA]) as prof:
-        with record_function("model_inference"):
-            tokenizer = llm.get_tokenizer()
+    #with profile(activities=[ProfilerActivity.CUDA]) as prof:
+        #with record_function("model_inference"):
+    tokenizer = llm.get_tokenizer()
 
-            convs = [
-                [
-                    {"role": "system", "content": config.system_prompt},
-                    {"role": "user", "content": prompt},
-                ]
-                for prompt in x["problem"]
-            ]
-            tokenizer = llm.get_tokenizer()
-            # TODO: set the augmented template from a file
-            if config.custom_chat_template is not None:
-                tokenizer.chat_template = config.custom_chat_template
-            templated_convs = tokenizer.apply_chat_template(
-                convs, tokenize=False, add_generation_prompt=True
-            )
+    convs = [
+        [
+            {"role": "system", "content": config.system_prompt},
+            {"role": "user", "content": prompt},
+        ]
+        for prompt in x["problem"]
+    ]
+    tokenizer = llm.get_tokenizer()
+    # TODO: set the augmented template from a file
+    if config.custom_chat_template is not None:
+        tokenizer.chat_template = config.custom_chat_template
+    templated_convs = tokenizer.apply_chat_template(
+        convs, tokenize=False, add_generation_prompt=True
+    )
 
-            # Duplicate convs to generate config.n completions per prompt so we can do continous batching
-            # This makes [p1, p2, p3, p4] become [p1, p1, p2, p2, p3, p3, p4, p4] for e.g. config.n=2
-            templated_convs = [c for conv in templated_convs for c in [conv] * config.n]
+    # Duplicate convs to generate config.n completions per prompt so we can do continous batching
+    # This makes [p1, p2, p3, p4] become [p1, p1, p2, p2, p3, p3, p4, p4] for e.g. config.n=2
+    templated_convs = [c for conv in templated_convs for c in [conv] * config.n]
 
-            # Initialize empty lists for completions and completion tokens
-            completions = [[] for _ in range(len(x["problem"]))]
-            completion_tokens = [[] for _ in range(len(x["problem"]))]
+    # Initialize empty lists for completions and completion tokens
+    completions = [[] for _ in range(len(x["problem"]))]
+    completion_tokens = [[] for _ in range(len(x["problem"]))]
 
-            sampling_params = SamplingParams(
-                temperature=config.temperature,
-                max_tokens=config.max_tokens,
-                top_p=config.top_p,
-                n=1,  # Since we've already duplicated the prompt_token_ids, we only need to generate 1 completion per prompt
-            )
-            responses = llm.generate(
-                templated_convs,
-                sampling_params=sampling_params,
-                use_tqdm=False,
-                )
-            
-            if len(responses) != len(x["problem"]) * config.n:
-                raise ValueError(
-                    f"Generated {len(responses)} responses instead of {len(x['problem'] * config.n)}"
-                )
+    sampling_params = SamplingParams(
+        temperature=config.temperature,
+        max_tokens=config.max_tokens,
+        top_p=config.top_p,
+        n=1,  # Since we've already duplicated the prompt_token_ids, we only need to generate 1 completion per prompt
+    )
+    generate_start = time.time()
+    responses = llm.generate(
+        templated_convs,
+        sampling_params=sampling_params,
+        use_tqdm=False,
+        )
+    generate_end = time.time()
+    generate_time = generate_end - generate_start
 
-            for i in range(len(completions)):
-                completions[i] = [
-                    output.text
-                    for r in responses[i * config.n : (i + 1) * config.n]
-                    for output in r.outputs
-                ]
-                completion_tokens[i] = [
-                    len(output.token_ids)
-                    for r in responses[i * config.n : (i + 1) * config.n]
-                    for output in r.outputs
-                ]
+    logger.info(f"LLM generate time: {generate_time}")
 
-            # Check we generated the correct number of completions for each prompt
-            for c in completions:
-                if len(c) != config.n:
-                    raise ValueError(f"Generated {len(c)} completions instead of {config.n}")
+    if len(responses) != len(x["problem"]) * config.n:
+        raise ValueError(
+            f"Generated {len(responses)} responses instead of {len(x['problem'] * config.n)}"
+        )
 
-            scores = prm.score(x["problem"], completions)
-            agg_scores = [
-                [aggregate_scores(s, config.agg_strategy) for s in score] for score in scores
-            ]
+    for i in range(len(completions)):
+        completions[i] = [
+            output.text
+            for r in responses[i * config.n : (i + 1) * config.n]
+            for output in r.outputs
+        ]
+        completion_tokens[i] = [
+            len(output.token_ids)
+            for r in responses[i * config.n : (i + 1) * config.n]
+            for output in r.outputs
+        ]
 
-            # Select the completion with the highest score
-            pred = [completion[np.argmax(s)] for completion, s in zip(completions, agg_scores)]
+    # Check we generated the correct number of completions for each prompt
+    for c in completions:
+        if len(c) != config.n:
+            raise ValueError(f"Generated {len(c)} completions instead of {config.n}")
 
-            x["completions"] = completions
-            x["scores"] = scores
-            x["pred"] = pred
-            x["completion_tokens"] = completion_tokens
-    open(f"/home/dlimpus/ece695aih_project/data_50/forward_pass_{best_of_n.__name__}_{int(time.time())}.csv", "w").write(prof.key_averages().table(sort_by="cuda_time_total"))
+    score_start = time.time()
+    scores = prm.score(x["problem"], completions)
+    agg_scores = [
+        [aggregate_scores(s, config.agg_strategy) for s in score] for score in scores
+    ]
+
+    # Select the completion with the highest score
+    pred = [completion[np.argmax(s)] for completion, s in zip(completions, agg_scores)]
+    score_end = time.time()
+    score_time = score_end - score_start
+
+    logger.info(f"Score time: {score_time}")
+
+    x["completions"] = completions
+    x["scores"] = scores
+    x["pred"] = pred
+    x["completion_tokens"] = completion_tokens
+    #open(f"/home/dlimpus/ece695aih_project/data_50/forward_pass_{best_of_n.__name__}_{int(time.time())}.csv", "w").write(prof.key_averages().table(sort_by="cuda_time_total"))
     return x

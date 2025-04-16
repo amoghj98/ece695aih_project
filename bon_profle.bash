@@ -27,9 +27,9 @@ do
         --mail-type=${MAIL_TYPE} --mail-user=${USER}@purdue.edu \
         --job-name=$JOB_NAME \
         --cpus-per-gpu=14 -A cocosys \
-        recipes/launch_array.slurm recipes/Llama-3.2-1B-Instruct/best_of_n.yaml \
+        recipes/launch_array.slurm recipes/Olmo-1B-0724-hf/best_of_n.yaml \
         --n=256 \
         --seed=$SEED \
-        --hub_dataset_id=TheRealPilot638/TestTimeScalingLlama3.2_HF_profiling_50Q
+        --hub_dataset_id=TheRealPilot638/TestTimeScalingOlmo-1B-0724-hf-BON_50Q_profiling
     done
 done

@@ -20,8 +20,18 @@ from sal.config import Config
 from sal.models.reward_models import PRM
 from sal.utils.score import aggregate_scores
 
+from torch.profiler import profile, ProfilerActivity, record_function
+import time
+
+import logging
+logging.basicConfig(level=logging.INFO)
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 def best_of_n(x, config: Config, llm: LLM, prm: PRM):
+    #with profile(activities=[ProfilerActivity.CUDA]) as prof:
+        #with record_function("model_inference"):
     tokenizer = llm.get_tokenizer()
 
     convs = [
@@ -53,12 +63,17 @@ def best_of_n(x, config: Config, llm: LLM, prm: PRM):
         top_p=config.top_p,
         n=1,  # Since we've already duplicated the prompt_token_ids, we only need to generate 1 completion per prompt
     )
-
+    generate_start = time.time()
     responses = llm.generate(
         templated_convs,
         sampling_params=sampling_params,
         use_tqdm=False,
-    )
+        )
+    generate_end = time.time()
+    generate_time = generate_end - generate_start
+
+    logger.info(f"LLM generate time: {generate_time}")
+
     if len(responses) != len(x["problem"]) * config.n:
         raise ValueError(
             f"Generated {len(responses)} responses instead of {len(x['problem'] * config.n)}"
@@ -81,6 +96,7 @@ def best_of_n(x, config: Config, llm: LLM, prm: PRM):
         if len(c) != config.n:
             raise ValueError(f"Generated {len(c)} completions instead of {config.n}")
 
+    score_start = time.time()
     scores = prm.score(x["problem"], completions)
     agg_scores = [
         [aggregate_scores(s, config.agg_strategy) for s in score] for score in scores
@@ -88,10 +104,14 @@ def best_of_n(x, config: Config, llm: LLM, prm: PRM):
 
     # Select the completion with the highest score
     pred = [completion[np.argmax(s)] for completion, s in zip(completions, agg_scores)]
+    score_end = time.time()
+    score_time = score_end - score_start
+
+    logger.info(f"Score time: {score_time}")
 
     x["completions"] = completions
     x["scores"] = scores
     x["pred"] = pred
     x["completion_tokens"] = completion_tokens
-
+    #open(f"/home/dlimpus/ece695aih_project/data_50/forward_pass_{best_of_n.__name__}_{int(time.time())}.csv", "w").write(prof.key_averages().table(sort_by="cuda_time_total"))
     return x

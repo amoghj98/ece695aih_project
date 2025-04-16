@@ -27,10 +27,19 @@ from sal.utils.score import aggregate_scores
 
 from .utils import Beam, build_conv, generate_k_steps
 
-logger = logging.getLogger()
+from torch.profiler import profile, ProfilerActivity, record_function
+import time
+
+import logging
+logging.basicConfig(level=logging.INFO)
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 def _dvts(batch_of_prompts: list[str], config: Config, llm: LLM, prm: PRM):
+    # with profile(activities=[ProfilerActivity.CUDA]) as prof:
+    #     with record_function("model_inference"):
     sampling_params = SamplingParams(
         temperature=config.temperature,
         max_tokens=2048,
@@ -62,6 +71,7 @@ def _dvts(batch_of_prompts: list[str], config: Config, llm: LLM, prm: PRM):
             )
 
     for i in tqdm(range(config.num_iterations), desc="Beam search iterations"):
+        dvts_loop_start = time.time()
         # generation
         gen_beams = [b for b in beams if not b.pruned]
         if len(gen_beams) == 0:
@@ -136,6 +146,12 @@ def _dvts(batch_of_prompts: list[str], config: Config, llm: LLM, prm: PRM):
             if "boxed{" in beam.current_text:
                 beam.pruned = True
 
+        dvts_loop_end = time.time()
+        dvts_loop_time = dvts_loop_end - dvts_loop_start
+        logger.info(f"dvts loop {i} time: {dvts_loop_time}")
+
+    dvts_post_loop_start = time.time()
+
     # we need to copy the results from the last iteration in to beam_width beams as otherwise we would only have n/m results
     output: list[Beam] = []
     for beam in beams:
@@ -155,6 +171,10 @@ def _dvts(batch_of_prompts: list[str], config: Config, llm: LLM, prm: PRM):
                     history=beam.history,
                 )
             )
+    dvts_post_loop_end = time.time()
+    dvts_post_loop_time = dvts_post_loop_end - dvts_post_loop_start
+    logger.info(f"dvts post loop time: {dvts_post_loop_time}")
+    # open(f"/home/dlimpus/ece695aih_project/data_50/forward_pass_{_dvts.__name__}_{int(time.time())}.csv", "w").write(prof.key_averages().table(sort_by="cuda_time_total"))
 
     return output
 

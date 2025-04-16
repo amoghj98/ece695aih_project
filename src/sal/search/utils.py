@@ -113,6 +113,7 @@ def generate_k_steps(
             for gen_result in current_gen
         ]
         llm_outputs = llm.generate(gen_prompts, gen_sampling_params, use_tqdm=False)
+        
         for gen_result, output in zip(current_gen, llm_outputs):
             gen_text = output.outputs[0].text
             if i == 0:

@@ -28,8 +28,19 @@ from .utils import Beam, build_conv, generate_k_steps, last
 logger = logging.getLogger()
 from sal.utils.score import aggregate_scores
 
+from torch.profiler import profile, ProfilerActivity, record_function
+import time
+
+import logging
+logging.basicConfig(level=logging.INFO)
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
 
 def _beam_search(batch_of_prompts, config: Config, llm: LLM, prm: PRM) -> list[Beam]:
+    # with profile(activities=[ProfilerActivity.CUDA]) as prof:
+    #     with record_function("model_inference"):
     sampling_params = SamplingParams(
         temperature=config.temperature,
         max_tokens=config.max_tokens,
@@ -63,6 +74,7 @@ def _beam_search(batch_of_prompts, config: Config, llm: LLM, prm: PRM) -> list[B
     completed_beams: list[Beam] = []
 
     for i in tqdm(range(config.num_iterations), desc="Beam search iterations"):
+        beam_search_start = time.time()
         if i == 0:
             active_beams = [b for b in beams if not b.pruned]
         else:
@@ -173,6 +185,12 @@ def _beam_search(batch_of_prompts, config: Config, llm: LLM, prm: PRM) -> list[B
             if idx not in top_indices:
                 beam.pruned = True
 
+        beam_search_end = time.time()
+        beam_searh_loop_time = beam_search_end - beam_search_start
+        logger.info(f"beam search loop {i} time: {beam_searh_loop_time}")
+
+    post_loop_start = time.time()
+
     # Filter completed beams for those with top config.n scores
     if config.sort_completed:
         completed_beams = sorted(
@@ -193,6 +211,13 @@ def _beam_search(batch_of_prompts, config: Config, llm: LLM, prm: PRM) -> list[B
             copy.deepcopy(b) for b in (completed_beams * repeats)[: config.n]
         ]
         completed_beams = extended_completed_beams
+
+    # open(f"/home/dlimpus/ece695aih_project/data_50/forward_pass_{_beam_search.__name__}_{int(time.time())}.csv", "w").write(prof.key_averages().table(sort_by="cuda_time_total"))
+
+    post_loop_end = time.time()
+    post_loop_time = post_loop_end - post_loop_time
+
+    logger.info(f"post beam search time: {post_loop_time}")
 
     return completed_beams
 

@@ -31,6 +31,8 @@ from sal.utils.data import get_dataset, save_dataset
 from sal.utils.parser import H4ArgumentParser
 from sal.utils.score import score
 
+from gpumeter import Meter
+
 logging.basicConfig(level=logging.INFO)
 
 logger = logging.getLogger(__name__)
@@ -43,6 +45,9 @@ APPROACHES = {
 }
 
 def main():
+
+    # Initialize with Interval (Seconds)
+    m = Meter(5) # Get power status per 5 seconds.
 
     total_start = time.time()
 
@@ -98,6 +103,11 @@ def main():
     total_time = total_stop - total_start
 
     logger.info(f"Total runtime: {total_time}")
+
+    # Stop after the time-consuming task finished.
+    p = m.stop()
+
+    logger.info(f'Total power consumtion: {p} Wh')
     
     logger.info("Done 🔥!")
 

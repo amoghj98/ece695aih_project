@@ -215,7 +215,7 @@ def _beam_search(batch_of_prompts, config: Config, llm: LLM, prm: PRM) -> list[B
     # open(f"/home/dlimpus/ece695aih_project/data_50/forward_pass_{_beam_search.__name__}_{int(time.time())}.csv", "w").write(prof.key_averages().table(sort_by="cuda_time_total"))
 
     post_loop_end = time.time()
-    post_loop_time = post_loop_end - post_loop_time
+    post_loop_time = post_loop_end - post_loop_start
 
     logger.info(f"post beam search time: {post_loop_time}")
 

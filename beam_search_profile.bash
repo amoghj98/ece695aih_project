@@ -27,9 +27,9 @@ do
         --mail-type=${MAIL_TYPE} --mail-user=${USER}@purdue.edu \
         --job-name=$JOB_NAME \
         --cpus-per-gpu=14 -A cocosys \
-        recipes/launch_array.slurm recipes/Llama-3.2-1B-Instruct/beam_search.yaml \
+        recipes/launch_array.slurm recipes/Olmo-1B-0724-hf/beam_search.yaml \
         --n=256 \
         --seed=$SEED \
-        --hub_dataset_id=TheRealPilot638/TestTimeScalingLlama3.2_beam_search_profiling_50Q # you will need to specify your own dataset location
+        --hub_dataset_id=TheRealPilot638/TestTimeScalingOlmo-1B-0724-hf-beam_search_50Q_profiling # you will need to specify your own dataset location
     done
 done

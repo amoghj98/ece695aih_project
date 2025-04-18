@@ -30,10 +30,10 @@ do
         --mail-type=${MAIL_TYPE} --mail-user=${USER}@purdue.edu \
         --job-name=$JOB_NAME \
         --cpus-per-gpu=14 -A cocosys \
-        recipes/launch_array.slurm recipes/Llama-3.2-1B-Instruct/beam_search.yaml \
+        recipes/launch_array.slurm recipes/Olmo-1B-0724-hf/beam_search.yaml \
         --n=$N \
         --seed=0 \
-        --hub_dataset_id=amogh98/Llama-3.2-1B-Instruct-beam_search-completions
+        --hub_dataset_id=TheRealPilot638/TestTimeScalingOlmo-1B-0724-hf-beam_search_50Q_profiling 
     done
 done
     

@@ -47,7 +47,7 @@ APPROACHES = {
 def main():
 
     # Initialize with Interval (Seconds)
-    m = Meter(5) # Get power status per 5 seconds.
+    m = Meter(1) # Get power status per 1 second.
 
     total_start = time.time()
 

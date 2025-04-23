@@ -171,3 +171,6 @@ logs/
 
 # crontab
 .crontab
+
+#
+*.png

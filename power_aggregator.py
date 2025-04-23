@@ -15,7 +15,7 @@ def powerAggregator(approach, filePath='./logs/', cpuOverhead=0.5, coolingOverhe
     powers = np.zeros(int(len(fileNames) / 2))
     # print(powers.shape)
     cpuOverhead = 0.5
-    coolingOverhead = 0.2
+    coolingOverhead = 0.5
     powerKey = 'Total power consumtion:'
     #
     i = 0
@@ -37,7 +37,7 @@ def powerAggregator(approach, filePath='./logs/', cpuOverhead=0.5, coolingOverhe
     print(f'Total GPU Energy Consumption for Approach {approach}: {gpuPower/1e3} kWh')
     print(f'Total Energy Consumption (GPU + CPU + Cooling overhead) for Approach {approach}: {totalPower/1e3} kWh')
     print('')
-    return totalPower
+    return totalPower / 1e3
 
 
 if __name__ == "__main__":
@@ -48,4 +48,4 @@ if __name__ == "__main__":
     p += powerAggregator('bs_16')
     p += powerAggregator('bs_64')
     p += powerAggregator('bs_256')
-    print(f'Total Consumed Power: {p/1e3} kWh')
+    print(f'Total Consumed Power: {p} kWh')

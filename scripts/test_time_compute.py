@@ -61,10 +61,13 @@ def main():
     num_gpus = torch.cuda.device_count()
     llm = LLM(
         model=config.model_path,
-        gpu_memory_utilization=config.gpu_memory_utilization,
-        enable_prefix_caching=True,
+        gpu_memory_utilization=0.95,
         seed=config.seed,
         tensor_parallel_size=num_gpus,
+        dtype="half",
+        max_model_len=16384,
+        enable_prefix_caching=False,
+        enable_chunked_prefill=False,
     )
     prm_start = time.time()
     prm = load_prm(config)

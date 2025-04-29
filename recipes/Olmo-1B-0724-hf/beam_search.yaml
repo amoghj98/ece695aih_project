@@ -1,5 +1,6 @@
 # refer to src/sal/config.py for more options
 
+model_path: allenai/OLMo-1B-0724-hf
 filter_duplicates: true
 approach: beam_search
 n: 4

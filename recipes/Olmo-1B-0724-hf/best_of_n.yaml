@@ -1,5 +1,6 @@
 # refer to src/sal/config.py for more options
 
+model_path: allenai/OLMo-1B-0724-hf
 approach: best_of_n
 n: 4
 search_batch_size: 25

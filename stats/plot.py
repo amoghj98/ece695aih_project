@@ -3,140 +3,150 @@ import matplotlib.pyplot as plt
 import sys
 import os
 
-# Check command line args
-if len(sys.argv) < 2:
-    print("Usage: python plot_metrics.py <csv_file>")
-    sys.exit(1)
+from matplotlib.lines import Line2D
+from matplotlib.legend_handler import HandlerTuple
 
-csv_path = sys.argv[1]
-csv_name = os.path.splitext(os.path.basename(csv_path))[0]
-output_dir = os.path.join("plots", csv_name)
-os.makedirs(output_dir, exist_ok=True)
-
-# Load CSV
-df = pd.read_csv(csv_path)
-
-# Drop rows with missing values needed for plotting
-df_clean = df.dropna(subset=['Latency (h)', 'Total Energy (kWh)', 'Accuracy']).copy()
-
-# Compute derived metrics
-df_clean['Latency-Energy Product'] = df_clean['Latency (h)'] * df_clean['Total Energy (kWh)']
-df_clean['Accuracy/Energy'] = df_clean['Accuracy'] * df_clean['Total Energy (kWh)']
-df_clean['Accuracy/Latency'] = df_clean['Accuracy'] * df_clean['Latency (h)']
-
-# Color and marker maps
-color_map = {'best of n': 'blue', 'beam search': 'green', 'dvts': 'red'}
-marker_map = {4: '^', 16: 's', 64: 'D', 256: 'o'}
-
-# Plot helper function
-def plot_custom(x_col, y_col, xlabel, ylabel, title, filename):
+def plot_custom(df_clean, x_col, y_col, xlabel, ylabel, title, filename, output_dir, model_color_map, algo_marker_map, hardware_line_map, log=False):
     plt.figure(figsize=(9, 6))
-
-    # Group by Model, Algo, and Hardware
     grouped = df_clean.groupby(['Model', 'Algo', 'Hardware'])
+
+    legend_handles = {}
 
     for (model, algo, hw), group in grouped:
         group_sorted = group.sort_values('Sampling')
-        color = color_map.get(algo, 'black')
-        linestyle = ':'  # dotted line
-        label_base = f"{model} ({hw})"
+        color = model_color_map.get(model, 'black')
+        marker = algo_marker_map.get(algo, 'x')
+        linestyle = hardware_line_map.get(hw, '-')
+        label = f"{model}, {algo}, {hw}"
 
+        # Plot individual points
         for i, (_, row) in enumerate(group_sorted.iterrows()):
-            sampling = row['Sampling']
-            marker = marker_map.get(sampling, 'x')
-            # Only show label once for the group (on first point)
-            label = f"{model}, {algo}, {hw}" if i == 0 else None
             plt.plot(row[x_col], row[y_col], marker=marker, color=color,
-                     linestyle='None', label=label)
+                     linestyle='None', label=label if i == 0 else None)
 
-        # Connect points with a dotted line for the curve
+        # Plot connecting line
         plt.plot(group_sorted[x_col], group_sorted[y_col], linestyle=linestyle,
                  color=color, alpha=0.7)
 
-    # De-duplicate legend
-    handles, labels = plt.gca().get_legend_handles_labels()
-    by_label = dict(zip(labels, handles))
-    plt.legend(by_label.values(), by_label.keys(), bbox_to_anchor=(1.0, 0.5), loc='center left', fontsize='x-small', frameon=False)
+        # Create marker-only and line-only handles for legend
+        if label not in legend_handles:
+            marker_handle = Line2D([0], [0], marker=marker, linestyle='None',
+                                   color=color, markersize=6)
+            line_handle = Line2D([0], [0], linestyle=linestyle,
+                                 color=color, linewidth=1.5)
+            legend_handles[label] = (marker_handle, line_handle)
+
+    # Add the combined marker-line legend using HandlerTuple
+    plt.legend(legend_handles.values(), legend_handles.keys(),
+               handler_map={tuple: HandlerTuple(ndivide=None)},
+               bbox_to_anchor=(1.0, 0.5), loc='center left',
+               fontsize='x-small', frameon=False)
+
+    # Plot baseline lines if y-axis is Accuracy
+    if 'Accuracy' in ylabel:
+        ymin, ymax = plt.ylim()
+        xmin, xmax = plt.xlim()
+
+        # LLaMA-1B-Instruct baseline
+        plt.axhline(y=29, color='gray', linestyle='--', linewidth=1.2)
+        plt.text(x=xmax * 0.99, y=29 + 0.5, s='LLaMA-1B-Instruct (29%)',
+                 va='bottom', ha='right', fontsize='x-small', color='black')
+
+        # LLaMA-8B-Instruct baseline
+        plt.axhline(y=52, color='black', linestyle='--', linewidth=1.2)
+        plt.text(x=xmax * 0.99, y=52 + 0.5, s='LLaMA-8B-Instruct (52%)',
+                 va='bottom', ha='right', fontsize='x-small', color='black')
+
+    if log:
+        plt.xscale('log')
+        plt.yscale('log')
 
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
-    plt.grid(True)
+    plt.grid(True, which='both' if log else 'major', linestyle='--', linewidth=0.5)
     plt.savefig(os.path.join(output_dir, filename), dpi=300, bbox_inches='tight')
     plt.close()
 
-# Generate plots
-plot_custom('Latency (h)', 'Accuracy', 'Latency (h)', 'Accuracy (%)',
-            '1. Accuracy vs Latency', '1_accuracy_vs_latency.png')
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python plot_metrics.py <csv_file>")
+        sys.exit(1)
 
-plot_custom('Total Energy (kWh)', 'Accuracy', 'Total Energy (kWh)', 'Accuracy (%)',
-            '2. Accuracy vs Energy', '2_accuracy_vs_energy.png')
+    csv_path = sys.argv[1]
+    csv_name = os.path.splitext(os.path.basename(csv_path))[0]
+    output_dir = os.path.join("plots", csv_name)
+    os.makedirs(output_dir, exist_ok=True)
 
-plot_custom('Accuracy', 'Latency-Energy Product', 'Accuracy (%)', 'Latency × Energy (kWh·h)',
-            '3. Accuracy vs Latency-Energy Product', '3_accuracy_vs_latency_energy_product.png')
+    # Load and clean CSV
+    df = pd.read_csv(csv_path)
+    df_clean = df.dropna(subset=['Latency (h)', 'Total Energy (kWh)', 'Accuracy']).copy()
 
-plot_custom('Latency (h)', 'Accuracy/Energy', 'Latency (h)', 'Accuracy x Energy',
-            '4. Latency vs Accuracy-Energy Product', '4_latency_vs_acc_energy_product.png')
+    # Compute derived metrics
+    df_clean['Latency-Energy Product'] = df_clean['Latency (h)'] * df_clean['Total Energy (kWh)']
+    df_clean['Accuracy/Energy'] = df_clean['Accuracy'] * df_clean['Total Energy (kWh)']
+    df_clean['Accuracy/Latency'] = df_clean['Accuracy'] * df_clean['Latency (h)']
 
-plot_custom('Total Energy (kWh)', 'Accuracy/Latency', 'Total Energy (kWh)', 'Accuracy x Latency',
-            '5. Energy vs Accuracy-Latency Product', '5_energy_vs_acc_latency_product.png')
+    # Styling maps
+    unique_models = sorted(df_clean['Model'].unique())
+    fixed_colors = ['#E97132', '#156082', '#196B24']  # orange, blue, green
 
-# Generate log-log plots
-def plot_custom_loglog(x_col, y_col, xlabel, ylabel, title, filename):
-    plt.figure(figsize=(9, 6))
+    model_color_map = {
+        model: fixed_colors[i % len(fixed_colors)]
+        for i, model in enumerate(unique_models)
+    }
 
-    # Group by Model, Algo, and Hardware
-    grouped = df_clean.groupby(['Model', 'Algo', 'Hardware'])
+    algo_marker_map = {
+        'best of n': 'o',
+        'dvts': '^',
+        'beam search': 's'
+    }
 
-    for (model, algo, hw), group in grouped:
-        group_sorted = group.sort_values('Sampling')
-        color = color_map.get(algo, 'black')
-        linestyle = ':'  # dotted line
-        label_base = f"{model} ({hw})"
+    hardware_line_map = {
+        'A100': '-.',
+        'H200': ':',
+        'A40': '--'
+    }
 
-        for i, (_, row) in enumerate(group_sorted.iterrows()):
-            sampling = row['Sampling']
-            marker = marker_map.get(sampling, 'x')
-            label = f"{model}, {algo}, {hw}" if i == 0 else None
-            plt.plot(row[x_col], row[y_col], marker=marker, color=color,
-                     linestyle='None', label=label)
+    # Plot calls
+    plot_custom(df_clean, 'Latency (h)', 'Accuracy', 'Latency (h)', 'Accuracy (%)',
+                '1. Accuracy vs Latency', '1_accuracy_vs_latency.png', output_dir,
+                model_color_map, algo_marker_map, hardware_line_map)
 
-        # Dotted line joining points
-        plt.plot(group_sorted[x_col], group_sorted[y_col], linestyle=linestyle,
-                 color=color, alpha=0.7)
+    plot_custom(df_clean, 'Total Energy (kWh)', 'Accuracy', 'Total Energy (kWh)', 'Accuracy (%)',
+                '2. Accuracy vs Energy', '2_accuracy_vs_energy.png', output_dir,
+                model_color_map, algo_marker_map, hardware_line_map)
 
-    # Log-log scale
-    plt.xscale('log')
-    plt.yscale('log')
+    plot_custom(df_clean, 'Sampling', 'Accuracy', 'Sampling (n)', 'Accuracy (%)',
+                '3. Accuracy vs Sampling (n)', '3_accuracy_vs_sampling.png', output_dir,
+                model_color_map, algo_marker_map, hardware_line_map)
 
-    # Clean legend
-    handles, labels = plt.gca().get_legend_handles_labels()
-    by_label = dict(zip(labels, handles))
-    plt.legend(by_label.values(), by_label.keys(), bbox_to_anchor=(1.0, 0.5), loc='center left', fontsize='x-small', frameon=False)
+    plot_custom(df_clean, 'Accuracy', 'Latency-Energy Product', 'Accuracy (%)', 'Latency × Energy (kWh·h)',
+                '4a. Accuracy vs Latency-Energy Product', '4a_accuracy_vs_latency_energy_product.png', output_dir,
+                model_color_map, algo_marker_map, hardware_line_map)
 
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.title(title)
-    plt.grid(True, which='both', linestyle='--', linewidth=0.5)
-    plt.savefig(os.path.join(output_dir, filename), dpi=300, bbox_inches='tight')
-    plt.close()
+    plot_custom(df_clean, 'Latency (h)', 'Accuracy/Energy', 'Latency (h)', 'Accuracy x Energy',
+                '5a. Latency vs Accuracy-Energy Product', '5a_latency_vs_acc_energy_product.png', output_dir,
+                model_color_map, algo_marker_map, hardware_line_map)
 
-# 6. Latency vs Accuracy × Energy (log-log)
-plot_custom_loglog('Accuracy', 'Latency-Energy Product',
-                   'Accuracy (%)', 'Latency × Energy (kWh·h)',
-                   '6. Accuracy vs Latency-Energy Product (Log-Log)',
-                   '6_accuracy_vs_latency_energy_product_loglog.png')
+    plot_custom(df_clean, 'Total Energy (kWh)', 'Accuracy/Latency', 'Total Energy (kWh)', 'Accuracy x Latency',
+                '6a. Energy vs Accuracy-Latency Product', '6a_energy_vs_acc_latency_product.png', output_dir,
+                model_color_map, algo_marker_map, hardware_line_map)
 
-# 7. Latency vs Accuracy × Energy (log-log)
-plot_custom_loglog('Latency (h)', 'Accuracy/Energy',
-                   'Latency (h)', 'Accuracy × Energy',
-                   '7. Latency vs Accuracy-Energy Product (Log-Log)',
-                   '7_latency_vs_acc_energy_product_loglog.png')
+    # Log scale plots
+    plot_custom(df_clean, 'Accuracy', 'Latency-Energy Product', 'Accuracy (%)', 'Latency × Energy (kWh·h)',
+                '4b. Accuracy vs Latency-Energy Product Log Scale', '4b_accuracy_vs_latency_energy_product.png', output_dir,
+                model_color_map, algo_marker_map, hardware_line_map, log=True)
 
-# 8. Energy vs Accuracy × Latency (log-log)
-plot_custom_loglog('Total Energy (kWh)', 'Accuracy/Latency',
-                   'Total Energy (kWh)', 'Accuracy × Latency',
-                   '8. Energy vs Accuracy-Latency Product (Log-Log)',
-                   '8_energy_vs_acc_latency_product_loglog.png')
+    plot_custom(df_clean, 'Latency (h)', 'Accuracy/Energy', 'Latency (h)', 'Accuracy x Energy',
+                '5b. Latency vs Accuracy-Energy Product Log Scale', '5b_latency_vs_acc_energy_product.png', output_dir,
+                model_color_map, algo_marker_map, hardware_line_map, log=True)
 
-print(f"✅ All plots saved to: {output_dir}")
+    plot_custom(df_clean, 'Total Energy (kWh)', 'Accuracy/Latency', 'Total Energy (kWh)', 'Accuracy x Latency',
+                '6b. Energy vs Accuracy-Latency Product Log Scale', '6b_energy_vs_acc_latency_product.png', output_dir,
+                model_color_map, algo_marker_map, hardware_line_map, log=True)
+
+    print(f"✅ All plots saved to: {output_dir}")
+
+if __name__ == "__main__":
+    main()

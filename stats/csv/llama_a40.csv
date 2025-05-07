@@ -1,4 +1,0 @@
-Model,Algo,Hardware,Sampling,Latency (h),GPU Energy (kWh),Total Energy (kWh),Accuracy
-LLama 3.22,best of n,A40,4,8.065239222,,0.374747933,35.8
-LLama 3.22,dvts,A40,4,,,,37.6
-LLama 3.22,beam search,A40,4,13.84559468,,4.457020139,41

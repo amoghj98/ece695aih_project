@@ -122,15 +122,21 @@ def plot_custom_loglog(x_col, y_col, xlabel, ylabel, title, filename):
     plt.close()
 
 # 6. Latency vs Accuracy × Energy (log-log)
+plot_custom_loglog('Accuracy', 'Latency-Energy Product',
+                   'Accuracy (%)', 'Latency × Energy (kWh·h)',
+                   '6. Accuracy vs Latency-Energy Product (Log-Log)',
+                   '6_accuracy_vs_latency_energy_product_loglog.png')
+
+# 7. Latency vs Accuracy × Energy (log-log)
 plot_custom_loglog('Latency (h)', 'Accuracy/Energy',
                    'Latency (h)', 'Accuracy × Energy',
-                   '6. Latency vs Accuracy-Energy Product (Log-Log)',
-                   '6_latency_vs_acc_energy_product_loglog.png')
+                   '7. Latency vs Accuracy-Energy Product (Log-Log)',
+                   '7_latency_vs_acc_energy_product_loglog.png')
 
-# 7. Energy vs Accuracy × Latency (log-log)
+# 8. Energy vs Accuracy × Latency (log-log)
 plot_custom_loglog('Total Energy (kWh)', 'Accuracy/Latency',
                    'Total Energy (kWh)', 'Accuracy × Latency',
-                   '7. Energy vs Accuracy-Latency Product (Log-Log)',
-                   '7_energy_vs_acc_latency_product_loglog.png')
+                   '8. Energy vs Accuracy-Latency Product (Log-Log)',
+                   '8_energy_vs_acc_latency_product_loglog.png')
 
 print(f"✅ All plots saved to: {output_dir}")

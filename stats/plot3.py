@@ -36,10 +36,22 @@ def plot_custom(x_col, y_col, xlabel, ylabel, title, filename, logx=False, logy=
         ymin, ymax = ax.get_ylim()
         xmin, xmax = ax.get_xlim()
         ax.axhline(y=29, color='black', linestyle='--', linewidth=1.0)
-        ax.text(x=xmax * 0.99, y=29 + 0.5, s='LLaMA-1B-Instruct (29%)', va='bottom', ha='right', fontsize='x-small', color='black')
         ax.axhline(y=52, color='black', linestyle='--', linewidth=1.0)
-        ax.text(x=xmax * 0.99, y=52 + 0.5, s='LLaMA-8B-Instruct (52%)', va='bottom', ha='right', fontsize='x-small', color='black')
-
+            
+        if x_col == 'Total Energy (kWh)':
+            ax.axvline(x=3e-2, color='black', linestyle=':', linewidth=1.0)
+            ax.text(3e-2, ax.get_ylim()[0]+0.5, 'LLaMA-3.1 8B-Instruct', rotation=90, va='bottom', ha='right', fontsize='x-small', color='black')
+            if logx:
+                ax.text(x=xmax * 0.5, y=29 + 0.5, s='LLaMA-1B-Instruct (29%)', va='bottom', ha='center', fontsize='x-small', color='black')
+                ax.text(x=xmax * 0.5, y=52 + 0.5, s='LLaMA-8B-Instruct (52%)', va='bottom', ha='center', fontsize='x-small', color='black')
+            else:
+                ax.text(x=xmax * 0.99, y=29 + 0.5, s='LLaMA-1B-Instruct (29%)', va='bottom', ha='right', fontsize='x-small', color='black')
+                ax.text(x=xmax * 0.99, y=52 + 0.5, s='LLaMA-8B-Instruct (52%)', va='bottom', ha='right', fontsize='x-small', color='black')
+        else:
+            ax.text(x=xmax * 0.99, y=29 + 0.5, s='LLaMA-1B-Instruct (29%)', va='bottom', ha='right', fontsize='x-small', color='black')
+            ax.text(x=xmax * 0.99, y=52 + 0.5, s='LLaMA-8B-Instruct (52%)', va='bottom', ha='right', fontsize='x-small', color='black')
+        
+        
     if logx:
         ax.set_xscale('log', base=log_base)
     if logy:

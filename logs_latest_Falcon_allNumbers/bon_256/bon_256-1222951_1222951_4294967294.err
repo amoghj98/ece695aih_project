@@ -1,1893 +1,0 @@
-+ conda activate sal
-+ local cmd=activate
-+ case "$cmd" in
-+ __conda_activate activate sal
-+ '[' -n '' ']'
-+ local ask_conda
-++ PS1=
-++ __conda_exe shell.posix activate sal
-++ /apps/external/conda/2024.09/bin/conda shell.posix activate sal
-+ ask_conda='PS1='\''(sal) '\''
-export PATH='\''/home/dlimpus/rcac-utils:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/apps/external/conda/2024.09/condabin:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts'\''
-export CONDA_SHLVL='\''2'\''
-export CONDA_PROMPT_MODIFIER='\''(sal) '\'''
-+ eval 'PS1='\''(sal) '\''
-export PATH='\''/home/dlimpus/rcac-utils:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/apps/external/conda/2024.09/condabin:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts'\''
-export CONDA_SHLVL='\''2'\''
-export CONDA_PROMPT_MODIFIER='\''(sal) '\'''
-++ PS1='(sal) '
-++ export PATH=/home/dlimpus/rcac-utils:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/apps/external/conda/2024.09/condabin:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts
-++ PATH=/home/dlimpus/rcac-utils:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/apps/external/conda/2024.09/condabin:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts
-++ export CONDA_SHLVL=2
-++ CONDA_SHLVL=2
-++ export 'CONDA_PROMPT_MODIFIER=(sal) '
-++ CONDA_PROMPT_MODIFIER='(sal) '
-+ __conda_hashr
-+ '[' -n '' ']'
-+ '[' -n '' ']'
-+ hash -r
-+ STARTS=($(seq 0 500 500))
-++ seq 0 500 500
-+ python scripts/test_time_compute.py recipes/Falcon3-1B-Instruct/best_of_n.yaml --n=256 --num_samples=500 --seed=2 --hub_dataset_id=TheRealPilot638/Falcon3-1B-bon_256_no_chunking_H200 --push_to_hub=True
-/home/dlimpus/.conda/envs/sal/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
-No module named 'vllm._version'
-  from vllm.version import __version__ as VLLM_VERSION
-Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
-Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.87s/it]
-Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.87s/it]
-
-INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:11<00:33, 11.33s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:24<00:24, 12.34s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:35<00:11, 11.64s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:37<00:00,  8.05s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:37<00:00,  9.44s/it]
-INFO:__main__:PRM load time: 38.54868245124817
-Parameter 'fn_kwargs'={'config': Config(approach='best_of_n', model_path='tiiuae/Falcon3-1B-Instruct', gpu_memory_utilization=0.5, prm_path='RLHFlow/Llama3.1-8B-PRM-Deepseek-Data', output_dir=None, num_proc=None, push_to_hub=True, hub_dataset_id='TheRealPilot638/Falcon3-1B-bon_256_no_chunking_H200', hub_dataset_private=False, overwrite_hub_revision=False, apply_voting=True, dataset_name='HuggingFaceH4/MATH-500', dataset_config=None, dataset_split='test', dataset_start=None, dataset_end=None, num_samples=500, system_prompt='Solve the following math problem efficiently and clearly:\n\n- For simple problems (2 steps or fewer):\nProvide a concise solution with minimal explanation.\n\n- For complex problems (3 steps or more):\nUse this step-by-step format:\n\n## Step 1: [Concise description]\n[Brief explanation and calculations]\n\n## Step 2: [Concise description]\n[Brief explanation and calculations]\n\n...\n\nRegardless of the approach, always conclude with:\n\nTherefore, the final answer is: $\\boxed{answer}$. I hope it is correct.\n\nWhere [answer] is just the final number or expression that solves the problem.', custom_chat_template='{%- if custom_tools is defined %}\n    {%- set tools = custom_tools %}\n{%- endif %}\n{%- if not tools_in_user_message is defined %}\n    {%- set tools_in_user_message = true %}\n{%- endif %}\n{%- if not date_string is defined %}\n    {%- if strftime_now is defined %}\n        {%- set date_string = strftime_now("%d %b %Y") %}\n    {%- else %}\n        {%- set date_string = "26 Jul 2024" %}\n    {%- endif %}\n{%- endif %}\n{%- if not tools is defined %}\n    {%- set tools = none %}\n{%- endif %}\n\n{#- This block extracts the system message, so we can slot it into the right place. #}\n{%- if messages[0][\'role\'] == \'system\' %}\n    {%- set system_message = messages[0][\'content\']|trim %}\n    {%- set messages = messages[1:] %}\n{%- else %}\n    {%- set system_message = "" %}\n{%- endif %}\n\n{#- System message #}\n{{- "<|start_header_id|>system<|end_header_id|>\\n\\n" }}\n{%- if tools is not none %}\n    {{- "Environment: ipython\\n" }}\n{%- endif %}\n{{- "Cutting Knowledge Date: December 2023\\n" }}\n{{- "Today Date: " + date_string + "\\n\\n" }}\n{%- if tools is not none and not tools_in_user_message %}\n    {{- "You have access to the following functions. To call a function, please respond with JSON for a function call." }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n{%- endif %}\n{{- system_message }}\n{{- "<|eot_id|>" }}\n\n{#- Custom tools are passed in a user message with some extra guidance #}\n{%- if tools_in_user_message and not tools is none %}\n    {#- Extract the first user message so we can plug it in here #}\n    {%- if messages | length != 0 %}\n        {%- set first_user_message = messages[0][\'content\']|trim %}\n        {%- set messages = messages[1:] %}\n    {%- else %}\n        {{- raise_exception("Cannot put tools in the first user message when there\'s no first user message!") }}\n{%- endif %}\n    {{- \'<|start_header_id|>user<|end_header_id|>\\n\\n\' -}}\n    {{- "Given the following functions, please respond with a JSON for a function call " }}\n    {{- "with its proper arguments that best answers the given prompt.\\n\\n" }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n    {{- first_user_message + "<|eot_id|>"}}\n{%- endif %}\n\n{%- for message in messages %}\n    {%- if not (message.role == \'ipython\' or message.role == \'tool\' or \'tool_calls\' in message) %}\n        {{- \'<|start_header_id|>\' + message[\'role\'] + \'<|end_header_id|>\\n\\n\'+ message[\'content\'] + \'<|eot_id|>\' }}\n    {%- elif \'tool_calls\' in message %}\n        {%- if not message.tool_calls|length == 1 %}\n            {{- raise_exception("This model only supports single tool-calls at once!") }}\n        {%- endif %}\n        {%- set tool_call = message.tool_calls[0].function %}\n        {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' -}}\n        {{- \'{"name": "\' + tool_call.name + \'", \' }}\n        {{- \'"parameters": \' }}\n        {{- tool_call.arguments | tojson }}\n        {{- "}" }}\n        {{- "<|eot_id|>" }}\n    {%- elif message.role == "tool" or message.role == "ipython" %}\n        {{- "<|start_header_id|>ipython<|end_header_id|>\\n\\n" }}\n        {%- if message.content is mapping or message.content is iterable %}\n            {{- message.content | tojson }}\n        {%- else %}\n            {{- message.content }}\n        {%- endif %}\n        {{- "<|eot_id|>" }}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' }}\n{%- endif %}\n', n=256, temperature=0.8, top_p=1.0, prm_batch_size=4, search_batch_size=25, seed=2, max_tokens=2048, agg_strategy='last', beam_width=4, num_iterations=40, lookahead=1, filter_duplicates=True, sort_completed=True), 'llm': <vllm.entrypoints.llm.LLM object at 0x154857aaac50>, 'prm': <sal.models.reward_models.RLHFFlow object at 0x154856603490>} of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
-WARNING:datasets.fingerprint:Parameter 'fn_kwargs'={'config': Config(approach='best_of_n', model_path='tiiuae/Falcon3-1B-Instruct', gpu_memory_utilization=0.5, prm_path='RLHFlow/Llama3.1-8B-PRM-Deepseek-Data', output_dir=None, num_proc=None, push_to_hub=True, hub_dataset_id='TheRealPilot638/Falcon3-1B-bon_256_no_chunking_H200', hub_dataset_private=False, overwrite_hub_revision=False, apply_voting=True, dataset_name='HuggingFaceH4/MATH-500', dataset_config=None, dataset_split='test', dataset_start=None, dataset_end=None, num_samples=500, system_prompt='Solve the following math problem efficiently and clearly:\n\n- For simple problems (2 steps or fewer):\nProvide a concise solution with minimal explanation.\n\n- For complex problems (3 steps or more):\nUse this step-by-step format:\n\n## Step 1: [Concise description]\n[Brief explanation and calculations]\n\n## Step 2: [Concise description]\n[Brief explanation and calculations]\n\n...\n\nRegardless of the approach, always conclude with:\n\nTherefore, the final answer is: $\\boxed{answer}$. I hope it is correct.\n\nWhere [answer] is just the final number or expression that solves the problem.', custom_chat_template='{%- if custom_tools is defined %}\n    {%- set tools = custom_tools %}\n{%- endif %}\n{%- if not tools_in_user_message is defined %}\n    {%- set tools_in_user_message = true %}\n{%- endif %}\n{%- if not date_string is defined %}\n    {%- if strftime_now is defined %}\n        {%- set date_string = strftime_now("%d %b %Y") %}\n    {%- else %}\n        {%- set date_string = "26 Jul 2024" %}\n    {%- endif %}\n{%- endif %}\n{%- if not tools is defined %}\n    {%- set tools = none %}\n{%- endif %}\n\n{#- This block extracts the system message, so we can slot it into the right place. #}\n{%- if messages[0][\'role\'] == \'system\' %}\n    {%- set system_message = messages[0][\'content\']|trim %}\n    {%- set messages = messages[1:] %}\n{%- else %}\n    {%- set system_message = "" %}\n{%- endif %}\n\n{#- System message #}\n{{- "<|start_header_id|>system<|end_header_id|>\\n\\n" }}\n{%- if tools is not none %}\n    {{- "Environment: ipython\\n" }}\n{%- endif %}\n{{- "Cutting Knowledge Date: December 2023\\n" }}\n{{- "Today Date: " + date_string + "\\n\\n" }}\n{%- if tools is not none and not tools_in_user_message %}\n    {{- "You have access to the following functions. To call a function, please respond with JSON for a function call." }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n{%- endif %}\n{{- system_message }}\n{{- "<|eot_id|>" }}\n\n{#- Custom tools are passed in a user message with some extra guidance #}\n{%- if tools_in_user_message and not tools is none %}\n    {#- Extract the first user message so we can plug it in here #}\n    {%- if messages | length != 0 %}\n        {%- set first_user_message = messages[0][\'content\']|trim %}\n        {%- set messages = messages[1:] %}\n    {%- else %}\n        {{- raise_exception("Cannot put tools in the first user message when there\'s no first user message!") }}\n{%- endif %}\n    {{- \'<|start_header_id|>user<|end_header_id|>\\n\\n\' -}}\n    {{- "Given the following functions, please respond with a JSON for a function call " }}\n    {{- "with its proper arguments that best answers the given prompt.\\n\\n" }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n    {{- first_user_message + "<|eot_id|>"}}\n{%- endif %}\n\n{%- for message in messages %}\n    {%- if not (message.role == \'ipython\' or message.role == \'tool\' or \'tool_calls\' in message) %}\n        {{- \'<|start_header_id|>\' + message[\'role\'] + \'<|end_header_id|>\\n\\n\'+ message[\'content\'] + \'<|eot_id|>\' }}\n    {%- elif \'tool_calls\' in message %}\n        {%- if not message.tool_calls|length == 1 %}\n            {{- raise_exception("This model only supports single tool-calls at once!") }}\n        {%- endif %}\n        {%- set tool_call = message.tool_calls[0].function %}\n        {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' -}}\n        {{- \'{"name": "\' + tool_call.name + \'", \' }}\n        {{- \'"parameters": \' }}\n        {{- tool_call.arguments | tojson }}\n        {{- "}" }}\n        {{- "<|eot_id|>" }}\n    {%- elif message.role == "tool" or message.role == "ipython" %}\n        {{- "<|start_header_id|>ipython<|end_header_id|>\\n\\n" }}\n        {%- if message.content is mapping or message.content is iterable %}\n            {{- message.content | tojson }}\n        {%- else %}\n            {{- message.content }}\n        {%- endif %}\n        {{- "<|eot_id|>" }}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' }}\n{%- endif %}\n', n=256, temperature=0.8, top_p=1.0, prm_batch_size=4, search_batch_size=25, seed=2, max_tokens=2048, agg_strategy='last', beam_width=4, num_iterations=40, lookahead=1, filter_duplicates=True, sort_completed=True), 'llm': <vllm.entrypoints.llm.LLM object at 0x154857aaac50>, 'prm': <sal.models.reward_models.RLHFFlow object at 0x154856603490>} of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
-Running search:   0%|          | 0/500 [00:00<?, ? examples/s]INFO:sal.search.best_of_n:LLM generate time: 365.5641281604767
-INFO:sal.search.best_of_n:Score time: 265.12849521636963
-Running search:   5%|▌         | 25/500 [10:30<3:19:47, 25.24s/ examples]INFO:sal.search.best_of_n:LLM generate time: 317.8746418952942
-INFO:sal.search.best_of_n:Score time: 218.9477140903473
-Running search:  10%|█         | 50/500 [19:27<2:52:42, 23.03s/ examples]INFO:sal.search.best_of_n:LLM generate time: 348.4262480735779
-INFO:sal.search.best_of_n:Score time: 238.6789515018463
-Running search:  15%|█▌        | 75/500 [29:15<2:44:36, 23.24s/ examples]INFO:sal.search.best_of_n:LLM generate time: 371.68276929855347
-INFO:sal.search.best_of_n:Score time: 253.40707564353943
-Running search:  20%|██        | 100/500 [39:40<2:39:35, 23.94s/ examples]INFO:sal.search.best_of_n:LLM generate time: 387.4221930503845
-INFO:sal.search.best_of_n:Score time: 250.83905053138733
-Running search:  25%|██▌       | 125/500 [50:19<2:33:13, 24.52s/ examples]INFO:sal.search.best_of_n:LLM generate time: 382.210303068161
-INFO:sal.search.best_of_n:Score time: 241.3636028766632
-Running search:  30%|███       | 150/500 [1:00:42<2:23:52, 24.66s/ examples]INFO:sal.search.best_of_n:LLM generate time: 411.2236850261688
-INFO:sal.search.best_of_n:Score time: 280.13783264160156
-Running search:  35%|███▌      | 175/500 [1:12:14<2:18:54, 25.65s/ examples]INFO:sal.search.best_of_n:LLM generate time: 358.0661084651947
-INFO:sal.search.best_of_n:Score time: 252.73924589157104
-Running search:  40%|████      | 200/500 [1:22:25<2:06:18, 25.26s/ examples]INFO:sal.search.best_of_n:LLM generate time: 391.5508863925934
-INFO:sal.search.best_of_n:Score time: 280.561856508255
-Running search:  45%|████▌     | 225/500 [1:33:37<1:58:06, 25.77s/ examples]INFO:sal.search.best_of_n:LLM generate time: 414.26703548431396
-INFO:sal.search.best_of_n:Score time: 286.20957684516907
-Running search:  50%|█████     | 250/500 [1:45:18<1:50:16, 26.47s/ examples]INFO:sal.search.best_of_n:LLM generate time: 281.15182423591614
-INFO:sal.search.best_of_n:Score time: 202.11460733413696
-Running search:  55%|█████▌    | 275/500 [1:53:21<1:31:04, 24.28s/ examples]INFO:sal.search.best_of_n:LLM generate time: 430.84316205978394
-INFO:sal.search.best_of_n:Score time: 294.8328764438629
-Running search:  60%|██████    | 300/500 [2:05:27<1:25:45, 25.73s/ examples]INFO:sal.search.best_of_n:LLM generate time: 342.89440870285034
-INFO:sal.search.best_of_n:Score time: 244.8141701221466
-Running search:  65%|██████▌   | 325/500 [2:15:15<1:13:05, 25.06s/ examples]INFO:sal.search.best_of_n:LLM generate time: 363.5036573410034
-INFO:sal.search.best_of_n:Score time: 244.68032908439636
-Running search:  70%|███████   | 350/500 [2:25:23<1:02:05, 24.84s/ examples]INFO:sal.search.best_of_n:LLM generate time: 371.3762650489807
-INFO:sal.search.best_of_n:Score time: 257.0374286174774
-Running search:  75%|███████▌  | 375/500 [2:35:52<51:56, 24.93s/ examples]  INFO:sal.search.best_of_n:LLM generate time: 343.025160074234
-INFO:sal.search.best_of_n:Score time: 236.11854124069214
-Running search:  80%|████████  | 400/500 [2:45:31<40:40, 24.40s/ examples]INFO:sal.search.best_of_n:LLM generate time: 374.9405505657196
-INFO:sal.search.best_of_n:Score time: 253.3377137184143
-Running search:  85%|████████▌ | 425/500 [2:56:00<30:46, 24.62s/ examples]INFO:sal.search.best_of_n:LLM generate time: 404.8277208805084
-INFO:sal.search.best_of_n:Score time: 274.14847707748413
-Running search:  90%|█████████ | 450/500 [3:07:19<21:09, 25.39s/ examples]INFO:sal.search.best_of_n:LLM generate time: 347.8469693660736
-INFO:sal.search.best_of_n:Score time: 253.38512659072876
-Running search:  95%|█████████▌| 475/500 [3:17:20<10:24, 24.99s/ examples]INFO:sal.search.best_of_n:LLM generate time: 421.1676094532013
-INFO:sal.search.best_of_n:Score time: 285.7683358192444
-Running search: 100%|██████████| 500/500 [3:29:07<00:00, 25.98s/ examples]Running search: 100%|██████████| 500/500 [3:29:07<00:00, 25.10s/ examples]
-INFO:__main__:Dataset mapping time: 12547.825504779816 s
-Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map:  12%|█▏        | 60/500 [00:00<00:00, 585.15 examples/s]Map:  30%|███       | 150/500 [00:00<00:00, 588.41 examples/s]Map:  42%|████▏     | 209/500 [00:00<00:00, 586.01 examples/s]Map:  54%|█████▍    | 271/500 [00:00<00:00, 596.49 examples/s]Map:  67%|██████▋   | 333/500 [00:00<00:00, 594.51 examples/s]Map:  79%|███████▉  | 395/500 [00:00<00:00, 598.27 examples/s]Map:  91%|█████████▏| 457/500 [00:00<00:00, 602.45 examples/s]Map: 100%|██████████| 500/500 [00:01<00:00, 349.96 examples/s]
-Computing majority & weighted predictions:   0%|          | 0/9 [00:00<?, ?it/s]
-Subsample 1:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Subsample 1:  34%|███▍      | 169/500 [00:00<00:00, 1678.13 examples/s][A
-Subsample 1:  83%|████████▎ | 417/500 [00:00<00:00, 1654.79 examples/s][ASubsample 1: 100%|██████████| 500/500 [00:00<00:00, 705.34 examples/s] 
-
-Extract answers 1:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Extract answers 1:  21%|██▏       | 107/500 [00:00<00:00, 1052.05 examples/s][A
-Extract answers 1:  48%|████▊     | 242/500 [00:00<00:00, 1222.68 examples/s][A
-Extract answers 1:  85%|████████▌ | 427/500 [00:00<00:00, 1223.73 examples/s][AExtract answers 1: 100%|██████████| 500/500 [00:00<00:00, 722.92 examples/s] 
-
-Compute weighted pred 1:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute weighted pred 1:   1%|          | 3/500 [00:00<00:24, 20.39 examples/s][A
-Compute weighted pred 1:   7%|▋         | 35/500 [00:00<00:03, 138.09 examples/s][A
-Compute weighted pred 1:  13%|█▎        | 65/500 [00:00<00:02, 152.82 examples/s][A
-Compute weighted pred 1:  23%|██▎       | 115/500 [00:00<00:01, 244.58 examples/s][A
-Compute weighted pred 1:  36%|███▌      | 180/500 [00:00<00:00, 351.18 examples/s][A
-Compute weighted pred 1:  48%|████▊     | 239/500 [00:00<00:00, 412.18 examples/s][A
-Compute weighted pred 1:  58%|█████▊    | 291/500 [00:00<00:00, 396.09 examples/s][A
-Compute weighted pred 1:  68%|██████▊   | 340/500 [00:01<00:00, 363.95 examples/s][A
-Compute weighted pred 1:  80%|████████  | 402/500 [00:01<00:00, 299.15 examples/s][A
-Compute weighted pred 1:  89%|████████▉ | 445/500 [00:01<00:00, 256.72 examples/s][A
-Compute weighted pred 1:  96%|█████████▋| 482/500 [00:01<00:00, 257.95 examples/s][ACompute weighted pred 1: 100%|██████████| 500/500 [00:02<00:00, 242.49 examples/s]
-
-Compute majority pred 1:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute majority pred 1: 100%|██████████| 500/500 [00:00<00:00, 1493.11 examples/s][ACompute majority pred 1: 100%|██████████| 500/500 [00:00<00:00, 1472.11 examples/s]
-
-Compute naive pred 1:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute naive pred 1: 100%|██████████| 500/500 [00:00<00:00, 1622.87 examples/s][ACompute naive pred 1: 100%|██████████| 500/500 [00:00<00:00, 1599.42 examples/s]
-Computing majority & weighted predictions:  11%|█         | 1/9 [00:04<00:33,  4.15s/it]
-Subsample 2:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Subsample 2:  34%|███▍      | 169/500 [00:00<00:00, 1674.37 examples/s][A
-Subsample 2:  68%|██████▊   | 342/500 [00:00<00:00, 1700.04 examples/s][ASubsample 2: 100%|██████████| 500/500 [00:00<00:00, 721.56 examples/s] 
-
-Extract answers 2:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Extract answers 2:  14%|█▎        | 68/500 [00:00<00:00, 661.61 examples/s][A
-Extract answers 2:  27%|██▋       | 135/500 [00:00<00:00, 663.63 examples/s][A
-Extract answers 2:  41%|████      | 205/500 [00:00<00:00, 673.16 examples/s][A
-Extract answers 2:  55%|█████▌    | 277/500 [00:00<00:00, 686.49 examples/s][A
-Extract answers 2:  75%|███████▍  | 374/500 [00:00<00:00, 660.75 examples/s][A
-Extract answers 2:  95%|█████████▌| 476/500 [00:00<00:00, 664.87 examples/s][AExtract answers 2: 100%|██████████| 500/500 [00:01<00:00, 487.76 examples/s]
-
-Compute weighted pred 2:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute weighted pred 2:  10%|█         | 52/500 [00:00<00:00, 481.37 examples/s][A
-Compute weighted pred 2:  22%|██▏       | 111/500 [00:00<00:01, 241.94 examples/s][A
-Compute weighted pred 2:  29%|██▉       | 146/500 [00:00<00:01, 248.76 examples/s][A
-Compute weighted pred 2:  47%|████▋     | 237/500 [00:00<00:00, 403.79 examples/s][A
-Compute weighted pred 2:  59%|█████▉    | 294/500 [00:00<00:00, 437.16 examples/s][A
-Compute weighted pred 2:  70%|██████▉   | 349/500 [00:00<00:00, 435.45 examples/s][A
-Compute weighted pred 2:  83%|████████▎ | 417/500 [00:01<00:00, 292.81 examples/s][A
-Compute weighted pred 2:  96%|█████████▋| 482/500 [00:01<00:00, 278.38 examples/s][ACompute weighted pred 2: 100%|██████████| 500/500 [00:01<00:00, 269.17 examples/s]
-
-Compute majority pred 2:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute majority pred 2: 100%|██████████| 500/500 [00:00<00:00, 1363.01 examples/s][ACompute majority pred 2: 100%|██████████| 500/500 [00:00<00:00, 1345.29 examples/s]
-
-Compute naive pred 2:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute naive pred 2: 100%|██████████| 500/500 [00:00<00:00, 1572.03 examples/s][ACompute naive pred 2: 100%|██████████| 500/500 [00:00<00:00, 1548.74 examples/s]
-Computing majority & weighted predictions:  22%|██▏       | 2/9 [00:08<00:29,  4.24s/it]
-Subsample 4:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Subsample 4:  34%|███▎      | 168/500 [00:00<00:00, 1659.67 examples/s][A
-Subsample 4:  84%|████████▍ | 420/500 [00:00<00:00, 1666.30 examples/s][ASubsample 4: 100%|██████████| 500/500 [00:00<00:00, 717.44 examples/s] 
-
-Extract answers 4:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Extract answers 4:   7%|▋         | 35/500 [00:00<00:01, 337.05 examples/s][A
-Extract answers 4:  14%|█▍        | 72/500 [00:00<00:01, 349.29 examples/s][A
-Extract answers 4:  25%|██▌       | 125/500 [00:00<00:01, 345.39 examples/s][A
-Extract answers 4:  32%|███▏      | 162/500 [00:00<00:00, 350.14 examples/s][A
-Extract answers 4:  43%|████▎     | 213/500 [00:00<00:00, 342.29 examples/s][A
-Extract answers 4:  50%|████▉     | 248/500 [00:00<00:00, 342.96 examples/s][A
-Extract answers 4:  57%|█████▋    | 285/500 [00:00<00:00, 345.56 examples/s][A
-Extract answers 4:  64%|██████▍   | 320/500 [00:00<00:00, 342.68 examples/s][A
-Extract answers 4:  74%|███████▎  | 368/500 [00:01<00:00, 330.61 examples/s][A
-Extract answers 4:  81%|████████  | 405/500 [00:01<00:00, 339.39 examples/s][A
-Extract answers 4:  91%|█████████ | 455/500 [00:01<00:00, 331.03 examples/s][A
-Extract answers 4:  98%|█████████▊| 492/500 [00:01<00:00, 338.20 examples/s][AExtract answers 4: 100%|██████████| 500/500 [00:01<00:00, 285.29 examples/s]
-
-Compute weighted pred 4:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute weighted pred 4:   3%|▎         | 13/500 [00:00<00:05, 93.66 examples/s][A
-Compute weighted pred 4:  12%|█▏        | 58/500 [00:00<00:01, 256.39 examples/s][A
-Compute weighted pred 4:  21%|██        | 103/500 [00:00<00:01, 208.83 examples/s][A
-Compute weighted pred 4:  30%|███       | 152/500 [00:00<00:01, 262.30 examples/s][A
-Compute weighted pred 4:  38%|███▊      | 190/500 [00:00<00:01, 291.62 examples/s][A
-Compute weighted pred 4:  45%|████▌     | 225/500 [00:00<00:00, 275.15 examples/s][A
-Compute weighted pred 4:  53%|█████▎    | 265/500 [00:00<00:00, 302.54 examples/s][A
-Compute weighted pred 4:  62%|██████▏   | 309/500 [00:01<00:00, 332.09 examples/s][A
-Compute weighted pred 4:  70%|███████   | 352/500 [00:01<00:00, 263.80 examples/s][A
-Compute weighted pred 4:  78%|███████▊  | 390/500 [00:01<00:00, 272.54 examples/s][A
-Compute weighted pred 4:  86%|████████▋ | 432/500 [00:01<00:00, 269.55 examples/s][A
-Compute weighted pred 4:  95%|█████████▌| 475/500 [00:01<00:00, 232.32 examples/s][ACompute weighted pred 4: 100%|██████████| 500/500 [00:02<00:00, 226.88 examples/s]
-
-Compute majority pred 4:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute majority pred 4:  66%|██████▌   | 330/500 [00:00<00:00, 3257.11 examples/s][ACompute majority pred 4: 100%|██████████| 500/500 [00:00<00:00, 1166.56 examples/s]
-
-Compute naive pred 4:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute naive pred 4: 100%|██████████| 500/500 [00:00<00:00, 1524.17 examples/s][ACompute naive pred 4: 100%|██████████| 500/500 [00:00<00:00, 1500.71 examples/s]
-Computing majority & weighted predictions:  33%|███▎      | 3/9 [00:13<00:28,  4.79s/it]
-Subsample 8:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Subsample 8:  33%|███▎      | 164/500 [00:00<00:00, 1616.23 examples/s][A
-Subsample 8:  65%|██████▌   | 327/500 [00:00<00:00, 1622.07 examples/s][A
-Subsample 8: 100%|██████████| 500/500 [00:00<00:00, 579.49 examples/s] [ASubsample 8: 100%|██████████| 500/500 [00:00<00:00, 691.88 examples/s]
-
-Extract answers 8:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Extract answers 8:   4%|▎         | 18/500 [00:00<00:02, 167.49 examples/s][A
-Extract answers 8:   7%|▋         | 37/500 [00:00<00:02, 174.19 examples/s][A
-Extract answers 8:  11%|█         | 56/500 [00:00<00:02, 179.25 examples/s][A
-Extract answers 8:  15%|█▌        | 75/500 [00:00<00:02, 175.92 examples/s][A
-Extract answers 8:  19%|█▉        | 94/500 [00:00<00:02, 177.93 examples/s][A
-Extract answers 8:  24%|██▍       | 120/500 [00:00<00:02, 172.60 examples/s][A
-Extract answers 8:  28%|██▊       | 139/500 [00:00<00:02, 175.67 examples/s][A
-Extract answers 8:  32%|███▏      | 158/500 [00:00<00:01, 174.52 examples/s][A
-Extract answers 8:  35%|███▌      | 177/500 [00:01<00:01, 175.43 examples/s][A
-Extract answers 8:  39%|███▉      | 196/500 [00:01<00:01, 172.41 examples/s][A
-Extract answers 8:  43%|████▎     | 216/500 [00:01<00:01, 176.14 examples/s][A
-Extract answers 8:  48%|████▊     | 242/500 [00:01<00:01, 173.03 examples/s][A
-Extract answers 8:  52%|█████▏    | 261/500 [00:01<00:01, 174.07 examples/s][A
-Extract answers 8:  56%|█████▌    | 281/500 [00:01<00:01, 178.62 examples/s][A
-Extract answers 8:  61%|██████▏   | 307/500 [00:01<00:01, 174.31 examples/s][A
-Extract answers 8:  65%|██████▌   | 325/500 [00:01<00:01, 173.34 examples/s][A
-Extract answers 8:  69%|██████▊   | 343/500 [00:01<00:00, 172.05 examples/s][A
-Extract answers 8:  72%|███████▏  | 361/500 [00:02<00:00, 171.02 examples/s][A
-Extract answers 8:  76%|███████▌  | 380/500 [00:02<00:00, 172.72 examples/s][A
-Extract answers 8:  80%|███████▉  | 399/500 [00:02<00:00, 174.36 examples/s][A
-Extract answers 8:  84%|████████▍ | 419/500 [00:02<00:00, 175.22 examples/s][A
-Extract answers 8:  89%|████████▉ | 444/500 [00:02<00:00, 168.56 examples/s][A
-Extract answers 8:  93%|█████████▎| 463/500 [00:02<00:00, 170.37 examples/s][A
-Extract answers 8:  96%|█████████▋| 482/500 [00:02<00:00, 170.92 examples/s][A
-Extract answers 8: 100%|██████████| 500/500 [00:03<00:00, 96.45 examples/s] [AExtract answers 8: 100%|██████████| 500/500 [00:03<00:00, 157.13 examples/s]
-
-Compute weighted pred 8:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute weighted pred 8:   2%|▏         | 8/500 [00:00<00:09, 50.96 examples/s][A
-Compute weighted pred 8:   7%|▋         | 37/500 [00:00<00:03, 135.02 examples/s][A
-Compute weighted pred 8:  13%|█▎        | 65/500 [00:00<00:03, 113.19 examples/s][A
-Compute weighted pred 8:  18%|█▊        | 92/500 [00:00<00:04, 101.34 examples/s][A
-Compute weighted pred 8:  23%|██▎       | 115/500 [00:00<00:03, 124.79 examples/s][A
-Compute weighted pred 8:  29%|██▉       | 146/500 [00:01<00:02, 118.28 examples/s][A
-Compute weighted pred 8:  33%|███▎      | 165/500 [00:01<00:02, 126.62 examples/s][A
-Compute weighted pred 8:  41%|████      | 204/500 [00:01<00:01, 177.00 examples/s][A
-Compute weighted pred 8:  46%|████▌     | 229/500 [00:01<00:01, 165.76 examples/s][A
-Compute weighted pred 8:  53%|█████▎    | 263/500 [00:01<00:01, 180.41 examples/s][A
-Compute weighted pred 8:  58%|█████▊    | 291/500 [00:01<00:01, 192.68 examples/s][A
-Compute weighted pred 8:  65%|██████▌   | 325/500 [00:02<00:00, 183.08 examples/s][A
-Compute weighted pred 8:  70%|███████   | 352/500 [00:02<00:00, 167.50 examples/s][A
-Compute weighted pred 8:  76%|███████▌  | 381/500 [00:02<00:00, 189.70 examples/s][A
-Compute weighted pred 8:  83%|████████▎ | 414/500 [00:02<00:00, 205.69 examples/s][A
-Compute weighted pred 8:  88%|████████▊ | 440/500 [00:02<00:00, 171.49 examples/s][A
-Compute weighted pred 8:  94%|█████████▎| 468/500 [00:03<00:00, 148.23 examples/s][A
-Compute weighted pred 8:  98%|█████████▊| 492/500 [00:03<00:00, 124.68 examples/s][ACompute weighted pred 8: 100%|██████████| 500/500 [00:03<00:00, 130.91 examples/s]
-
-Compute majority pred 8:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute majority pred 8:  40%|████      | 202/500 [00:00<00:00, 1992.62 examples/s][A
-Compute majority pred 8:  81%|████████▏ | 407/500 [00:00<00:00, 2019.12 examples/s][ACompute majority pred 8: 100%|██████████| 500/500 [00:00<00:00, 940.90 examples/s] 
-
-Compute naive pred 8:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute naive pred 8:  88%|████████▊ | 438/500 [00:02<00:00, 171.13 examples/s][A
-Compute naive pred 8: 100%|██████████| 500/500 [00:02<00:00, 176.24 examples/s][ACompute naive pred 8: 100%|██████████| 500/500 [00:02<00:00, 174.54 examples/s]
-Computing majority & weighted predictions:  44%|████▍     | 4/9 [00:25<00:36,  7.30s/it]
-Subsample 16:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Subsample 16:  33%|███▎      | 163/500 [00:00<00:00, 1601.06 examples/s][A
-Subsample 16:  65%|██████▍   | 324/500 [00:00<00:00, 1603.78 examples/s][A
-Subsample 16:  97%|█████████▋| 485/500 [00:00<00:00, 1605.94 examples/s][ASubsample 16: 100%|██████████| 500/500 [00:00<00:00, 681.35 examples/s] 
-
-Extract answers 16:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Extract answers 16:   2%|▏         | 9/500 [00:00<00:06, 80.09 examples/s][A
-Extract answers 16:   4%|▍         | 19/500 [00:00<00:05, 87.33 examples/s][A
-Extract answers 16:   6%|▌         | 29/500 [00:00<00:05, 89.15 examples/s][A
-Extract answers 16:   8%|▊         | 39/500 [00:00<00:05, 89.94 examples/s][A
-Extract answers 16:  10%|█         | 50/500 [00:00<00:04, 93.80 examples/s][A
-Extract answers 16:  12%|█▏        | 60/500 [00:00<00:04, 92.66 examples/s][A
-Extract answers 16:  14%|█▍        | 70/500 [00:00<00:04, 89.99 examples/s][A
-Extract answers 16:  16%|█▌        | 80/500 [00:00<00:04, 88.14 examples/s][A
-Extract answers 16:  18%|█▊        | 90/500 [00:01<00:04, 89.74 examples/s][A
-Extract answers 16:  20%|██        | 100/500 [00:01<00:04, 86.02 examples/s][A
-Extract answers 16:  22%|██▏       | 110/500 [00:01<00:04, 86.65 examples/s][A
-Extract answers 16:  24%|██▍       | 121/500 [00:01<00:04, 88.89 examples/s][A
-Extract answers 16:  26%|██▌       | 131/500 [00:01<00:04, 89.55 examples/s][A
-Extract answers 16:  28%|██▊       | 141/500 [00:01<00:03, 90.93 examples/s][A
-Extract answers 16:  30%|███       | 151/500 [00:01<00:03, 90.53 examples/s][A
-Extract answers 16:  32%|███▏      | 161/500 [00:01<00:03, 90.17 examples/s][A
-Extract answers 16:  35%|███▌      | 175/500 [00:01<00:03, 89.19 examples/s][A
-Extract answers 16:  37%|███▋      | 185/500 [00:02<00:03, 87.02 examples/s][A
-Extract answers 16:  39%|███▉      | 195/500 [00:02<00:03, 87.70 examples/s][A
-Extract answers 16:  41%|████      | 205/500 [00:02<00:03, 90.23 examples/s][A
-Extract answers 16:  44%|████▍     | 219/500 [00:02<00:03, 89.14 examples/s][A
-Extract answers 16:  46%|████▌     | 229/500 [00:02<00:03, 86.11 examples/s][A
-Extract answers 16:  48%|████▊     | 239/500 [00:02<00:03, 86.24 examples/s][A
-Extract answers 16:  50%|████▉     | 249/500 [00:02<00:02, 85.84 examples/s][A
-Extract answers 16:  52%|█████▏    | 259/500 [00:02<00:02, 87.75 examples/s][A
-Extract answers 16:  54%|█████▍    | 269/500 [00:03<00:02, 89.45 examples/s][A
-Extract answers 16:  56%|█████▌    | 279/500 [00:03<00:02, 91.42 examples/s][A
-Extract answers 16:  58%|█████▊    | 289/500 [00:03<00:02, 90.04 examples/s][A
-Extract answers 16:  60%|█████▉    | 299/500 [00:03<00:02, 87.94 examples/s][A
-Extract answers 16:  62%|██████▏   | 309/500 [00:03<00:02, 89.40 examples/s][A
-Extract answers 16:  64%|██████▍   | 319/500 [00:03<00:02, 89.18 examples/s][A
-Extract answers 16:  66%|██████▌   | 329/500 [00:03<00:01, 89.87 examples/s][A
-Extract answers 16:  68%|██████▊   | 339/500 [00:03<00:01, 90.31 examples/s][A
-Extract answers 16:  71%|███████   | 353/500 [00:03<00:01, 87.02 examples/s][A
-Extract answers 16:  73%|███████▎  | 363/500 [00:04<00:01, 87.45 examples/s][A
-Extract answers 16:  74%|███████▍  | 372/500 [00:04<00:01, 88.03 examples/s][A
-Extract answers 16:  76%|███████▋  | 382/500 [00:04<00:01, 87.42 examples/s][A
-Extract answers 16:  78%|███████▊  | 392/500 [00:04<00:01, 88.74 examples/s][A
-Extract answers 16:  80%|████████  | 402/500 [00:04<00:01, 90.01 examples/s][A
-Extract answers 16:  82%|████████▏ | 412/500 [00:04<00:00, 90.24 examples/s][A
-Extract answers 16:  85%|████████▌ | 426/500 [00:04<00:00, 82.68 examples/s][A
-Extract answers 16:  87%|████████▋ | 436/500 [00:04<00:00, 83.22 examples/s][A
-Extract answers 16:  89%|████████▉ | 446/500 [00:05<00:00, 83.66 examples/s][A
-Extract answers 16:  91%|█████████▏| 457/500 [00:05<00:00, 86.64 examples/s][A
-Extract answers 16:  94%|█████████▎| 468/500 [00:05<00:00, 90.16 examples/s][A
-Extract answers 16:  96%|█████████▌| 478/500 [00:05<00:00, 90.99 examples/s][A
-Extract answers 16:  99%|█████████▊| 493/500 [00:05<00:00, 89.15 examples/s][AExtract answers 16: 100%|██████████| 500/500 [00:05<00:00, 83.80 examples/s]
-
-Compute weighted pred 16:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute weighted pred 16:   0%|          | 2/500 [00:00<00:56,  8.82 examples/s][A
-Compute weighted pred 16:   3%|▎         | 16/500 [00:00<00:09, 50.77 examples/s][A
-Compute weighted pred 16:   6%|▌         | 29/500 [00:00<00:06, 75.40 examples/s][A
-Compute weighted pred 16:  10%|█         | 52/500 [00:00<00:04, 94.65 examples/s][A
-Compute weighted pred 16:  14%|█▍        | 70/500 [00:00<00:04, 106.11 examples/s][A
-Compute weighted pred 16:  17%|█▋        | 84/500 [00:01<00:05, 75.19 examples/s] [A
-Compute weighted pred 16:  20%|██        | 101/500 [00:01<00:04, 91.72 examples/s][A
-Compute weighted pred 16:  23%|██▎       | 115/500 [00:01<00:04, 87.53 examples/s][A
-Compute weighted pred 16:  26%|██▌       | 128/500 [00:01<00:03, 94.43 examples/s][A
-Compute weighted pred 16:  29%|██▉       | 146/500 [00:01<00:03, 106.58 examples/s][A
-Compute weighted pred 16:  33%|███▎      | 165/500 [00:02<00:04, 76.68 examples/s] [A
-Compute weighted pred 16:  36%|███▌      | 180/500 [00:02<00:03, 87.69 examples/s][A
-Compute weighted pred 16:  39%|███▉      | 196/500 [00:02<00:04, 73.04 examples/s][A
-Compute weighted pred 16:  43%|████▎     | 214/500 [00:02<00:04, 68.05 examples/s][A
-Compute weighted pred 16:  45%|████▌     | 225/500 [00:02<00:03, 72.66 examples/s][A
-Compute weighted pred 16:  47%|████▋     | 235/500 [00:03<00:04, 56.51 examples/s][A
-Compute weighted pred 16:  50%|████▉     | 249/500 [00:03<00:03, 64.00 examples/s][A
-Compute weighted pred 16:  54%|█████▍    | 272/500 [00:03<00:02, 91.74 examples/s][A
-Compute weighted pred 16:  58%|█████▊    | 288/500 [00:03<00:02, 100.38 examples/s][A
-Compute weighted pred 16:  62%|██████▏   | 308/500 [00:03<00:01, 102.53 examples/s][A
-Compute weighted pred 16:  66%|██████▌   | 328/500 [00:03<00:01, 108.69 examples/s][A
-Compute weighted pred 16:  68%|██████▊   | 341/500 [00:04<00:01, 102.41 examples/s][A
-Compute weighted pred 16:  71%|███████   | 353/500 [00:04<00:01, 74.50 examples/s] [A
-Compute weighted pred 16:  74%|███████▍  | 372/500 [00:04<00:01, 92.60 examples/s][A
-Compute weighted pred 16:  78%|███████▊  | 390/500 [00:04<00:01, 103.28 examples/s][A
-Compute weighted pred 16:  82%|████████▏ | 408/500 [00:04<00:00, 102.95 examples/s][A
-Compute weighted pred 16:  85%|████████▌ | 426/500 [00:04<00:00, 99.91 examples/s] [A
-Compute weighted pred 16:  88%|████████▊ | 440/500 [00:05<00:00, 79.64 examples/s][A
-Compute weighted pred 16:  91%|█████████▏| 457/500 [00:05<00:00, 86.97 examples/s][A
-Compute weighted pred 16:  95%|█████████▌| 475/500 [00:05<00:00, 96.84 examples/s][A
-Compute weighted pred 16:  99%|█████████▉| 494/500 [00:05<00:00, 94.48 examples/s][ACompute weighted pred 16: 100%|██████████| 500/500 [00:06<00:00, 80.74 examples/s]
-
-Compute majority pred 16:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute majority pred 16:  22%|██▏       | 112/500 [00:00<00:00, 1100.73 examples/s][A
-Compute majority pred 16:  46%|████▌     | 228/500 [00:00<00:00, 1129.50 examples/s][A
-Compute majority pred 16:  69%|██████▊   | 343/500 [00:00<00:00, 1134.57 examples/s][A
-Compute majority pred 16:  92%|█████████▏| 460/500 [00:00<00:00, 1142.92 examples/s][ACompute majority pred 16: 100%|██████████| 500/500 [00:00<00:00, 675.58 examples/s] 
-
-Compute naive pred 16:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute naive pred 16: 100%|██████████| 500/500 [00:00<00:00, 1392.36 examples/s][ACompute naive pred 16: 100%|██████████| 500/500 [00:00<00:00, 1370.71 examples/s]
-Computing majority & weighted predictions:  56%|█████▌    | 5/9 [00:39<00:38,  9.72s/it]
-Subsample 32:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Subsample 32:  32%|███▏      | 160/500 [00:00<00:00, 1577.89 examples/s][A
-Subsample 32:  65%|██████▍   | 324/500 [00:00<00:00, 1607.56 examples/s][A
-Subsample 32: 100%|██████████| 500/500 [00:00<00:00, 555.72 examples/s] [ASubsample 32: 100%|██████████| 500/500 [00:00<00:00, 663.69 examples/s]
-
-Extract answers 32:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Extract answers 32:   1%|          | 5/500 [00:00<00:14, 34.51 examples/s][A
-Extract answers 32:   2%|▏         | 11/500 [00:00<00:11, 41.76 examples/s][A
-Extract answers 32:   3%|▎         | 16/500 [00:00<00:11, 41.93 examples/s][A
-Extract answers 32:   4%|▍         | 22/500 [00:00<00:10, 44.06 examples/s][A
-Extract answers 32:   6%|▌         | 28/500 [00:00<00:10, 44.89 examples/s][A
-Extract answers 32:   7%|▋         | 34/500 [00:00<00:10, 45.03 examples/s][A
-Extract answers 32:   8%|▊         | 40/500 [00:00<00:09, 46.12 examples/s][A
-Extract answers 32:   9%|▉         | 46/500 [00:01<00:09, 47.39 examples/s][A
-Extract answers 32:  10%|█         | 52/500 [00:01<00:09, 46.82 examples/s][A
-Extract answers 32:  12%|█▏        | 58/500 [00:01<00:09, 47.11 examples/s][A
-Extract answers 32:  13%|█▎        | 64/500 [00:01<00:09, 46.59 examples/s][A
-Extract answers 32:  14%|█▍        | 70/500 [00:01<00:09, 45.64 examples/s][A
-Extract answers 32:  15%|█▌        | 75/500 [00:01<00:09, 44.61 examples/s][A
-Extract answers 32:  16%|█▌        | 81/500 [00:01<00:09, 44.67 examples/s][A
-Extract answers 32:  17%|█▋        | 87/500 [00:01<00:09, 44.74 examples/s][A
-Extract answers 32:  19%|█▊        | 93/500 [00:02<00:08, 45.76 examples/s][A
-Extract answers 32:  20%|█▉        | 99/500 [00:02<00:08, 44.86 examples/s][A
-Extract answers 32:  21%|██        | 104/500 [00:02<00:09, 42.34 examples/s][A
-Extract answers 32:  22%|██▏       | 110/500 [00:02<00:09, 42.76 examples/s][A
-Extract answers 32:  23%|██▎       | 116/500 [00:02<00:08, 43.93 examples/s][A
-Extract answers 32:  24%|██▍       | 122/500 [00:02<00:08, 45.59 examples/s][A
-Extract answers 32:  26%|██▌       | 128/500 [00:02<00:08, 45.23 examples/s][A
-Extract answers 32:  27%|██▋       | 134/500 [00:02<00:07, 46.29 examples/s][A
-Extract answers 32:  28%|██▊       | 140/500 [00:03<00:07, 46.24 examples/s][A
-Extract answers 32:  29%|██▉       | 146/500 [00:03<00:07, 45.92 examples/s][A
-Extract answers 32:  30%|███       | 152/500 [00:03<00:07, 45.89 examples/s][A
-Extract answers 32:  32%|███▏      | 158/500 [00:03<00:07, 45.12 examples/s][A
-Extract answers 32:  33%|███▎      | 164/500 [00:03<00:07, 45.65 examples/s][A
-Extract answers 32:  34%|███▍      | 169/500 [00:03<00:07, 44.64 examples/s][A
-Extract answers 32:  35%|███▌      | 175/500 [00:03<00:07, 44.89 examples/s][A
-Extract answers 32:  36%|███▌      | 180/500 [00:04<00:07, 44.08 examples/s][A
-Extract answers 32:  37%|███▋      | 185/500 [00:04<00:07, 42.76 examples/s][A
-Extract answers 32:  38%|███▊      | 191/500 [00:04<00:07, 43.51 examples/s][A
-Extract answers 32:  39%|███▉      | 197/500 [00:04<00:06, 44.89 examples/s][A
-Extract answers 32:  41%|████      | 203/500 [00:04<00:06, 46.18 examples/s][A
-Extract answers 32:  42%|████▏     | 209/500 [00:04<00:06, 45.11 examples/s][A
-Extract answers 32:  43%|████▎     | 215/500 [00:04<00:06, 45.54 examples/s][A
-Extract answers 32:  44%|████▍     | 221/500 [00:04<00:06, 45.09 examples/s][A
-Extract answers 32:  45%|████▌     | 227/500 [00:05<00:05, 45.91 examples/s][A
-Extract answers 32:  46%|████▋     | 232/500 [00:05<00:06, 43.03 examples/s][A
-Extract answers 32:  48%|████▊     | 238/500 [00:05<00:06, 42.98 examples/s][A
-Extract answers 32:  49%|████▊     | 243/500 [00:05<00:05, 43.00 examples/s][A
-Extract answers 32:  50%|████▉     | 249/500 [00:05<00:05, 42.05 examples/s][A
-Extract answers 32:  51%|█████     | 255/500 [00:05<00:05, 43.47 examples/s][A
-Extract answers 32:  52%|█████▏    | 260/500 [00:05<00:05, 43.89 examples/s][A
-Extract answers 32:  53%|█████▎    | 266/500 [00:05<00:05, 45.12 examples/s][A
-Extract answers 32:  54%|█████▍    | 272/500 [00:06<00:04, 46.14 examples/s][A
-Extract answers 32:  56%|█████▌    | 278/500 [00:06<00:04, 46.25 examples/s][A
-Extract answers 32:  57%|█████▋    | 284/500 [00:06<00:04, 46.31 examples/s][A
-Extract answers 32:  58%|█████▊    | 290/500 [00:06<00:04, 45.59 examples/s][A
-Extract answers 32:  59%|█████▉    | 296/500 [00:06<00:04, 44.84 examples/s][A
-Extract answers 32:  60%|██████    | 302/500 [00:06<00:04, 44.26 examples/s][A
-Extract answers 32:  62%|██████▏   | 308/500 [00:06<00:04, 44.53 examples/s][A
-Extract answers 32:  63%|██████▎   | 314/500 [00:07<00:04, 44.53 examples/s][A
-Extract answers 32:  64%|██████▍   | 320/500 [00:07<00:04, 44.63 examples/s][A
-Extract answers 32:  65%|██████▌   | 326/500 [00:07<00:03, 45.10 examples/s][A
-Extract answers 32:  66%|██████▋   | 332/500 [00:07<00:03, 43.96 examples/s][A
-Extract answers 32:  68%|██████▊   | 338/500 [00:07<00:03, 45.42 examples/s][A
-Extract answers 32:  69%|██████▉   | 344/500 [00:07<00:03, 44.27 examples/s][A
-Extract answers 32:  70%|███████   | 350/500 [00:07<00:03, 44.85 examples/s][A
-Extract answers 32:  71%|███████   | 355/500 [00:07<00:03, 44.26 examples/s][A
-Extract answers 32:  72%|███████▏  | 360/500 [00:08<00:03, 43.03 examples/s][A
-Extract answers 32:  73%|███████▎  | 365/500 [00:08<00:03, 42.91 examples/s][A
-Extract answers 32:  74%|███████▍  | 371/500 [00:08<00:02, 45.21 examples/s][A
-Extract answers 32:  75%|███████▌  | 377/500 [00:08<00:02, 45.21 examples/s][A
-Extract answers 32:  76%|███████▋  | 382/500 [00:08<00:02, 44.37 examples/s][A
-Extract answers 32:  78%|███████▊  | 388/500 [00:08<00:02, 45.13 examples/s][A
-Extract answers 32:  79%|███████▉  | 394/500 [00:08<00:02, 45.03 examples/s][A
-Extract answers 32:  80%|████████  | 400/500 [00:08<00:02, 46.03 examples/s][A
-Extract answers 32:  81%|████████  | 406/500 [00:09<00:02, 46.92 examples/s][A
-Extract answers 32:  82%|████████▏ | 412/500 [00:09<00:01, 45.77 examples/s][A
-Extract answers 32:  84%|████████▎ | 418/500 [00:09<00:01, 45.29 examples/s][A
-Extract answers 32:  85%|████████▍ | 424/500 [00:09<00:01, 40.61 examples/s][A
-Extract answers 32:  86%|████████▌ | 429/500 [00:09<00:01, 40.35 examples/s][A
-Extract answers 32:  87%|████████▋ | 435/500 [00:09<00:01, 41.54 examples/s][A
-Extract answers 32:  88%|████████▊ | 440/500 [00:09<00:01, 40.97 examples/s][A
-Extract answers 32:  89%|████████▉ | 446/500 [00:10<00:01, 41.75 examples/s][A
-Extract answers 32:  90%|█████████ | 452/500 [00:10<00:01, 43.71 examples/s][A
-Extract answers 32:  92%|█████████▏| 458/500 [00:10<00:00, 44.33 examples/s][A
-Extract answers 32:  93%|█████████▎| 464/500 [00:10<00:00, 46.00 examples/s][A
-Extract answers 32:  94%|█████████▍| 470/500 [00:10<00:00, 46.71 examples/s][A
-Extract answers 32:  95%|█████████▌| 476/500 [00:10<00:00, 46.49 examples/s][A
-Extract answers 32:  96%|█████████▋| 482/500 [00:10<00:00, 45.02 examples/s][A
-Extract answers 32:  97%|█████████▋| 487/500 [00:10<00:00, 44.10 examples/s][A
-Extract answers 32:  99%|█████████▊| 493/500 [00:11<00:00, 45.67 examples/s][A
-Extract answers 32: 100%|██████████| 500/500 [00:11<00:00, 43.39 examples/s][AExtract answers 32: 100%|██████████| 500/500 [00:11<00:00, 43.29 examples/s]
-
-Compute weighted pred 32:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute weighted pred 32:   0%|          | 2/500 [00:00<02:13,  3.73 examples/s][A
-Compute weighted pred 32:   2%|▏         | 12/500 [00:00<00:21, 22.53 examples/s][A
-Compute weighted pred 32:   4%|▍         | 22/500 [00:00<00:15, 31.34 examples/s][A
-Compute weighted pred 32:   6%|▋         | 32/500 [00:01<00:10, 43.45 examples/s][A
-Compute weighted pred 32:   9%|▉         | 47/500 [00:01<00:07, 64.19 examples/s][A
-Compute weighted pred 32:  12%|█▏        | 61/500 [00:01<00:07, 62.37 examples/s][A
-Compute weighted pred 32:  14%|█▍        | 70/500 [00:02<00:14, 29.15 examples/s][A
-Compute weighted pred 32:  17%|█▋        | 83/500 [00:02<00:12, 34.40 examples/s][A
-Compute weighted pred 32:  19%|█▉        | 97/500 [00:02<00:09, 42.05 examples/s][A
-Compute weighted pred 32:  21%|██        | 104/500 [00:02<00:09, 41.54 examples/s][A
-Compute weighted pred 32:  22%|██▏       | 110/500 [00:03<00:12, 31.34 examples/s][A
-Compute weighted pred 32:  25%|██▌       | 125/500 [00:03<00:08, 46.47 examples/s][A
-Compute weighted pred 32:  27%|██▋       | 135/500 [00:03<00:06, 53.93 examples/s][A
-Compute weighted pred 32:  29%|██▉       | 146/500 [00:03<00:08, 43.60 examples/s][A
-Compute weighted pred 32:  31%|███       | 154/500 [00:03<00:07, 45.19 examples/s][A
-Compute weighted pred 32:  33%|███▎      | 163/500 [00:03<00:06, 52.35 examples/s][A
-Compute weighted pred 32:  34%|███▍      | 171/500 [00:04<00:08, 40.66 examples/s][A
-Compute weighted pred 32:  36%|███▌      | 180/500 [00:04<00:07, 42.49 examples/s][A
-Compute weighted pred 32:  38%|███▊      | 189/500 [00:04<00:07, 40.06 examples/s][A
-Compute weighted pred 32:  41%|████      | 206/500 [00:04<00:05, 55.98 examples/s][A
-Compute weighted pred 32:  43%|████▎     | 214/500 [00:05<00:05, 53.10 examples/s][A
-Compute weighted pred 32:  44%|████▍     | 222/500 [00:05<00:05, 55.51 examples/s][A
-Compute weighted pred 32:  46%|████▌     | 229/500 [00:05<00:08, 32.23 examples/s][A
-Compute weighted pred 32:  47%|████▋     | 237/500 [00:05<00:07, 36.22 examples/s][A
-Compute weighted pred 32:  49%|████▊     | 243/500 [00:05<00:06, 38.74 examples/s][A
-Compute weighted pred 32:  50%|████▉     | 248/500 [00:06<00:06, 37.05 examples/s][A
-Compute weighted pred 32:  51%|█████     | 256/500 [00:06<00:07, 32.74 examples/s][A
-Compute weighted pred 32:  55%|█████▌    | 275/500 [00:06<00:03, 56.77 examples/s][A
-Compute weighted pred 32:  58%|█████▊    | 288/500 [00:06<00:03, 68.51 examples/s][A
-Compute weighted pred 32:  59%|█████▉    | 297/500 [00:06<00:03, 54.34 examples/s][A
-Compute weighted pred 32:  61%|██████    | 305/500 [00:07<00:03, 54.28 examples/s][A
-Compute weighted pred 32:  64%|██████▍   | 319/500 [00:07<00:02, 66.78 examples/s][A
-Compute weighted pred 32:  66%|██████▌   | 328/500 [00:07<00:02, 68.18 examples/s][A
-Compute weighted pred 32:  68%|██████▊   | 339/500 [00:07<00:02, 65.26 examples/s][A
-Compute weighted pred 32:  70%|██████▉   | 348/500 [00:07<00:03, 42.12 examples/s][A
-Compute weighted pred 32:  72%|███████▏  | 360/500 [00:08<00:04, 31.71 examples/s][A
-Compute weighted pred 32:  75%|███████▍  | 374/500 [00:08<00:02, 43.86 examples/s][A
-Compute weighted pred 32:  77%|███████▋  | 384/500 [00:08<00:02, 49.16 examples/s][A
-Compute weighted pred 32:  79%|███████▉  | 396/500 [00:08<00:01, 56.82 examples/s][A
-Compute weighted pred 32:  83%|████████▎ | 414/500 [00:08<00:01, 73.85 examples/s][A
-Compute weighted pred 32:  85%|████████▌ | 426/500 [00:09<00:02, 32.14 examples/s][A
-Compute weighted pred 32:  87%|████████▋ | 433/500 [00:10<00:02, 33.03 examples/s][A
-Compute weighted pred 32:  88%|████████▊ | 440/500 [00:10<00:01, 34.42 examples/s][A
-Compute weighted pred 32:  89%|████████▉ | 447/500 [00:10<00:01, 32.06 examples/s][A
-Compute weighted pred 32:  91%|█████████▏| 457/500 [00:10<00:01, 38.54 examples/s][A
-Compute weighted pred 32:  93%|█████████▎| 465/500 [00:10<00:00, 44.71 examples/s][A
-Compute weighted pred 32:  95%|█████████▌| 475/500 [00:11<00:00, 45.31 examples/s][A
-Compute weighted pred 32:  96%|█████████▋| 482/500 [00:11<00:00, 42.63 examples/s][A
-Compute weighted pred 32:  99%|█████████▉| 495/500 [00:11<00:00, 38.66 examples/s][A
-Compute weighted pred 32: 100%|██████████| 500/500 [00:11<00:00, 27.99 examples/s][ACompute weighted pred 32: 100%|██████████| 500/500 [00:12<00:00, 41.66 examples/s]
-
-Compute majority pred 32:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute majority pred 32:  12%|█▏        | 61/500 [00:00<00:00, 592.39 examples/s][A
-Compute majority pred 32:  25%|██▍       | 124/500 [00:00<00:00, 608.05 examples/s][A
-Compute majority pred 32:  37%|███▋      | 187/500 [00:00<00:00, 611.35 examples/s][A
-Compute majority pred 32:  50%|█████     | 251/500 [00:00<00:00, 616.25 examples/s][A
-Compute majority pred 32:  63%|██████▎   | 314/500 [00:00<00:00, 617.86 examples/s][A
-Compute majority pred 32:  76%|███████▌  | 378/500 [00:00<00:00, 620.04 examples/s][A
-Compute majority pred 32:  88%|████████▊ | 441/500 [00:00<00:00, 619.53 examples/s][ACompute majority pred 32: 100%|██████████| 500/500 [00:01<00:00, 444.78 examples/s]
-
-Compute naive pred 32:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute naive pred 32: 100%|██████████| 500/500 [00:00<00:00, 1290.74 examples/s][ACompute naive pred 32: 100%|██████████| 500/500 [00:00<00:00, 1271.47 examples/s]
-Computing majority & weighted predictions:  67%|██████▋   | 6/9 [01:04<00:45, 15.21s/it]
-Subsample 64:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Subsample 64:  31%|███▏      | 157/500 [00:00<00:00, 1543.12 examples/s][A
-Subsample 64:  63%|██████▎   | 314/500 [00:00<00:00, 1554.92 examples/s][A
-Subsample 64: 100%|██████████| 500/500 [00:00<00:00, 518.64 examples/s] [ASubsample 64: 100%|██████████| 500/500 [00:00<00:00, 617.86 examples/s]
-
-Extract answers 64:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Extract answers 64:   0%|          | 2/500 [00:00<00:37, 13.34 examples/s][A
-Extract answers 64:   1%|          | 6/500 [00:00<00:25, 19.67 examples/s][A
-Extract answers 64:   2%|▏         | 10/500 [00:00<00:23, 21.01 examples/s][A
-Extract answers 64:   3%|▎         | 14/500 [00:00<00:21, 22.10 examples/s][A
-Extract answers 64:   4%|▎         | 18/500 [00:00<00:22, 21.57 examples/s][A
-Extract answers 64:   4%|▍         | 22/500 [00:01<00:21, 22.31 examples/s][A
-Extract answers 64:   5%|▌         | 26/500 [00:01<00:21, 22.37 examples/s][A
-Extract answers 64:   6%|▌         | 30/500 [00:01<00:20, 23.03 examples/s][A
-Extract answers 64:   7%|▋         | 34/500 [00:01<00:20, 22.80 examples/s][A
-Extract answers 64:   8%|▊         | 38/500 [00:01<00:20, 22.95 examples/s][A
-Extract answers 64:   8%|▊         | 42/500 [00:01<00:19, 23.55 examples/s][A
-Extract answers 64:   9%|▉         | 46/500 [00:02<00:18, 24.01 examples/s][A
-Extract answers 64:  10%|█         | 50/500 [00:02<00:18, 24.54 examples/s][A
-Extract answers 64:  11%|█         | 54/500 [00:02<00:19, 23.14 examples/s][A
-Extract answers 64:  12%|█▏        | 58/500 [00:02<00:18, 23.79 examples/s][A
-Extract answers 64:  12%|█▏        | 61/500 [00:02<00:18, 23.38 examples/s][A
-Extract answers 64:  13%|█▎        | 65/500 [00:02<00:18, 23.41 examples/s][A
-Extract answers 64:  14%|█▍        | 69/500 [00:03<00:18, 23.27 examples/s][A
-Extract answers 64:  14%|█▍        | 72/500 [00:03<00:18, 23.03 examples/s][A
-Extract answers 64:  15%|█▌        | 75/500 [00:03<00:19, 21.94 examples/s][A
-Extract answers 64:  16%|█▌        | 79/500 [00:03<00:19, 21.94 examples/s][A
-Extract answers 64:  17%|█▋        | 83/500 [00:03<00:18, 22.65 examples/s][A
-Extract answers 64:  17%|█▋        | 86/500 [00:03<00:18, 22.22 examples/s][A
-Extract answers 64:  18%|█▊        | 90/500 [00:03<00:17, 23.21 examples/s][A
-Extract answers 64:  19%|█▊        | 93/500 [00:04<00:17, 23.12 examples/s][A
-Extract answers 64:  19%|█▉        | 96/500 [00:04<00:17, 22.77 examples/s][A
-Extract answers 64:  20%|█▉        | 99/500 [00:04<00:18, 22.14 examples/s][A
-Extract answers 64:  20%|██        | 102/500 [00:04<00:19, 20.32 examples/s][A
-Extract answers 64:  21%|██        | 106/500 [00:04<00:19, 20.73 examples/s][A
-Extract answers 64:  22%|██▏       | 110/500 [00:04<00:18, 21.12 examples/s][A
-Extract answers 64:  23%|██▎       | 114/500 [00:05<00:17, 22.11 examples/s][A
-Extract answers 64:  23%|██▎       | 117/500 [00:05<00:17, 22.26 examples/s][A
-Extract answers 64:  24%|██▍       | 121/500 [00:05<00:16, 22.92 examples/s][A
-Extract answers 64:  25%|██▌       | 125/500 [00:05<00:16, 23.16 examples/s][A
-Extract answers 64:  26%|██▌       | 129/500 [00:05<00:16, 22.90 examples/s][A
-Extract answers 64:  27%|██▋       | 133/500 [00:05<00:15, 23.21 examples/s][A
-Extract answers 64:  27%|██▋       | 137/500 [00:06<00:15, 23.45 examples/s][A
-Extract answers 64:  28%|██▊       | 141/500 [00:06<00:15, 23.37 examples/s][A
-Extract answers 64:  29%|██▉       | 145/500 [00:06<00:15, 23.43 examples/s][A
-Extract answers 64:  30%|██▉       | 149/500 [00:06<00:15, 22.45 examples/s][A
-Extract answers 64:  31%|███       | 153/500 [00:06<00:15, 22.90 examples/s][A
-Extract answers 64:  31%|███▏      | 157/500 [00:06<00:15, 22.53 examples/s][A
-Extract answers 64:  32%|███▏      | 161/500 [00:07<00:14, 22.75 examples/s][A
-Extract answers 64:  33%|███▎      | 165/500 [00:07<00:15, 22.01 examples/s][A
-Extract answers 64:  34%|███▍      | 169/500 [00:07<00:14, 22.25 examples/s][A
-Extract answers 64:  34%|███▍      | 172/500 [00:07<00:14, 22.02 examples/s][A
-Extract answers 64:  35%|███▌      | 176/500 [00:07<00:14, 22.97 examples/s][A
-Extract answers 64:  36%|███▌      | 180/500 [00:07<00:14, 22.12 examples/s][A
-Extract answers 64:  37%|███▋      | 184/500 [00:08<00:14, 22.21 examples/s][A
-Extract answers 64:  37%|███▋      | 187/500 [00:08<00:14, 21.54 examples/s][A
-Extract answers 64:  38%|███▊      | 191/500 [00:08<00:13, 22.08 examples/s][A
-Extract answers 64:  39%|███▉      | 195/500 [00:08<00:13, 22.82 examples/s][A
-Extract answers 64:  40%|███▉      | 199/500 [00:08<00:12, 23.41 examples/s][A
-Extract answers 64:  41%|████      | 203/500 [00:08<00:12, 23.70 examples/s][A
-Extract answers 64:  41%|████      | 206/500 [00:09<00:12, 22.65 examples/s][A
-Extract answers 64:  42%|████▏     | 209/500 [00:09<00:12, 22.80 examples/s][A
-Extract answers 64:  43%|████▎     | 213/500 [00:09<00:12, 23.68 examples/s][A
-Extract answers 64:  43%|████▎     | 216/500 [00:09<00:12, 22.57 examples/s][A
-Extract answers 64:  44%|████▍     | 220/500 [00:09<00:12, 22.72 examples/s][A
-Extract answers 64:  45%|████▍     | 224/500 [00:09<00:11, 23.22 examples/s][A
-Extract answers 64:  45%|████▌     | 227/500 [00:10<00:11, 23.20 examples/s][A
-Extract answers 64:  46%|████▌     | 231/500 [00:10<00:12, 21.34 examples/s][A
-Extract answers 64:  47%|████▋     | 235/500 [00:10<00:12, 21.76 examples/s][A
-Extract answers 64:  48%|████▊     | 238/500 [00:10<00:12, 21.60 examples/s][A
-Extract answers 64:  48%|████▊     | 241/500 [00:10<00:12, 21.25 examples/s][A
-Extract answers 64:  49%|████▉     | 245/500 [00:10<00:11, 22.30 examples/s][A
-Extract answers 64:  50%|████▉     | 248/500 [00:11<00:11, 22.34 examples/s][A
-Extract answers 64:  50%|█████     | 251/500 [00:11<00:11, 21.16 examples/s][A
-Extract answers 64:  51%|█████     | 255/500 [00:11<00:11, 21.98 examples/s][A
-Extract answers 64:  52%|█████▏    | 258/500 [00:11<00:11, 21.78 examples/s][A
-Extract answers 64:  52%|█████▏    | 261/500 [00:11<00:10, 22.10 examples/s][A
-Extract answers 64:  53%|█████▎    | 265/500 [00:11<00:10, 22.98 examples/s][A
-Extract answers 64:  54%|█████▍    | 269/500 [00:11<00:09, 23.15 examples/s][A
-Extract answers 64:  55%|█████▍    | 273/500 [00:12<00:09, 23.89 examples/s][A
-Extract answers 64:  55%|█████▌    | 277/500 [00:12<00:09, 23.68 examples/s][A
-Extract answers 64:  56%|█████▌    | 281/500 [00:12<00:09, 23.68 examples/s][A
-Extract answers 64:  57%|█████▋    | 284/500 [00:12<00:09, 23.16 examples/s][A
-Extract answers 64:  57%|█████▋    | 287/500 [00:12<00:09, 22.48 examples/s][A
-Extract answers 64:  58%|█████▊    | 291/500 [00:12<00:09, 22.34 examples/s][A
-Extract answers 64:  59%|█████▉    | 294/500 [00:13<00:09, 21.63 examples/s][A
-Extract answers 64:  59%|█████▉    | 297/500 [00:13<00:09, 21.92 examples/s][A
-Extract answers 64:  60%|██████    | 301/500 [00:13<00:09, 21.54 examples/s][A
-Extract answers 64:  61%|██████    | 305/500 [00:13<00:09, 19.52 examples/s][A
-Extract answers 64:  62%|██████▏   | 308/500 [00:13<00:09, 19.92 examples/s][A
-Extract answers 64:  62%|██████▏   | 312/500 [00:13<00:08, 20.98 examples/s][A
-Extract answers 64:  63%|██████▎   | 315/500 [00:14<00:08, 20.92 examples/s][A
-Extract answers 64:  64%|██████▍   | 319/500 [00:14<00:08, 21.37 examples/s][A
-Extract answers 64:  65%|██████▍   | 323/500 [00:14<00:08, 22.03 examples/s][A
-Extract answers 64:  65%|██████▌   | 327/500 [00:14<00:07, 22.28 examples/s][A
-Extract answers 64:  66%|██████▌   | 331/500 [00:14<00:07, 22.77 examples/s][A
-Extract answers 64:  67%|██████▋   | 334/500 [00:14<00:07, 22.00 examples/s][A
-Extract answers 64:  68%|██████▊   | 338/500 [00:15<00:07, 22.91 examples/s][A
-Extract answers 64:  68%|██████▊   | 341/500 [00:15<00:07, 21.52 examples/s][A
-Extract answers 64:  69%|██████▉   | 345/500 [00:15<00:06, 22.63 examples/s][A
-Extract answers 64:  70%|██████▉   | 348/500 [00:15<00:06, 22.46 examples/s][A
-Extract answers 64:  70%|███████   | 352/500 [00:15<00:06, 22.28 examples/s][A
-Extract answers 64:  71%|███████   | 356/500 [00:15<00:06, 22.86 examples/s][A
-Extract answers 64:  72%|███████▏  | 359/500 [00:16<00:06, 21.57 examples/s][A
-Extract answers 64:  73%|███████▎  | 363/500 [00:16<00:06, 21.94 examples/s][A
-Extract answers 64:  73%|███████▎  | 367/500 [00:16<00:06, 22.07 examples/s][A
-Extract answers 64:  74%|███████▍  | 371/500 [00:16<00:05, 23.00 examples/s][A
-Extract answers 64:  75%|███████▍  | 374/500 [00:16<00:05, 22.77 examples/s][A
-Extract answers 64:  75%|███████▌  | 377/500 [00:16<00:05, 22.80 examples/s][A
-Extract answers 64:  76%|███████▌  | 380/500 [00:16<00:05, 23.06 examples/s][A
-Extract answers 64:  77%|███████▋  | 383/500 [00:17<00:05, 22.01 examples/s][A
-Extract answers 64:  77%|███████▋  | 386/500 [00:17<00:05, 22.05 examples/s][A
-Extract answers 64:  78%|███████▊  | 390/500 [00:17<00:04, 22.40 examples/s][A
-Extract answers 64:  79%|███████▉  | 394/500 [00:17<00:04, 22.51 examples/s][A
-Extract answers 64:  80%|███████▉  | 398/500 [00:17<00:04, 23.17 examples/s][A
-Extract answers 64:  80%|████████  | 402/500 [00:17<00:04, 23.37 examples/s][A
-Extract answers 64:  81%|████████  | 406/500 [00:18<00:03, 23.92 examples/s][A
-Extract answers 64:  82%|████████▏ | 409/500 [00:18<00:04, 22.66 examples/s][A
-Extract answers 64:  83%|████████▎ | 413/500 [00:18<00:03, 23.04 examples/s][A
-Extract answers 64:  83%|████████▎ | 417/500 [00:18<00:03, 22.53 examples/s][A
-Extract answers 64:  84%|████████▍ | 420/500 [00:18<00:03, 21.60 examples/s][A
-Extract answers 64:  85%|████████▍ | 423/500 [00:18<00:04, 19.12 examples/s][A
-Extract answers 64:  85%|████████▌ | 426/500 [00:19<00:03, 19.23 examples/s][A
-Extract answers 64:  86%|████████▌ | 430/500 [00:19<00:03, 20.21 examples/s][A
-Extract answers 64:  87%|████████▋ | 434/500 [00:19<00:03, 20.60 examples/s][A
-Extract answers 64:  88%|████████▊ | 438/500 [00:19<00:02, 20.91 examples/s][A
-Extract answers 64:  88%|████████▊ | 442/500 [00:19<00:02, 20.85 examples/s][A
-Extract answers 64:  89%|████████▉ | 445/500 [00:19<00:02, 21.19 examples/s][A
-Extract answers 64:  90%|████████▉ | 449/500 [00:20<00:02, 22.07 examples/s][A
-Extract answers 64:  91%|█████████ | 453/500 [00:20<00:02, 22.73 examples/s][A
-Extract answers 64:  91%|█████████▏| 457/500 [00:20<00:01, 22.48 examples/s][A
-Extract answers 64:  92%|█████████▏| 461/500 [00:20<00:01, 23.12 examples/s][A
-Extract answers 64:  93%|█████████▎| 465/500 [00:20<00:01, 23.60 examples/s][A
-Extract answers 64:  94%|█████████▎| 468/500 [00:20<00:01, 23.34 examples/s][A
-Extract answers 64:  94%|█████████▍| 472/500 [00:21<00:01, 23.60 examples/s][A
-Extract answers 64:  95%|█████████▌| 476/500 [00:21<00:01, 23.41 examples/s][A
-Extract answers 64:  96%|█████████▌| 480/500 [00:21<00:00, 23.54 examples/s][A
-Extract answers 64:  97%|█████████▋| 484/500 [00:21<00:00, 21.04 examples/s][A
-Extract answers 64:  98%|█████████▊| 488/500 [00:21<00:00, 21.86 examples/s][A
-Extract answers 64:  98%|█████████▊| 492/500 [00:22<00:00, 22.88 examples/s][A
-Extract answers 64:  99%|█████████▉| 495/500 [00:22<00:00, 21.89 examples/s][A
-Extract answers 64: 100%|█████████▉| 499/500 [00:22<00:00, 21.23 examples/s][AExtract answers 64: 100%|██████████| 500/500 [00:22<00:00, 21.93 examples/s]
-
-Compute weighted pred 64:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute weighted pred 64:   0%|          | 2/500 [00:00<01:18,  6.35 examples/s][A
-Compute weighted pred 64:   2%|▏         | 8/500 [00:00<00:31, 15.44 examples/s][A
-Compute weighted pred 64:   3%|▎         | 16/500 [00:01<00:28, 17.13 examples/s][A
-Compute weighted pred 64:   4%|▍         | 21/500 [00:01<00:27, 17.43 examples/s][A
-Compute weighted pred 64:   5%|▌         | 26/500 [00:01<00:23, 20.35 examples/s][A
-Compute weighted pred 64:   6%|▌         | 29/500 [00:01<00:21, 21.70 examples/s][A
-Compute weighted pred 64:   7%|▋         | 35/500 [00:01<00:24, 18.82 examples/s][A
-Compute weighted pred 64:   8%|▊         | 42/500 [00:02<00:19, 23.76 examples/s][A
-Compute weighted pred 64:  10%|█         | 52/500 [00:02<00:18, 23.71 examples/s][A
-Compute weighted pred 64:  12%|█▏        | 61/500 [00:02<00:14, 30.15 examples/s][A
-Compute weighted pred 64:  13%|█▎        | 65/500 [00:02<00:14, 30.41 examples/s][A
-Compute weighted pred 64:  14%|█▍        | 70/500 [00:03<00:23, 18.40 examples/s][A
-Compute weighted pred 64:  15%|█▌        | 75/500 [00:03<00:21, 19.62 examples/s][A
-Compute weighted pred 64:  17%|█▋        | 84/500 [00:03<00:19, 21.29 examples/s][A
-Compute weighted pred 64:  18%|█▊        | 92/500 [00:04<00:15, 26.98 examples/s][A
-Compute weighted pred 64:  19%|█▉        | 97/500 [00:04<00:14, 28.26 examples/s][A
-Compute weighted pred 64:  20%|██        | 102/500 [00:04<00:14, 27.80 examples/s][A
-Compute weighted pred 64:  22%|██▏       | 109/500 [00:04<00:14, 26.89 examples/s][A
-Compute weighted pred 64:  23%|██▎       | 115/500 [00:04<00:12, 30.63 examples/s][A
-Compute weighted pred 64:  25%|██▌       | 127/500 [00:05<00:08, 41.68 examples/s][A
-Compute weighted pred 64:  27%|██▋       | 135/500 [00:05<00:09, 40.29 examples/s][A
-Compute weighted pred 64:  28%|██▊       | 142/500 [00:05<00:08, 41.60 examples/s][A
-Compute weighted pred 64:  30%|███       | 152/500 [00:06<00:15, 23.20 examples/s][A
-Compute weighted pred 64:  32%|███▏      | 158/500 [00:06<00:14, 24.21 examples/s][A
-Compute weighted pred 64:  33%|███▎      | 165/500 [00:06<00:18, 18.59 examples/s][A
-Compute weighted pred 64:  36%|███▌      | 178/500 [00:07<00:11, 27.89 examples/s][A
-Compute weighted pred 64:  37%|███▋      | 184/500 [00:07<00:12, 26.19 examples/s][A
-Compute weighted pred 64:  38%|███▊      | 189/500 [00:07<00:12, 23.94 examples/s][A
-Compute weighted pred 64:  39%|███▉      | 196/500 [00:07<00:10, 27.71 examples/s][A
-Compute weighted pred 64:  41%|████      | 204/500 [00:07<00:08, 33.94 examples/s][A
-Compute weighted pred 64:  43%|████▎     | 214/500 [00:08<00:08, 35.26 examples/s][A
-Compute weighted pred 64:  45%|████▍     | 223/500 [00:08<00:07, 36.46 examples/s][A
-Compute weighted pred 64:  46%|████▌     | 229/500 [00:09<00:12, 21.04 examples/s][A
-Compute weighted pred 64:  47%|████▋     | 234/500 [00:09<00:12, 21.71 examples/s][A
-Compute weighted pred 64:  47%|████▋     | 237/500 [00:09<00:11, 22.65 examples/s][A
-Compute weighted pred 64:  49%|████▊     | 243/500 [00:09<00:10, 24.35 examples/s][A
-Compute weighted pred 64:  50%|████▉     | 248/500 [00:09<00:09, 26.93 examples/s][A
-Compute weighted pred 64:  51%|█████     | 256/500 [00:10<00:09, 25.72 examples/s][A
-Compute weighted pred 64:  52%|█████▏    | 261/500 [00:10<00:09, 25.02 examples/s][A
-Compute weighted pred 64:  55%|█████▍    | 274/500 [00:10<00:05, 40.02 examples/s][A
-Compute weighted pred 64:  56%|█████▌    | 280/500 [00:10<00:06, 35.79 examples/s][A
-Compute weighted pred 64:  57%|█████▋    | 285/500 [00:10<00:06, 31.18 examples/s][A
-Compute weighted pred 64:  58%|█████▊    | 289/500 [00:11<00:08, 24.74 examples/s][A
-Compute weighted pred 64:  59%|█████▉    | 296/500 [00:11<00:06, 29.18 examples/s][A
-Compute weighted pred 64:  61%|██████    | 304/500 [00:11<00:08, 22.65 examples/s][A
-Compute weighted pred 64:  62%|██████▏   | 308/500 [00:12<00:09, 19.56 examples/s][A
-Compute weighted pred 64:  64%|██████▎   | 318/500 [00:12<00:06, 29.16 examples/s][A
-Compute weighted pred 64:  65%|██████▌   | 327/500 [00:12<00:05, 31.42 examples/s][A
-Compute weighted pred 64:  66%|██████▋   | 332/500 [00:12<00:06, 24.46 examples/s][A
-Compute weighted pred 64:  68%|██████▊   | 340/500 [00:13<00:05, 30.48 examples/s][A
-Compute weighted pred 64:  69%|██████▉   | 347/500 [00:13<00:04, 31.11 examples/s][A
-Compute weighted pred 64:  70%|███████   | 352/500 [00:16<00:25,  5.84 examples/s][A
-Compute weighted pred 64:  71%|███████▏  | 357/500 [00:16<00:19,  7.17 examples/s][A
-Compute weighted pred 64:  72%|███████▏  | 360/500 [00:16<00:17,  8.14 examples/s][A
-Compute weighted pred 64:  73%|███████▎  | 365/500 [00:16<00:13, 10.17 examples/s][A
-Compute weighted pred 64:  75%|███████▍  | 374/500 [00:17<00:07, 16.06 examples/s][A
-Compute weighted pred 64:  77%|███████▋  | 383/500 [00:17<00:05, 22.96 examples/s][A
-Compute weighted pred 64:  79%|███████▊  | 393/500 [00:17<00:03, 27.35 examples/s][A
-Compute weighted pred 64:  81%|████████  | 403/500 [00:17<00:03, 29.18 examples/s][A
-Compute weighted pred 64:  82%|████████▏ | 412/500 [00:17<00:02, 35.99 examples/s][A
-Compute weighted pred 64:  84%|████████▍ | 420/500 [00:18<00:03, 25.90 examples/s][A
-Compute weighted pred 64:  85%|████████▌ | 426/500 [00:18<00:03, 22.57 examples/s][A
-Compute weighted pred 64:  86%|████████▌ | 430/500 [00:18<00:02, 24.00 examples/s][A
-Compute weighted pred 64:  87%|████████▋ | 434/500 [00:19<00:02, 23.40 examples/s][A
-Compute weighted pred 64:  88%|████████▊ | 440/500 [00:19<00:02, 20.95 examples/s][A
-Compute weighted pred 64:  89%|████████▊ | 443/500 [00:25<00:22,  2.48 examples/s][A
-Compute weighted pred 64:  90%|█████████ | 452/500 [00:25<00:11,  4.26 examples/s][A
-Compute weighted pred 64:  92%|█████████▏| 462/500 [00:25<00:05,  6.91 examples/s][A
-Compute weighted pred 64:  94%|█████████▎| 468/500 [00:25<00:03,  8.87 examples/s][A
-Compute weighted pred 64:  95%|█████████▍| 474/500 [00:26<00:02, 10.78 examples/s][A
-Compute weighted pred 64:  96%|█████████▌| 479/500 [00:26<00:01, 13.06 examples/s][A
-Compute weighted pred 64:  97%|█████████▋| 484/500 [00:27<00:01,  9.50 examples/s][A
-Compute weighted pred 64:  98%|█████████▊| 490/500 [00:27<00:00, 12.56 examples/s][A
-Compute weighted pred 64:  99%|█████████▉| 494/500 [00:27<00:00, 14.66 examples/s][A
-Compute weighted pred 64: 100%|█████████▉| 498/500 [00:28<00:00, 12.18 examples/s][ACompute weighted pred 64: 100%|██████████| 500/500 [00:28<00:00, 17.58 examples/s]
-
-Compute majority pred 64:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute majority pred 64:   6%|▋         | 32/500 [00:00<00:01, 306.24 examples/s][A
-Compute majority pred 64:  13%|█▎        | 65/500 [00:00<00:01, 314.04 examples/s][A
-Compute majority pred 64:  20%|█▉        | 99/500 [00:00<00:01, 317.20 examples/s][A
-Compute majority pred 64:  26%|██▌       | 131/500 [00:00<00:01, 317.12 examples/s][A
-Compute majority pred 64:  33%|███▎      | 163/500 [00:00<00:01, 316.45 examples/s][A
-Compute majority pred 64:  39%|███▉      | 195/500 [00:00<00:00, 315.16 examples/s][A
-Compute majority pred 64:  45%|████▌     | 227/500 [00:00<00:00, 315.37 examples/s][A
-Compute majority pred 64:  52%|█████▏    | 259/500 [00:00<00:00, 313.66 examples/s][A
-Compute majority pred 64:  58%|█████▊    | 292/500 [00:00<00:00, 315.55 examples/s][A
-Compute majority pred 64:  65%|██████▌   | 325/500 [00:01<00:00, 316.98 examples/s][A
-Compute majority pred 64:  72%|███████▏  | 358/500 [00:01<00:00, 318.13 examples/s][A
-Compute majority pred 64:  78%|███████▊  | 392/500 [00:01<00:00, 319.28 examples/s][A
-Compute majority pred 64:  85%|████████▌ | 425/500 [00:01<00:00, 319.43 examples/s][A
-Compute majority pred 64:  92%|█████████▏| 459/500 [00:01<00:00, 321.60 examples/s][A
-Compute majority pred 64:  99%|█████████▊| 493/500 [00:01<00:00, 322.52 examples/s][ACompute majority pred 64: 100%|██████████| 500/500 [00:01<00:00, 258.87 examples/s]
-
-Compute naive pred 64:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute naive pred 64:  97%|█████████▋| 487/500 [00:00<00:00, 4799.44 examples/s][ACompute naive pred 64: 100%|██████████| 500/500 [00:00<00:00, 1089.92 examples/s]
-Computing majority & weighted predictions:  78%|███████▊  | 7/9 [01:59<00:56, 28.04s/it]
-Subsample 128:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Subsample 128:  31%|███       | 154/500 [00:00<00:00, 1520.17 examples/s][A
-Subsample 128:  76%|███████▋  | 382/500 [00:00<00:00, 1514.11 examples/s][ASubsample 128: 100%|██████████| 500/500 [00:00<00:00, 552.03 examples/s] 
-
-Extract answers 128:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Extract answers 128:   0%|          | 1/500 [00:00<00:54,  9.20 examples/s][A
-Extract answers 128:   0%|          | 2/500 [00:00<01:17,  6.45 examples/s][A
-Extract answers 128:   1%|          | 4/500 [00:00<00:55,  8.92 examples/s][A
-Extract answers 128:   1%|          | 6/500 [00:00<00:48, 10.22 examples/s][A
-Extract answers 128:   2%|▏         | 8/500 [00:00<00:47, 10.41 examples/s][A
-Extract answers 128:   2%|▏         | 10/500 [00:00<00:44, 10.89 examples/s][A
-Extract answers 128:   2%|▏         | 12/500 [00:01<00:48, 10.02 examples/s][A
-Extract answers 128:   3%|▎         | 14/500 [00:01<00:44, 10.81 examples/s][A
-Extract answers 128:   3%|▎         | 16/500 [00:01<00:46, 10.31 examples/s][A
-Extract answers 128:   4%|▎         | 18/500 [00:01<00:45, 10.70 examples/s][A
-Extract answers 128:   4%|▍         | 20/500 [00:01<00:43, 11.02 examples/s][A
-Extract answers 128:   4%|▍         | 22/500 [00:02<00:42, 11.20 examples/s][A
-Extract answers 128:   5%|▍         | 24/500 [00:02<00:42, 11.24 examples/s][A
-Extract answers 128:   5%|▌         | 26/500 [00:02<00:42, 11.11 examples/s][A
-Extract answers 128:   6%|▌         | 28/500 [00:02<00:41, 11.49 examples/s][A
-Extract answers 128:   6%|▌         | 30/500 [00:02<00:40, 11.56 examples/s][A
-Extract answers 128:   6%|▋         | 32/500 [00:02<00:40, 11.46 examples/s][A
-Extract answers 128:   7%|▋         | 34/500 [00:03<00:41, 11.34 examples/s][A
-Extract answers 128:   7%|▋         | 36/500 [00:03<00:40, 11.45 examples/s][A
-Extract answers 128:   8%|▊         | 38/500 [00:03<00:40, 11.36 examples/s][A
-Extract answers 128:   8%|▊         | 40/500 [00:03<00:39, 11.76 examples/s][A
-Extract answers 128:   8%|▊         | 42/500 [00:03<00:38, 11.89 examples/s][A
-Extract answers 128:   9%|▉         | 44/500 [00:03<00:38, 11.90 examples/s][A
-Extract answers 128:   9%|▉         | 46/500 [00:04<00:37, 12.03 examples/s][A
-Extract answers 128:  10%|▉         | 48/500 [00:04<00:36, 12.33 examples/s][A
-Extract answers 128:  10%|█         | 50/500 [00:04<00:36, 12.43 examples/s][A
-Extract answers 128:  10%|█         | 52/500 [00:04<00:39, 11.44 examples/s][A
-Extract answers 128:  11%|█         | 54/500 [00:04<00:40, 11.13 examples/s][A
-Extract answers 128:  11%|█         | 56/500 [00:05<00:38, 11.52 examples/s][A
-Extract answers 128:  12%|█▏        | 58/500 [00:05<00:37, 11.84 examples/s][A
-Extract answers 128:  12%|█▏        | 60/500 [00:05<00:36, 12.06 examples/s][A
-Extract answers 128:  12%|█▏        | 62/500 [00:05<00:38, 11.49 examples/s][A
-Extract answers 128:  13%|█▎        | 64/500 [00:05<00:37, 11.54 examples/s][A
-Extract answers 128:  13%|█▎        | 66/500 [00:05<00:36, 11.76 examples/s][A
-Extract answers 128:  14%|█▎        | 68/500 [00:06<00:38, 11.30 examples/s][A
-Extract answers 128:  14%|█▍        | 70/500 [00:06<00:39, 10.81 examples/s][A
-Extract answers 128:  14%|█▍        | 72/500 [00:06<00:38, 11.20 examples/s][A
-Extract answers 128:  15%|█▍        | 74/500 [00:06<00:39, 10.82 examples/s][A
-Extract answers 128:  15%|█▌        | 76/500 [00:06<00:41, 10.30 examples/s][A
-Extract answers 128:  16%|█▌        | 78/500 [00:06<00:38, 10.89 examples/s][A
-Extract answers 128:  16%|█▌        | 80/500 [00:07<00:38, 10.87 examples/s][A
-Extract answers 128:  16%|█▋        | 82/500 [00:07<00:37, 11.25 examples/s][A
-Extract answers 128:  17%|█▋        | 84/500 [00:07<00:38, 10.85 examples/s][A
-Extract answers 128:  17%|█▋        | 86/500 [00:07<00:38, 10.86 examples/s][A
-Extract answers 128:  18%|█▊        | 88/500 [00:07<00:36, 11.31 examples/s][A
-Extract answers 128:  18%|█▊        | 90/500 [00:08<00:35, 11.68 examples/s][A
-Extract answers 128:  18%|█▊        | 92/500 [00:08<00:34, 11.93 examples/s][A
-Extract answers 128:  19%|█▉        | 94/500 [00:08<00:34, 11.63 examples/s][A
-Extract answers 128:  19%|█▉        | 96/500 [00:08<00:36, 11.15 examples/s][A
-Extract answers 128:  20%|█▉        | 98/500 [00:08<00:37, 10.69 examples/s][A
-Extract answers 128:  20%|██        | 100/500 [00:09<00:41,  9.55 examples/s][A
-Extract answers 128:  20%|██        | 102/500 [00:09<00:39,  9.98 examples/s][A
-Extract answers 128:  21%|██        | 104/500 [00:09<00:39, 10.04 examples/s][A
-Extract answers 128:  21%|██        | 106/500 [00:09<00:38, 10.36 examples/s][A
-Extract answers 128:  22%|██▏       | 108/500 [00:09<00:36, 10.64 examples/s][A
-Extract answers 128:  22%|██▏       | 110/500 [00:09<00:36, 10.54 examples/s][A
-Extract answers 128:  22%|██▏       | 112/500 [00:10<00:35, 10.99 examples/s][A
-Extract answers 128:  23%|██▎       | 114/500 [00:10<00:34, 11.26 examples/s][A
-Extract answers 128:  23%|██▎       | 116/500 [00:10<00:34, 11.11 examples/s][A
-Extract answers 128:  24%|██▎       | 118/500 [00:10<00:32, 11.64 examples/s][A
-Extract answers 128:  24%|██▍       | 120/500 [00:10<00:31, 12.00 examples/s][A
-Extract answers 128:  24%|██▍       | 122/500 [00:10<00:32, 11.80 examples/s][A
-Extract answers 128:  25%|██▍       | 124/500 [00:11<00:32, 11.67 examples/s][A
-Extract answers 128:  25%|██▌       | 126/500 [00:11<00:32, 11.68 examples/s][A
-Extract answers 128:  26%|██▌       | 128/500 [00:11<00:33, 11.20 examples/s][A
-Extract answers 128:  26%|██▌       | 130/500 [00:11<00:32, 11.48 examples/s][A
-Extract answers 128:  26%|██▋       | 132/500 [00:11<00:31, 11.69 examples/s][A
-Extract answers 128:  27%|██▋       | 134/500 [00:12<00:30, 11.91 examples/s][A
-Extract answers 128:  27%|██▋       | 136/500 [00:12<00:30, 11.92 examples/s][A
-Extract answers 128:  28%|██▊       | 138/500 [00:12<00:30, 12.01 examples/s][A
-Extract answers 128:  28%|██▊       | 140/500 [00:12<00:30, 11.73 examples/s][A
-Extract answers 128:  28%|██▊       | 142/500 [00:12<00:29, 11.97 examples/s][A
-Extract answers 128:  29%|██▉       | 144/500 [00:12<00:29, 11.99 examples/s][A
-Extract answers 128:  29%|██▉       | 146/500 [00:13<00:32, 10.95 examples/s][A
-Extract answers 128:  30%|██▉       | 148/500 [00:13<00:33, 10.66 examples/s][A
-Extract answers 128:  30%|███       | 150/500 [00:13<00:31, 11.26 examples/s][A
-Extract answers 128:  30%|███       | 152/500 [00:13<00:30, 11.28 examples/s][A
-Extract answers 128:  31%|███       | 154/500 [00:13<00:31, 11.12 examples/s][A
-Extract answers 128:  31%|███       | 156/500 [00:13<00:30, 11.13 examples/s][A
-Extract answers 128:  32%|███▏      | 158/500 [00:14<00:31, 10.96 examples/s][A
-Extract answers 128:  32%|███▏      | 160/500 [00:14<00:30, 11.26 examples/s][A
-Extract answers 128:  32%|███▏      | 162/500 [00:14<00:28, 11.73 examples/s][A
-Extract answers 128:  33%|███▎      | 164/500 [00:14<00:29, 11.29 examples/s][A
-Extract answers 128:  33%|███▎      | 166/500 [00:14<00:31, 10.52 examples/s][A
-Extract answers 128:  34%|███▎      | 168/500 [00:15<00:30, 10.80 examples/s][A
-Extract answers 128:  34%|███▍      | 170/500 [00:15<00:29, 11.01 examples/s][A
-Extract answers 128:  34%|███▍      | 172/500 [00:15<00:30, 10.69 examples/s][A
-Extract answers 128:  35%|███▍      | 174/500 [00:15<00:29, 11.20 examples/s][A
-Extract answers 128:  35%|███▌      | 176/500 [00:15<00:28, 11.57 examples/s][A
-Extract answers 128:  36%|███▌      | 178/500 [00:15<00:28, 11.33 examples/s][A
-Extract answers 128:  36%|███▌      | 180/500 [00:16<00:29, 10.80 examples/s][A
-Extract answers 128:  36%|███▋      | 182/500 [00:16<00:29, 10.83 examples/s][A
-Extract answers 128:  37%|███▋      | 184/500 [00:16<00:28, 11.09 examples/s][A
-Extract answers 128:  37%|███▋      | 186/500 [00:16<00:29, 10.50 examples/s][A
-Extract answers 128:  38%|███▊      | 188/500 [00:16<00:27, 11.18 examples/s][A
-Extract answers 128:  38%|███▊      | 190/500 [00:17<00:27, 11.14 examples/s][A
-Extract answers 128:  38%|███▊      | 192/500 [00:17<00:27, 11.39 examples/s][A
-Extract answers 128:  39%|███▉      | 194/500 [00:17<00:26, 11.39 examples/s][A
-Extract answers 128:  39%|███▉      | 196/500 [00:17<00:26, 11.57 examples/s][A
-Extract answers 128:  40%|███▉      | 198/500 [00:17<00:25, 11.80 examples/s][A
-Extract answers 128:  40%|████      | 200/500 [00:17<00:25, 11.87 examples/s][A
-Extract answers 128:  40%|████      | 202/500 [00:18<00:24, 12.07 examples/s][A
-Extract answers 128:  41%|████      | 204/500 [00:18<00:25, 11.53 examples/s][A
-Extract answers 128:  41%|████      | 206/500 [00:18<00:27, 10.62 examples/s][A
-Extract answers 128:  42%|████▏     | 208/500 [00:18<00:27, 10.68 examples/s][A
-Extract answers 128:  42%|████▏     | 210/500 [00:18<00:25, 11.25 examples/s][A
-Extract answers 128:  42%|████▏     | 212/500 [00:18<00:24, 11.65 examples/s][A
-Extract answers 128:  43%|████▎     | 214/500 [00:19<00:25, 11.27 examples/s][A
-Extract answers 128:  43%|████▎     | 216/500 [00:19<00:25, 11.18 examples/s][A
-Extract answers 128:  44%|████▎     | 218/500 [00:19<00:26, 10.77 examples/s][A
-Extract answers 128:  44%|████▍     | 220/500 [00:19<00:26, 10.72 examples/s][A
-Extract answers 128:  44%|████▍     | 222/500 [00:19<00:25, 11.08 examples/s][A
-Extract answers 128:  45%|████▍     | 224/500 [00:20<00:26, 10.53 examples/s][A
-Extract answers 128:  45%|████▌     | 226/500 [00:20<00:25, 10.57 examples/s][A
-Extract answers 128:  46%|████▌     | 228/500 [00:20<00:25, 10.85 examples/s][A
-Extract answers 128:  46%|████▌     | 230/500 [00:20<00:27,  9.89 examples/s][A
-Extract answers 128:  46%|████▋     | 232/500 [00:20<00:25, 10.56 examples/s][A
-Extract answers 128:  47%|████▋     | 234/500 [00:21<00:25, 10.51 examples/s][A
-Extract answers 128:  47%|████▋     | 236/500 [00:21<00:24, 10.61 examples/s][A
-Extract answers 128:  48%|████▊     | 238/500 [00:21<00:24, 10.54 examples/s][A
-Extract answers 128:  48%|████▊     | 240/500 [00:21<00:25, 10.20 examples/s][A
-Extract answers 128:  48%|████▊     | 242/500 [00:21<00:24, 10.58 examples/s][A
-Extract answers 128:  49%|████▉     | 244/500 [00:21<00:23, 11.01 examples/s][A
-Extract answers 128:  49%|████▉     | 246/500 [00:22<00:22, 11.42 examples/s][A
-Extract answers 128:  50%|████▉     | 248/500 [00:22<00:22, 11.22 examples/s][A
-Extract answers 128:  50%|█████     | 250/500 [00:22<00:24, 10.20 examples/s][A
-Extract answers 128:  50%|█████     | 252/500 [00:22<00:23, 10.75 examples/s][A
-Extract answers 128:  51%|█████     | 254/500 [00:22<00:22, 10.90 examples/s][A
-Extract answers 128:  51%|█████     | 256/500 [00:23<00:22, 10.89 examples/s][A
-Extract answers 128:  52%|█████▏    | 258/500 [00:23<00:22, 10.99 examples/s][A
-Extract answers 128:  52%|█████▏    | 260/500 [00:23<00:20, 11.47 examples/s][A
-Extract answers 128:  52%|█████▏    | 262/500 [00:23<00:21, 11.18 examples/s][A
-Extract answers 128:  53%|█████▎    | 264/500 [00:23<00:20, 11.65 examples/s][A
-Extract answers 128:  53%|█████▎    | 266/500 [00:23<00:20, 11.64 examples/s][A
-Extract answers 128:  54%|█████▎    | 268/500 [00:24<00:20, 11.36 examples/s][A
-Extract answers 128:  54%|█████▍    | 270/500 [00:24<00:19, 11.90 examples/s][A
-Extract answers 128:  54%|█████▍    | 272/500 [00:24<00:18, 12.17 examples/s][A
-Extract answers 128:  55%|█████▍    | 274/500 [00:24<00:18, 11.99 examples/s][A
-Extract answers 128:  55%|█████▌    | 276/500 [00:24<00:18, 12.09 examples/s][A
-Extract answers 128:  56%|█████▌    | 278/500 [00:24<00:19, 11.64 examples/s][A
-Extract answers 128:  56%|█████▌    | 280/500 [00:25<00:18, 11.73 examples/s][A
-Extract answers 128:  56%|█████▋    | 282/500 [00:25<00:18, 11.78 examples/s][A
-Extract answers 128:  57%|█████▋    | 284/500 [00:25<00:18, 11.53 examples/s][A
-Extract answers 128:  57%|█████▋    | 286/500 [00:25<00:19, 11.25 examples/s][A
-Extract answers 128:  58%|█████▊    | 288/500 [00:25<00:18, 11.23 examples/s][A
-Extract answers 128:  58%|█████▊    | 290/500 [00:26<00:18, 11.17 examples/s][A
-Extract answers 128:  58%|█████▊    | 292/500 [00:26<00:18, 11.20 examples/s][A
-Extract answers 128:  59%|█████▉    | 294/500 [00:26<00:19, 10.55 examples/s][A
-Extract answers 128:  59%|█████▉    | 296/500 [00:26<00:18, 11.02 examples/s][A
-Extract answers 128:  60%|█████▉    | 298/500 [00:26<00:18, 11.01 examples/s][A
-Extract answers 128:  60%|██████    | 300/500 [00:26<00:19, 10.16 examples/s][A
-Extract answers 128:  60%|██████    | 302/500 [00:27<00:18, 10.73 examples/s][A
-Extract answers 128:  61%|██████    | 304/500 [00:27<00:21,  9.31 examples/s][A
-Extract answers 128:  61%|██████    | 306/500 [00:27<00:20,  9.56 examples/s][A
-Extract answers 128:  62%|██████▏   | 308/500 [00:27<00:19,  9.88 examples/s][A
-Extract answers 128:  62%|██████▏   | 310/500 [00:27<00:18, 10.31 examples/s][A
-Extract answers 128:  62%|██████▏   | 312/500 [00:28<00:17, 10.81 examples/s][A
-Extract answers 128:  63%|██████▎   | 314/500 [00:28<00:17, 10.66 examples/s][A
-Extract answers 128:  63%|██████▎   | 316/500 [00:28<00:16, 10.93 examples/s][A
-Extract answers 128:  64%|██████▎   | 318/500 [00:28<00:16, 11.28 examples/s][A
-Extract answers 128:  64%|██████▍   | 320/500 [00:28<00:16, 10.94 examples/s][A
-Extract answers 128:  64%|██████▍   | 322/500 [00:29<00:16, 10.93 examples/s][A
-Extract answers 128:  65%|██████▍   | 324/500 [00:29<00:15, 11.15 examples/s][A
-Extract answers 128:  65%|██████▌   | 326/500 [00:29<00:15, 11.43 examples/s][A
-Extract answers 128:  66%|██████▌   | 328/500 [00:29<00:15, 11.35 examples/s][A
-Extract answers 128:  66%|██████▌   | 330/500 [00:29<00:14, 11.59 examples/s][A
-Extract answers 128:  66%|██████▋   | 332/500 [00:29<00:15, 10.74 examples/s][A
-Extract answers 128:  67%|██████▋   | 334/500 [00:30<00:15, 11.06 examples/s][A
-Extract answers 128:  67%|██████▋   | 336/500 [00:30<00:14, 11.43 examples/s][A
-Extract answers 128:  68%|██████▊   | 338/500 [00:30<00:13, 11.75 examples/s][A
-Extract answers 128:  68%|██████▊   | 340/500 [00:30<00:13, 11.44 examples/s][A
-Extract answers 128:  68%|██████▊   | 342/500 [00:30<00:14, 10.65 examples/s][A
-Extract answers 128:  69%|██████▉   | 344/500 [00:30<00:14, 11.12 examples/s][A
-Extract answers 128:  69%|██████▉   | 346/500 [00:31<00:13, 11.58 examples/s][A
-Extract answers 128:  70%|██████▉   | 348/500 [00:31<00:13, 11.27 examples/s][A
-Extract answers 128:  70%|███████   | 350/500 [00:31<00:12, 11.55 examples/s][A
-Extract answers 128:  70%|███████   | 352/500 [00:31<00:13, 11.04 examples/s][A
-Extract answers 128:  71%|███████   | 354/500 [00:31<00:12, 11.35 examples/s][A
-Extract answers 128:  71%|███████   | 356/500 [00:32<00:12, 11.51 examples/s][A
-Extract answers 128:  72%|███████▏  | 358/500 [00:32<00:13, 10.73 examples/s][A
-Extract answers 128:  72%|███████▏  | 360/500 [00:32<00:13, 10.72 examples/s][A
-Extract answers 128:  72%|███████▏  | 362/500 [00:32<00:12, 10.99 examples/s][A
-Extract answers 128:  73%|███████▎  | 364/500 [00:32<00:12, 11.27 examples/s][A
-Extract answers 128:  73%|███████▎  | 366/500 [00:32<00:12, 10.82 examples/s][A
-Extract answers 128:  74%|███████▎  | 368/500 [00:33<00:11, 11.47 examples/s][A
-Extract answers 128:  74%|███████▍  | 370/500 [00:33<00:11, 11.79 examples/s][A
-Extract answers 128:  74%|███████▍  | 372/500 [00:33<00:10, 12.06 examples/s][A
-Extract answers 128:  75%|███████▍  | 374/500 [00:33<00:10, 11.55 examples/s][A
-Extract answers 128:  75%|███████▌  | 376/500 [00:33<00:10, 11.98 examples/s][A
-Extract answers 128:  76%|███████▌  | 378/500 [00:33<00:10, 11.74 examples/s][A
-Extract answers 128:  76%|███████▌  | 380/500 [00:34<00:10, 11.63 examples/s][A
-Extract answers 128:  76%|███████▋  | 382/500 [00:34<00:10, 10.82 examples/s][A
-Extract answers 128:  77%|███████▋  | 384/500 [00:34<00:10, 10.79 examples/s][A
-Extract answers 128:  77%|███████▋  | 386/500 [00:34<00:10, 11.10 examples/s][A
-Extract answers 128:  78%|███████▊  | 388/500 [00:34<00:09, 11.56 examples/s][A
-Extract answers 128:  78%|███████▊  | 390/500 [00:35<00:09, 11.28 examples/s][A
-Extract answers 128:  78%|███████▊  | 392/500 [00:35<00:09, 11.51 examples/s][A
-Extract answers 128:  79%|███████▉  | 394/500 [00:35<00:09, 11.38 examples/s][A
-Extract answers 128:  79%|███████▉  | 396/500 [00:35<00:09, 11.48 examples/s][A
-Extract answers 128:  80%|███████▉  | 398/500 [00:35<00:08, 11.86 examples/s][A
-Extract answers 128:  80%|████████  | 400/500 [00:35<00:08, 11.91 examples/s][A
-Extract answers 128:  80%|████████  | 402/500 [00:36<00:08, 11.87 examples/s][A
-Extract answers 128:  81%|████████  | 404/500 [00:36<00:08, 11.88 examples/s][A
-Extract answers 128:  81%|████████  | 406/500 [00:36<00:07, 12.32 examples/s][A
-Extract answers 128:  82%|████████▏ | 408/500 [00:36<00:07, 12.59 examples/s][A
-Extract answers 128:  82%|████████▏ | 410/500 [00:36<00:08, 10.80 examples/s][A
-Extract answers 128:  82%|████████▏ | 412/500 [00:36<00:07, 11.26 examples/s][A
-Extract answers 128:  83%|████████▎ | 414/500 [00:37<00:07, 11.30 examples/s][A
-Extract answers 128:  83%|████████▎ | 416/500 [00:37<00:07, 11.51 examples/s][A
-Extract answers 128:  84%|████████▎ | 418/500 [00:37<00:07, 11.28 examples/s][A
-Extract answers 128:  84%|████████▍ | 420/500 [00:37<00:07, 10.24 examples/s][A
-Extract answers 128:  84%|████████▍ | 422/500 [00:38<00:08,  8.74 examples/s][A
-Extract answers 128:  85%|████████▍ | 423/500 [00:38<00:08,  8.90 examples/s][A
-Extract answers 128:  85%|████████▌ | 425/500 [00:38<00:07,  9.88 examples/s][A
-Extract answers 128:  85%|████████▌ | 427/500 [00:38<00:07,  9.18 examples/s][A
-Extract answers 128:  86%|████████▌ | 429/500 [00:38<00:07,  9.92 examples/s][A
-Extract answers 128:  86%|████████▌ | 431/500 [00:38<00:06, 10.42 examples/s][A
-Extract answers 128:  87%|████████▋ | 433/500 [00:39<00:06, 10.34 examples/s][A
-Extract answers 128:  87%|████████▋ | 435/500 [00:39<00:06, 10.69 examples/s][A
-Extract answers 128:  87%|████████▋ | 437/500 [00:39<00:06, 10.33 examples/s][A
-Extract answers 128:  88%|████████▊ | 439/500 [00:39<00:06,  9.83 examples/s][A
-Extract answers 128:  88%|████████▊ | 441/500 [00:39<00:06,  9.47 examples/s][A
-Extract answers 128:  89%|████████▊ | 443/500 [00:40<00:05, 10.14 examples/s][A
-Extract answers 128:  89%|████████▉ | 445/500 [00:40<00:05, 10.35 examples/s][A
-Extract answers 128:  89%|████████▉ | 447/500 [00:40<00:05, 10.44 examples/s][A
-Extract answers 128:  90%|████████▉ | 449/500 [00:40<00:04, 11.12 examples/s][A
-Extract answers 128:  90%|█████████ | 451/500 [00:40<00:04, 11.59 examples/s][A
-Extract answers 128:  91%|█████████ | 453/500 [00:40<00:04, 11.54 examples/s][A
-Extract answers 128:  91%|█████████ | 455/500 [00:41<00:04, 11.18 examples/s][A
-Extract answers 128:  91%|█████████▏| 457/500 [00:41<00:03, 11.35 examples/s][A
-Extract answers 128:  92%|█████████▏| 459/500 [00:41<00:03, 11.90 examples/s][A
-Extract answers 128:  92%|█████████▏| 461/500 [00:41<00:03, 11.77 examples/s][A
-Extract answers 128:  93%|█████████▎| 463/500 [00:41<00:03, 12.04 examples/s][A
-Extract answers 128:  93%|█████████▎| 465/500 [00:41<00:02, 12.04 examples/s][A
-Extract answers 128:  93%|█████████▎| 467/500 [00:42<00:02, 12.03 examples/s][A
-Extract answers 128:  94%|█████████▍| 469/500 [00:42<00:02, 11.83 examples/s][A
-Extract answers 128:  94%|█████████▍| 471/500 [00:42<00:02, 11.86 examples/s][A
-Extract answers 128:  95%|█████████▍| 473/500 [00:42<00:02, 11.93 examples/s][A
-Extract answers 128:  95%|█████████▌| 475/500 [00:42<00:02, 11.63 examples/s][A
-Extract answers 128:  95%|█████████▌| 477/500 [00:42<00:01, 11.81 examples/s][A
-Extract answers 128:  96%|█████████▌| 479/500 [00:43<00:01, 11.61 examples/s][A
-Extract answers 128:  96%|█████████▌| 481/500 [00:43<00:01, 11.05 examples/s][A
-Extract answers 128:  97%|█████████▋| 483/500 [00:43<00:01, 10.62 examples/s][A
-Extract answers 128:  97%|█████████▋| 485/500 [00:43<00:01, 10.16 examples/s][A
-Extract answers 128:  97%|█████████▋| 487/500 [00:43<00:01, 10.64 examples/s][A
-Extract answers 128:  98%|█████████▊| 489/500 [00:44<00:00, 11.31 examples/s][A
-Extract answers 128:  98%|█████████▊| 491/500 [00:44<00:00, 11.73 examples/s][A
-Extract answers 128:  99%|█████████▊| 493/500 [00:44<00:00, 11.66 examples/s][A
-Extract answers 128:  99%|█████████▉| 495/500 [00:44<00:00, 10.81 examples/s][A
-Extract answers 128:  99%|█████████▉| 497/500 [00:44<00:00, 10.48 examples/s][A
-Extract answers 128: 100%|█████████▉| 499/500 [00:45<00:00, 10.43 examples/s][AExtract answers 128: 100%|██████████| 500/500 [00:45<00:00, 10.97 examples/s]
-
-Compute weighted pred 128:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute weighted pred 128:   0%|          | 2/500 [00:01<04:57,  1.67 examples/s][A
-Compute weighted pred 128:   2%|▏         | 8/500 [00:01<01:14,  6.60 examples/s][A
-Compute weighted pred 128:   2%|▏         | 12/500 [00:01<00:49,  9.91 examples/s][A
-Compute weighted pred 128:   3%|▎         | 16/500 [00:02<00:56,  8.54 examples/s][A
-Compute weighted pred 128:   4%|▍         | 21/500 [00:02<00:39, 12.07 examples/s][A
-Compute weighted pred 128:   5%|▍         | 24/500 [00:02<00:34, 13.84 examples/s][A
-Compute weighted pred 128:   6%|▌         | 29/500 [00:02<00:30, 15.37 examples/s][A
-Compute weighted pred 128:   7%|▋         | 34/500 [00:02<00:24, 18.93 examples/s][A
-Compute weighted pred 128:   7%|▋         | 37/500 [00:03<00:27, 16.66 examples/s][A
-Compute weighted pred 128:   9%|▉         | 44/500 [00:03<00:23, 19.73 examples/s][A
-Compute weighted pred 128:  10%|▉         | 49/500 [00:03<00:20, 22.29 examples/s][A
-Compute weighted pred 128:  10%|█         | 52/500 [00:04<00:33, 13.27 examples/s][A
-Compute weighted pred 128:  12%|█▏        | 59/500 [00:04<00:22, 19.80 examples/s][A
-Compute weighted pred 128:  13%|█▎        | 63/500 [00:04<00:20, 21.07 examples/s][A
-Compute weighted pred 128:  13%|█▎        | 67/500 [00:05<00:35, 12.21 examples/s][A
-Compute weighted pred 128:  14%|█▍        | 70/500 [00:06<01:10,  6.12 examples/s][A
-Compute weighted pred 128:  15%|█▌        | 75/500 [00:06<00:55,  7.70 examples/s][A
-Compute weighted pred 128:  16%|█▋        | 82/500 [00:06<00:34, 11.95 examples/s][A
-Compute weighted pred 128:  17%|█▋        | 86/500 [00:07<00:45,  9.06 examples/s][A
-Compute weighted pred 128:  19%|█▉        | 94/500 [00:07<00:30, 13.26 examples/s][A
-Compute weighted pred 128:  19%|█▉        | 97/500 [00:08<00:29, 13.62 examples/s][A
-Compute weighted pred 128:  20%|██        | 100/500 [00:08<00:29, 13.59 examples/s][A
-Compute weighted pred 128:  21%|██        | 103/500 [00:08<00:31, 12.52 examples/s][A
-Compute weighted pred 128:  21%|██        | 105/500 [00:08<00:37, 10.56 examples/s][A
-Compute weighted pred 128:  22%|██▏       | 110/500 [00:09<00:46,  8.31 examples/s][A
-Compute weighted pred 128:  23%|██▎       | 113/500 [00:09<00:41,  9.44 examples/s][A
-Compute weighted pred 128:  23%|██▎       | 115/500 [00:10<00:38, 10.06 examples/s][A
-Compute weighted pred 128:  24%|██▍       | 121/500 [00:10<00:24, 15.45 examples/s][A
-Compute weighted pred 128:  25%|██▍       | 124/500 [00:10<00:26, 14.20 examples/s][A
-Compute weighted pred 128:  25%|██▌       | 127/500 [00:10<00:27, 13.60 examples/s][A
-Compute weighted pred 128:  26%|██▋       | 132/500 [00:10<00:20, 18.03 examples/s][A
-Compute weighted pred 128:  27%|██▋       | 135/500 [00:10<00:19, 18.72 examples/s][A
-Compute weighted pred 128:  28%|██▊       | 140/500 [00:11<00:16, 22.33 examples/s][A
-Compute weighted pred 128:  29%|██▉       | 145/500 [00:11<00:13, 25.90 examples/s][A
-Compute weighted pred 128:  30%|██▉       | 148/500 [00:12<00:36,  9.77 examples/s][A
-Compute weighted pred 128:  30%|███       | 152/500 [00:12<00:32, 10.66 examples/s][A
-Compute weighted pred 128:  31%|███       | 154/500 [00:12<00:32, 10.80 examples/s][A
-Compute weighted pred 128:  31%|███▏      | 157/500 [00:12<00:27, 12.48 examples/s][A
-Compute weighted pred 128:  32%|███▏      | 161/500 [00:12<00:21, 15.45 examples/s][A
-Compute weighted pred 128:  33%|███▎      | 165/500 [00:14<00:44,  7.54 examples/s][A
-Compute weighted pred 128:  34%|███▍      | 170/500 [00:14<00:30, 10.87 examples/s][A
-Compute weighted pred 128:  35%|███▍      | 174/500 [00:14<00:27, 12.01 examples/s][A
-Compute weighted pred 128:  35%|███▌      | 177/500 [00:14<00:23, 13.77 examples/s][A
-Compute weighted pred 128:  36%|███▌      | 180/500 [00:14<00:28, 11.31 examples/s][A
-Compute weighted pred 128:  36%|███▋      | 182/500 [00:15<00:26, 12.23 examples/s][A
-Compute weighted pred 128:  37%|███▋      | 184/500 [00:15<00:25, 12.51 examples/s][A
-Compute weighted pred 128:  38%|███▊      | 189/500 [00:15<00:27, 11.18 examples/s][A
-Compute weighted pred 128:  39%|███▊      | 193/500 [00:15<00:21, 14.13 examples/s][A
-Compute weighted pred 128:  39%|███▉      | 196/500 [00:16<00:22, 13.55 examples/s][A
-Compute weighted pred 128:  41%|████      | 204/500 [00:16<00:13, 21.26 examples/s][A
-Compute weighted pred 128:  42%|████▏     | 209/500 [00:16<00:14, 20.18 examples/s][A
-Compute weighted pred 128:  43%|████▎     | 214/500 [00:16<00:14, 19.08 examples/s][A
-Compute weighted pred 128:  44%|████▍     | 220/500 [00:17<00:13, 20.54 examples/s][A
-Compute weighted pred 128:  45%|████▌     | 225/500 [00:22<01:29,  3.07 examples/s][A
-Compute weighted pred 128:  46%|████▌     | 229/500 [00:22<01:16,  3.55 examples/s][A
-Compute weighted pred 128:  47%|████▋     | 233/500 [00:22<01:00,  4.40 examples/s][A
-Compute weighted pred 128:  47%|████▋     | 237/500 [00:23<00:55,  4.74 examples/s][A
-Compute weighted pred 128:  48%|████▊     | 239/500 [00:23<00:49,  5.28 examples/s][A
-Compute weighted pred 128:  49%|████▉     | 246/500 [00:23<00:29,  8.69 examples/s][A
-Compute weighted pred 128:  50%|████▉     | 249/500 [00:24<00:33,  7.56 examples/s][A
-Compute weighted pred 128:  51%|█████     | 253/500 [00:24<00:25,  9.75 examples/s][A
-Compute weighted pred 128:  51%|█████     | 256/500 [00:24<00:21, 11.49 examples/s][A
-Compute weighted pred 128:  52%|█████▏    | 261/500 [00:24<00:16, 14.79 examples/s][A
-Compute weighted pred 128:  53%|█████▎    | 265/500 [00:25<00:14, 15.91 examples/s][A
-Compute weighted pred 128:  55%|█████▍    | 274/500 [00:25<00:08, 26.28 examples/s][A
-Compute weighted pred 128:  56%|█████▌    | 280/500 [00:25<00:10, 21.02 examples/s][A
-Compute weighted pred 128:  57%|█████▋    | 284/500 [00:25<00:10, 21.14 examples/s][A
-Compute weighted pred 128:  58%|█████▊    | 289/500 [00:26<00:12, 17.12 examples/s][A
-Compute weighted pred 128:  59%|█████▉    | 294/500 [00:26<00:11, 18.55 examples/s][A
-Compute weighted pred 128:  59%|█████▉    | 297/500 [00:26<00:12, 16.39 examples/s][A
-Compute weighted pred 128:  60%|██████    | 301/500 [00:27<00:15, 12.46 examples/s][A
-Compute weighted pred 128:  61%|██████    | 305/500 [00:27<00:16, 11.50 examples/s][A
-Compute weighted pred 128:  61%|██████▏   | 307/500 [00:27<00:17, 11.32 examples/s][A
-Compute weighted pred 128:  62%|██████▏   | 309/500 [00:28<00:16, 11.80 examples/s][A
-Compute weighted pred 128:  63%|██████▎   | 317/500 [00:28<00:09, 19.57 examples/s][A
-Compute weighted pred 128:  64%|██████▍   | 321/500 [00:28<00:10, 17.72 examples/s][A
-Compute weighted pred 128:  65%|██████▌   | 325/500 [00:28<00:08, 20.53 examples/s][A
-Compute weighted pred 128:  66%|██████▌   | 328/500 [00:29<00:13, 12.46 examples/s][A
-Compute weighted pred 128:  66%|██████▋   | 332/500 [00:29<00:18,  9.15 examples/s][A
-Compute weighted pred 128:  67%|██████▋   | 335/500 [00:30<00:16, 10.21 examples/s][A
-Compute weighted pred 128:  68%|██████▊   | 340/500 [00:30<00:13, 11.72 examples/s][A
-Compute weighted pred 128:  69%|██████▉   | 347/500 [00:31<00:13, 11.10 examples/s][A
-Compute weighted pred 128:  70%|███████   | 351/500 [00:31<00:13, 11.28 examples/s][A
-Compute weighted pred 128:  71%|███████   | 353/500 [00:32<00:24,  6.06 examples/s][A
-Compute weighted pred 128:  71%|███████   | 356/500 [00:32<00:19,  7.48 examples/s][A
-Compute weighted pred 128:  72%|███████▏  | 359/500 [00:32<00:15,  9.04 examples/s][A
-Compute weighted pred 128:  73%|███████▎  | 363/500 [00:32<00:11, 11.42 examples/s][A
-Compute weighted pred 128:  73%|███████▎  | 367/500 [00:33<00:09, 14.10 examples/s][A
-Compute weighted pred 128:  75%|███████▍  | 374/500 [00:33<00:06, 20.71 examples/s][A
-Compute weighted pred 128:  76%|███████▌  | 381/500 [00:33<00:05, 23.51 examples/s][A
-Compute weighted pred 128:  77%|███████▋  | 384/500 [00:33<00:05, 20.12 examples/s][A
-Compute weighted pred 128:  78%|███████▊  | 390/500 [00:33<00:04, 25.82 examples/s][A
-Compute weighted pred 128:  79%|███████▉  | 394/500 [00:34<00:04, 24.10 examples/s][A
-Compute weighted pred 128:  79%|███████▉  | 397/500 [00:34<00:04, 23.21 examples/s][A
-Compute weighted pred 128:  80%|████████  | 402/500 [00:34<00:04, 24.18 examples/s][A
-Compute weighted pred 128:  82%|████████▏ | 409/500 [00:34<00:03, 26.17 examples/s][A
-Compute weighted pred 128:  83%|████████▎ | 413/500 [00:34<00:03, 22.94 examples/s][A
-Compute weighted pred 128:  83%|████████▎ | 417/500 [00:35<00:05, 15.11 examples/s][A
-Compute weighted pred 128:  84%|████████▍ | 420/500 [00:35<00:05, 15.12 examples/s][A
-Compute weighted pred 128:  84%|████████▍ | 422/500 [00:35<00:05, 13.54 examples/s][A
-Compute weighted pred 128:  85%|████████▌ | 426/500 [00:36<00:08,  8.45 examples/s][A
-Compute weighted pred 128:  86%|████████▌ | 429/500 [00:36<00:06, 10.19 examples/s][A
-Compute weighted pred 128:  86%|████████▋ | 432/500 [00:36<00:05, 11.57 examples/s][A
-Compute weighted pred 128:  87%|████████▋ | 436/500 [00:37<00:04, 13.90 examples/s][A
-Compute weighted pred 128:  88%|████████▊ | 440/500 [00:40<00:18,  3.19 examples/s][A
-Compute weighted pred 128:  89%|████████▊ | 443/500 [00:46<00:43,  1.30 examples/s][A
-Compute weighted pred 128:  89%|████████▉ | 445/500 [00:46<00:34,  1.58 examples/s][A
-Compute weighted pred 128:  89%|████████▉ | 447/500 [00:47<00:30,  1.72 examples/s][A
-Compute weighted pred 128:  91%|█████████ | 455/500 [00:47<00:12,  3.60 examples/s][A
-Compute weighted pred 128:  91%|█████████▏| 457/500 [00:47<00:10,  4.13 examples/s][A
-Compute weighted pred 128:  93%|█████████▎| 464/500 [00:48<00:05,  7.19 examples/s][A
-Compute weighted pred 128:  93%|█████████▎| 467/500 [00:48<00:03,  8.38 examples/s][A
-Compute weighted pred 128:  94%|█████████▍| 471/500 [00:48<00:02, 10.63 examples/s][A
-Compute weighted pred 128:  95%|█████████▍| 474/500 [00:48<00:02, 12.50 examples/s][A
-Compute weighted pred 128:  96%|█████████▌| 479/500 [00:49<00:03,  6.60 examples/s][A
-Compute weighted pred 128:  96%|█████████▋| 482/500 [00:50<00:03,  5.80 examples/s][A
-Compute weighted pred 128:  97%|█████████▋| 484/500 [00:50<00:02,  6.44 examples/s][A
-Compute weighted pred 128:  97%|█████████▋| 487/500 [00:50<00:01,  8.11 examples/s][A
-Compute weighted pred 128:  99%|█████████▊| 493/500 [00:50<00:00, 12.92 examples/s][A
-Compute weighted pred 128:  99%|█████████▉| 497/500 [00:52<00:00,  6.02 examples/s][A
-Compute weighted pred 128: 100%|█████████▉| 499/500 [00:52<00:00,  6.41 examples/s][ACompute weighted pred 128: 100%|██████████| 500/500 [00:53<00:00,  9.42 examples/s]
-
-Compute majority pred 128:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute majority pred 128:   3%|▎         | 17/500 [00:00<00:03, 158.32 examples/s][A
-Compute majority pred 128:   7%|▋         | 35/500 [00:00<00:02, 162.27 examples/s][A
-Compute majority pred 128:  11%|█         | 53/500 [00:00<00:02, 163.91 examples/s][A
-Compute majority pred 128:  14%|█▍        | 71/500 [00:00<00:02, 163.77 examples/s][A
-Compute majority pred 128:  18%|█▊        | 89/500 [00:00<00:02, 164.16 examples/s][A
-Compute majority pred 128:  21%|██▏       | 107/500 [00:00<00:02, 164.76 examples/s][A
-Compute majority pred 128:  25%|██▌       | 125/500 [00:00<00:02, 165.56 examples/s][A
-Compute majority pred 128:  29%|██▊       | 143/500 [00:00<00:02, 166.08 examples/s][A
-Compute majority pred 128:  32%|███▏      | 161/500 [00:00<00:02, 166.35 examples/s][A
-Compute majority pred 128:  36%|███▌      | 179/500 [00:01<00:01, 166.60 examples/s][A
-Compute majority pred 128:  39%|███▉      | 197/500 [00:01<00:01, 166.58 examples/s][A
-Compute majority pred 128:  43%|████▎     | 215/500 [00:01<00:01, 166.90 examples/s][A
-Compute majority pred 128:  47%|████▋     | 233/500 [00:01<00:01, 166.39 examples/s][A
-Compute majority pred 128:  50%|█████     | 251/500 [00:01<00:01, 166.22 examples/s][A
-Compute majority pred 128:  54%|█████▍    | 269/500 [00:01<00:01, 166.80 examples/s][A
-Compute majority pred 128:  57%|█████▋    | 287/500 [00:01<00:01, 166.42 examples/s][A
-Compute majority pred 128:  61%|██████    | 305/500 [00:01<00:01, 166.59 examples/s][A
-Compute majority pred 128:  65%|██████▍   | 323/500 [00:01<00:01, 167.26 examples/s][A
-Compute majority pred 128:  68%|██████▊   | 341/500 [00:02<00:00, 167.62 examples/s][A
-Compute majority pred 128:  72%|███████▏  | 359/500 [00:02<00:00, 167.91 examples/s][A
-Compute majority pred 128:  75%|███████▌  | 377/500 [00:02<00:00, 167.53 examples/s][A
-Compute majority pred 128:  79%|███████▉  | 395/500 [00:02<00:00, 166.63 examples/s][A
-Compute majority pred 128:  82%|████████▏ | 412/500 [00:02<00:00, 164.80 examples/s][A
-Compute majority pred 128:  86%|████████▌ | 430/500 [00:02<00:00, 164.77 examples/s][A
-Compute majority pred 128:  90%|████████▉ | 448/500 [00:02<00:00, 165.15 examples/s][A
-Compute majority pred 128:  93%|█████████▎| 466/500 [00:02<00:00, 165.55 examples/s][A
-Compute majority pred 128:  97%|█████████▋| 484/500 [00:02<00:00, 165.58 examples/s][ACompute majority pred 128: 100%|██████████| 500/500 [00:03<00:00, 145.44 examples/s]
-
-Compute naive pred 128:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute naive pred 128:  68%|██████▊   | 342/500 [00:00<00:00, 3366.18 examples/s][ACompute naive pred 128: 100%|██████████| 500/500 [00:00<00:00, 881.54 examples/s] 
-Computing majority & weighted predictions:  89%|████████▉ | 8/9 [03:42<00:52, 52.10s/it]
-Subsample 256:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Subsample 256:  30%|███       | 152/500 [00:00<00:00, 1492.87 examples/s][A
-Subsample 256:  61%|██████    | 303/500 [00:00<00:00, 1494.02 examples/s][A
-Subsample 256: 100%|██████████| 500/500 [00:01<00:00, 380.44 examples/s] [ASubsample 256: 100%|██████████| 500/500 [00:01<00:00, 462.32 examples/s]
-
-Extract answers 256:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Extract answers 256:   0%|          | 1/500 [00:00<01:46,  4.69 examples/s][A
-Extract answers 256:   0%|          | 2/500 [00:00<02:24,  3.46 examples/s][A
-Extract answers 256:   1%|          | 3/500 [00:00<02:02,  4.05 examples/s][A
-Extract answers 256:   1%|          | 4/500 [00:00<01:43,  4.80 examples/s][A
-Extract answers 256:   1%|          | 5/500 [00:01<01:36,  5.11 examples/s][A
-Extract answers 256:   1%|          | 6/500 [00:01<01:29,  5.51 examples/s][A
-Extract answers 256:   1%|▏         | 7/500 [00:01<01:25,  5.79 examples/s][A
-Extract answers 256:   2%|▏         | 8/500 [00:01<01:31,  5.40 examples/s][A
-Extract answers 256:   2%|▏         | 9/500 [00:01<01:30,  5.41 examples/s][A
-Extract answers 256:   2%|▏         | 10/500 [00:01<01:25,  5.74 examples/s][A
-Extract answers 256:   2%|▏         | 11/500 [00:02<01:29,  5.45 examples/s][A
-Extract answers 256:   2%|▏         | 12/500 [00:02<01:33,  5.24 examples/s][A
-Extract answers 256:   3%|▎         | 13/500 [00:02<01:27,  5.55 examples/s][A
-Extract answers 256:   3%|▎         | 14/500 [00:02<01:23,  5.82 examples/s][A
-Extract answers 256:   3%|▎         | 15/500 [00:02<01:22,  5.87 examples/s][A
-Extract answers 256:   3%|▎         | 16/500 [00:03<01:36,  4.99 examples/s][A
-Extract answers 256:   3%|▎         | 17/500 [00:03<01:30,  5.33 examples/s][A
-Extract answers 256:   4%|▎         | 18/500 [00:03<01:29,  5.39 examples/s][A
-Extract answers 256:   4%|▍         | 19/500 [00:03<01:26,  5.58 examples/s][A
-Extract answers 256:   4%|▍         | 20/500 [00:03<01:24,  5.70 examples/s][A
-Extract answers 256:   4%|▍         | 21/500 [00:03<01:24,  5.65 examples/s][A
-Extract answers 256:   4%|▍         | 22/500 [00:04<01:22,  5.83 examples/s][A
-Extract answers 256:   5%|▍         | 23/500 [00:04<01:21,  5.87 examples/s][A
-Extract answers 256:   5%|▍         | 24/500 [00:04<01:22,  5.75 examples/s][A
-Extract answers 256:   5%|▌         | 25/500 [00:04<01:21,  5.80 examples/s][A
-Extract answers 256:   5%|▌         | 26/500 [00:04<01:24,  5.63 examples/s][A
-Extract answers 256:   5%|▌         | 27/500 [00:04<01:21,  5.80 examples/s][A
-Extract answers 256:   6%|▌         | 28/500 [00:05<01:19,  5.95 examples/s][A
-Extract answers 256:   6%|▌         | 29/500 [00:05<01:20,  5.83 examples/s][A
-Extract answers 256:   6%|▌         | 30/500 [00:05<01:18,  5.97 examples/s][A
-Extract answers 256:   6%|▌         | 31/500 [00:05<01:18,  6.00 examples/s][A
-Extract answers 256:   6%|▋         | 32/500 [00:05<01:20,  5.78 examples/s][A
-Extract answers 256:   7%|▋         | 33/500 [00:05<01:18,  5.94 examples/s][A
-Extract answers 256:   7%|▋         | 34/500 [00:06<01:23,  5.56 examples/s][A
-Extract answers 256:   7%|▋         | 35/500 [00:06<01:25,  5.47 examples/s][A
-Extract answers 256:   7%|▋         | 36/500 [00:06<01:20,  5.77 examples/s][A
-Extract answers 256:   7%|▋         | 37/500 [00:06<01:23,  5.56 examples/s][A
-Extract answers 256:   8%|▊         | 38/500 [00:06<01:20,  5.74 examples/s][A
-Extract answers 256:   8%|▊         | 39/500 [00:07<01:18,  5.89 examples/s][A
-Extract answers 256:   8%|▊         | 40/500 [00:07<01:16,  6.05 examples/s][A
-Extract answers 256:   8%|▊         | 41/500 [00:07<01:14,  6.14 examples/s][A
-Extract answers 256:   8%|▊         | 42/500 [00:07<01:15,  6.08 examples/s][A
-Extract answers 256:   9%|▊         | 43/500 [00:07<01:13,  6.20 examples/s][A
-Extract answers 256:   9%|▉         | 44/500 [00:07<01:15,  6.04 examples/s][A
-Extract answers 256:   9%|▉         | 45/500 [00:08<01:17,  5.89 examples/s][A
-Extract answers 256:   9%|▉         | 46/500 [00:08<01:16,  5.97 examples/s][A
-Extract answers 256:   9%|▉         | 47/500 [00:08<01:14,  6.12 examples/s][A
-Extract answers 256:  10%|▉         | 48/500 [00:08<01:12,  6.24 examples/s][A
-Extract answers 256:  10%|▉         | 49/500 [00:08<01:12,  6.20 examples/s][A
-Extract answers 256:  10%|█         | 50/500 [00:08<01:11,  6.32 examples/s][A
-Extract answers 256:  10%|█         | 51/500 [00:08<01:10,  6.35 examples/s][A
-Extract answers 256:  10%|█         | 52/500 [00:09<01:25,  5.27 examples/s][A
-Extract answers 256:  11%|█         | 53/500 [00:09<01:21,  5.50 examples/s][A
-Extract answers 256:  11%|█         | 54/500 [00:09<01:24,  5.26 examples/s][A
-Extract answers 256:  11%|█         | 55/500 [00:09<01:21,  5.49 examples/s][A
-Extract answers 256:  11%|█         | 56/500 [00:09<01:16,  5.79 examples/s][A
-Extract answers 256:  11%|█▏        | 57/500 [00:10<01:13,  6.00 examples/s][A
-Extract answers 256:  12%|█▏        | 58/500 [00:10<01:12,  6.06 examples/s][A
-Extract answers 256:  12%|█▏        | 59/500 [00:10<01:12,  6.09 examples/s][A
-Extract answers 256:  12%|█▏        | 60/500 [00:10<01:10,  6.23 examples/s][A
-Extract answers 256:  12%|█▏        | 61/500 [00:10<01:17,  5.66 examples/s][A
-Extract answers 256:  12%|█▏        | 62/500 [00:10<01:15,  5.78 examples/s][A
-Extract answers 256:  13%|█▎        | 63/500 [00:11<01:16,  5.73 examples/s][A
-Extract answers 256:  13%|█▎        | 64/500 [00:11<01:14,  5.87 examples/s][A
-Extract answers 256:  13%|█▎        | 65/500 [00:11<01:14,  5.85 examples/s][A
-Extract answers 256:  13%|█▎        | 66/500 [00:11<01:11,  6.07 examples/s][A
-Extract answers 256:  13%|█▎        | 67/500 [00:11<01:17,  5.58 examples/s][A
-Extract answers 256:  14%|█▎        | 68/500 [00:11<01:15,  5.70 examples/s][A
-Extract answers 256:  14%|█▍        | 69/500 [00:12<01:17,  5.55 examples/s][A
-Extract answers 256:  14%|█▍        | 70/500 [00:12<01:22,  5.24 examples/s][A
-Extract answers 256:  14%|█▍        | 71/500 [00:12<01:18,  5.49 examples/s][A
-Extract answers 256:  14%|█▍        | 72/500 [00:12<01:15,  5.67 examples/s][A
-Extract answers 256:  15%|█▍        | 73/500 [00:12<01:13,  5.81 examples/s][A
-Extract answers 256:  15%|█▍        | 74/500 [00:13<01:21,  5.25 examples/s][A
-Extract answers 256:  15%|█▌        | 75/500 [00:13<01:26,  4.94 examples/s][A
-Extract answers 256:  15%|█▌        | 76/500 [00:13<01:25,  4.94 examples/s][A
-Extract answers 256:  15%|█▌        | 77/500 [00:13<01:20,  5.26 examples/s][A
-Extract answers 256:  16%|█▌        | 78/500 [00:13<01:15,  5.61 examples/s][A
-Extract answers 256:  16%|█▌        | 79/500 [00:14<01:19,  5.32 examples/s][A
-Extract answers 256:  16%|█▌        | 80/500 [00:14<01:14,  5.62 examples/s][A
-Extract answers 256:  16%|█▌        | 81/500 [00:14<01:12,  5.75 examples/s][A
-Extract answers 256:  16%|█▋        | 82/500 [00:14<01:11,  5.87 examples/s][A
-Extract answers 256:  17%|█▋        | 83/500 [00:14<01:13,  5.68 examples/s][A
-Extract answers 256:  17%|█▋        | 84/500 [00:14<01:17,  5.37 examples/s][A
-Extract answers 256:  17%|█▋        | 85/500 [00:15<01:16,  5.40 examples/s][A
-Extract answers 256:  17%|█▋        | 86/500 [00:15<01:16,  5.41 examples/s][A
-Extract answers 256:  17%|█▋        | 87/500 [00:15<01:13,  5.65 examples/s][A
-Extract answers 256:  18%|█▊        | 88/500 [00:15<01:11,  5.75 examples/s][A
-Extract answers 256:  18%|█▊        | 89/500 [00:15<01:09,  5.90 examples/s][A
-Extract answers 256:  18%|█▊        | 90/500 [00:15<01:07,  6.06 examples/s][A
-Extract answers 256:  18%|█▊        | 91/500 [00:16<01:06,  6.14 examples/s][A
-Extract answers 256:  18%|█▊        | 92/500 [00:16<01:05,  6.23 examples/s][A
-Extract answers 256:  19%|█▊        | 93/500 [00:16<01:10,  5.80 examples/s][A
-Extract answers 256:  19%|█▉        | 94/500 [00:16<01:08,  5.90 examples/s][A
-Extract answers 256:  19%|█▉        | 95/500 [00:16<01:10,  5.73 examples/s][A
-Extract answers 256:  19%|█▉        | 96/500 [00:17<01:14,  5.43 examples/s][A
-Extract answers 256:  19%|█▉        | 97/500 [00:17<01:17,  5.17 examples/s][A
-Extract answers 256:  20%|█▉        | 98/500 [00:17<01:17,  5.21 examples/s][A
-Extract answers 256:  20%|█▉        | 99/500 [00:17<01:14,  5.35 examples/s][A
-Extract answers 256:  20%|██        | 100/500 [00:17<01:33,  4.27 examples/s][A
-Extract answers 256:  20%|██        | 101/500 [00:18<01:27,  4.59 examples/s][A
-Extract answers 256:  20%|██        | 102/500 [00:18<01:21,  4.88 examples/s][A
-Extract answers 256:  21%|██        | 103/500 [00:18<01:20,  4.96 examples/s][A
-Extract answers 256:  21%|██        | 104/500 [00:18<01:19,  5.00 examples/s][A
-Extract answers 256:  21%|██        | 105/500 [00:18<01:18,  5.04 examples/s][A
-Extract answers 256:  21%|██        | 106/500 [00:19<01:13,  5.35 examples/s][A
-Extract answers 256:  21%|██▏       | 107/500 [00:19<01:15,  5.24 examples/s][A
-Extract answers 256:  22%|██▏       | 108/500 [00:19<01:10,  5.57 examples/s][A
-Extract answers 256:  22%|██▏       | 109/500 [00:19<01:09,  5.61 examples/s][A
-Extract answers 256:  22%|██▏       | 110/500 [00:19<01:12,  5.35 examples/s][A
-Extract answers 256:  22%|██▏       | 111/500 [00:19<01:10,  5.49 examples/s][A
-Extract answers 256:  22%|██▏       | 112/500 [00:20<01:07,  5.75 examples/s][A
-Extract answers 256:  23%|██▎       | 113/500 [00:20<01:07,  5.71 examples/s][A
-Extract answers 256:  23%|██▎       | 114/500 [00:20<01:05,  5.85 examples/s][A
-Extract answers 256:  23%|██▎       | 115/500 [00:20<01:10,  5.44 examples/s][A
-Extract answers 256:  23%|██▎       | 116/500 [00:20<01:07,  5.66 examples/s][A
-Extract answers 256:  23%|██▎       | 117/500 [00:20<01:04,  5.90 examples/s][A
-Extract answers 256:  24%|██▎       | 118/500 [00:21<01:02,  6.07 examples/s][A
-Extract answers 256:  24%|██▍       | 119/500 [00:21<01:01,  6.15 examples/s][A
-Extract answers 256:  24%|██▍       | 120/500 [00:21<01:00,  6.28 examples/s][A
-Extract answers 256:  24%|██▍       | 121/500 [00:21<01:03,  5.93 examples/s][A
-Extract answers 256:  24%|██▍       | 122/500 [00:21<01:02,  6.08 examples/s][A
-Extract answers 256:  25%|██▍       | 123/500 [00:21<01:00,  6.24 examples/s][A
-Extract answers 256:  25%|██▍       | 124/500 [00:22<01:04,  5.83 examples/s][A
-Extract answers 256:  25%|██▌       | 125/500 [00:22<01:04,  5.78 examples/s][A
-Extract answers 256:  25%|██▌       | 126/500 [00:22<01:03,  5.92 examples/s][A
-Extract answers 256:  25%|██▌       | 127/500 [00:22<01:13,  5.06 examples/s][A
-Extract answers 256:  26%|██▌       | 128/500 [00:22<01:10,  5.29 examples/s][A
-Extract answers 256:  26%|██▌       | 129/500 [00:23<01:06,  5.61 examples/s][A
-Extract answers 256:  26%|██▌       | 130/500 [00:23<01:05,  5.68 examples/s][A
-Extract answers 256:  26%|██▌       | 131/500 [00:23<01:03,  5.81 examples/s][A
-Extract answers 256:  26%|██▋       | 132/500 [00:23<01:02,  5.91 examples/s][A
-Extract answers 256:  27%|██▋       | 133/500 [00:23<01:00,  6.05 examples/s][A
-Extract answers 256:  27%|██▋       | 134/500 [00:23<01:00,  6.05 examples/s][A
-Extract answers 256:  27%|██▋       | 135/500 [00:24<01:02,  5.87 examples/s][A
-Extract answers 256:  27%|██▋       | 136/500 [00:24<00:59,  6.07 examples/s][A
-Extract answers 256:  27%|██▋       | 137/500 [00:24<00:59,  6.13 examples/s][A
-Extract answers 256:  28%|██▊       | 138/500 [00:24<00:59,  6.13 examples/s][A
-Extract answers 256:  28%|██▊       | 139/500 [00:24<01:01,  5.85 examples/s][A
-Extract answers 256:  28%|██▊       | 140/500 [00:24<01:01,  5.89 examples/s][A
-Extract answers 256:  28%|██▊       | 141/500 [00:25<00:59,  6.02 examples/s][A
-Extract answers 256:  28%|██▊       | 142/500 [00:25<00:58,  6.09 examples/s][A
-Extract answers 256:  29%|██▊       | 143/500 [00:25<00:58,  6.07 examples/s][A
-Extract answers 256:  29%|██▉       | 144/500 [00:25<00:58,  6.04 examples/s][A
-Extract answers 256:  29%|██▉       | 145/500 [00:25<01:01,  5.77 examples/s][A
-Extract answers 256:  29%|██▉       | 146/500 [00:25<01:10,  5.01 examples/s][A
-Extract answers 256:  29%|██▉       | 147/500 [00:26<01:12,  4.85 examples/s][A
-Extract answers 256:  30%|██▉       | 148/500 [00:26<01:09,  5.09 examples/s][A
-Extract answers 256:  30%|██▉       | 149/500 [00:26<01:04,  5.43 examples/s][A
-Extract answers 256:  30%|███       | 150/500 [00:26<01:01,  5.72 examples/s][A
-Extract answers 256:  30%|███       | 151/500 [00:26<00:58,  5.93 examples/s][A
-Extract answers 256:  30%|███       | 152/500 [00:27<01:00,  5.76 examples/s][A
-Extract answers 256:  31%|███       | 153/500 [00:27<00:59,  5.84 examples/s][A
-Extract answers 256:  31%|███       | 154/500 [00:27<01:01,  5.60 examples/s][A
-Extract answers 256:  31%|███       | 155/500 [00:27<01:00,  5.72 examples/s][A
-Extract answers 256:  31%|███       | 156/500 [00:27<01:01,  5.56 examples/s][A
-Extract answers 256:  31%|███▏      | 157/500 [00:27<01:02,  5.53 examples/s][A
-Extract answers 256:  32%|███▏      | 158/500 [00:28<01:02,  5.46 examples/s][A
-Extract answers 256:  32%|███▏      | 159/500 [00:28<01:00,  5.65 examples/s][A
-Extract answers 256:  32%|███▏      | 160/500 [00:28<00:59,  5.74 examples/s][A
-Extract answers 256:  32%|███▏      | 161/500 [00:28<00:57,  5.95 examples/s][A
-Extract answers 256:  32%|███▏      | 162/500 [00:28<00:55,  6.13 examples/s][A
-Extract answers 256:  33%|███▎      | 163/500 [00:28<00:57,  5.81 examples/s][A
-Extract answers 256:  33%|███▎      | 164/500 [00:29<00:59,  5.62 examples/s][A
-Extract answers 256:  33%|███▎      | 165/500 [00:29<01:07,  5.00 examples/s][A
-Extract answers 256:  33%|███▎      | 166/500 [00:29<01:06,  5.03 examples/s][A
-Extract answers 256:  33%|███▎      | 167/500 [00:29<01:04,  5.13 examples/s][A
-Extract answers 256:  34%|███▎      | 168/500 [00:29<01:00,  5.44 examples/s][A
-Extract answers 256:  34%|███▍      | 169/500 [00:30<00:59,  5.61 examples/s][A
-Extract answers 256:  34%|███▍      | 170/500 [00:30<00:57,  5.70 examples/s][A
-Extract answers 256:  34%|███▍      | 171/500 [00:30<00:59,  5.49 examples/s][A
-Extract answers 256:  34%|███▍      | 172/500 [00:30<01:01,  5.32 examples/s][A
-Extract answers 256:  35%|███▍      | 173/500 [00:30<00:58,  5.61 examples/s][A
-Extract answers 256:  35%|███▍      | 174/500 [00:30<00:56,  5.80 examples/s][A
-Extract answers 256:  35%|███▌      | 175/500 [00:31<00:54,  5.96 examples/s][A
-Extract answers 256:  35%|███▌      | 176/500 [00:31<00:53,  6.07 examples/s][A
-Extract answers 256:  35%|███▌      | 177/500 [00:31<01:00,  5.37 examples/s][A
-Extract answers 256:  36%|███▌      | 178/500 [00:31<00:59,  5.42 examples/s][A
-Extract answers 256:  36%|███▌      | 179/500 [00:31<00:56,  5.70 examples/s][A
-Extract answers 256:  36%|███▌      | 180/500 [00:32<01:03,  5.03 examples/s][A
-Extract answers 256:  36%|███▌      | 181/500 [00:32<00:59,  5.39 examples/s][A
-Extract answers 256:  36%|███▋      | 182/500 [00:32<01:01,  5.18 examples/s][A
-Extract answers 256:  37%|███▋      | 183/500 [00:32<00:58,  5.45 examples/s][A
-Extract answers 256:  37%|███▋      | 184/500 [00:32<00:57,  5.52 examples/s][A
-Extract answers 256:  37%|███▋      | 185/500 [00:33<01:04,  4.90 examples/s][A
-Extract answers 256:  37%|███▋      | 186/500 [00:33<00:59,  5.25 examples/s][A
-Extract answers 256:  37%|███▋      | 187/500 [00:33<00:56,  5.58 examples/s][A
-Extract answers 256:  38%|███▊      | 188/500 [00:33<00:53,  5.87 examples/s][A
-Extract answers 256:  38%|███▊      | 189/500 [00:33<00:55,  5.56 examples/s][A
-Extract answers 256:  38%|███▊      | 190/500 [00:33<00:54,  5.70 examples/s][A
-Extract answers 256:  38%|███▊      | 191/500 [00:34<00:54,  5.65 examples/s][A
-Extract answers 256:  38%|███▊      | 192/500 [00:34<00:51,  5.93 examples/s][A
-Extract answers 256:  39%|███▊      | 193/500 [00:34<00:52,  5.86 examples/s][A
-Extract answers 256:  39%|███▉      | 194/500 [00:34<00:51,  5.93 examples/s][A
-Extract answers 256:  39%|███▉      | 195/500 [00:34<00:50,  5.99 examples/s][A
-Extract answers 256:  39%|███▉      | 196/500 [00:34<00:50,  5.96 examples/s][A
-Extract answers 256:  39%|███▉      | 197/500 [00:35<00:50,  6.04 examples/s][A
-Extract answers 256:  40%|███▉      | 198/500 [00:35<00:49,  6.16 examples/s][A
-Extract answers 256:  40%|███▉      | 199/500 [00:35<00:48,  6.22 examples/s][A
-Extract answers 256:  40%|████      | 200/500 [00:35<00:47,  6.26 examples/s][A
-Extract answers 256:  40%|████      | 201/500 [00:35<00:47,  6.27 examples/s][A
-Extract answers 256:  40%|████      | 202/500 [00:35<00:47,  6.26 examples/s][A
-Extract answers 256:  41%|████      | 203/500 [00:36<00:49,  5.96 examples/s][A
-Extract answers 256:  41%|████      | 204/500 [00:36<00:49,  5.98 examples/s][A
-Extract answers 256:  41%|████      | 205/500 [00:36<00:48,  6.11 examples/s][A
-Extract answers 256:  41%|████      | 206/500 [00:36<00:59,  4.93 examples/s][A
-Extract answers 256:  41%|████▏     | 207/500 [00:36<01:00,  4.86 examples/s][A
-Extract answers 256:  42%|████▏     | 208/500 [00:37<00:55,  5.26 examples/s][A
-Extract answers 256:  42%|████▏     | 209/500 [00:37<00:52,  5.59 examples/s][A
-Extract answers 256:  42%|████▏     | 210/500 [00:37<00:50,  5.77 examples/s][A
-Extract answers 256:  42%|████▏     | 211/500 [00:37<00:48,  5.96 examples/s][A
-Extract answers 256:  42%|████▏     | 212/500 [00:37<00:47,  6.12 examples/s][A
-Extract answers 256:  43%|████▎     | 213/500 [00:37<00:46,  6.23 examples/s][A
-Extract answers 256:  43%|████▎     | 214/500 [00:37<00:51,  5.60 examples/s][A
-Extract answers 256:  43%|████▎     | 215/500 [00:38<00:49,  5.81 examples/s][A
-Extract answers 256:  43%|████▎     | 216/500 [00:38<00:51,  5.53 examples/s][A
-Extract answers 256:  43%|████▎     | 217/500 [00:38<00:48,  5.78 examples/s][A
-Extract answers 256:  44%|████▎     | 218/500 [00:38<00:59,  4.72 examples/s][A
-Extract answers 256:  44%|████▍     | 219/500 [00:38<00:56,  4.94 examples/s][A
-Extract answers 256:  44%|████▍     | 220/500 [00:39<00:55,  5.03 examples/s][A
-Extract answers 256:  44%|████▍     | 221/500 [00:39<00:53,  5.22 examples/s][A
-Extract answers 256:  44%|████▍     | 222/500 [00:39<00:50,  5.54 examples/s][A
-Extract answers 256:  45%|████▍     | 223/500 [00:39<00:49,  5.65 examples/s][A
-Extract answers 256:  45%|████▍     | 224/500 [00:39<00:56,  4.90 examples/s][A
-Extract answers 256:  45%|████▌     | 225/500 [00:40<00:57,  4.79 examples/s][A
-Extract answers 256:  45%|████▌     | 226/500 [00:40<00:52,  5.19 examples/s][A
-Extract answers 256:  45%|████▌     | 227/500 [00:40<00:49,  5.55 examples/s][A
-Extract answers 256:  46%|████▌     | 228/500 [00:40<00:50,  5.42 examples/s][A
-Extract answers 256:  46%|████▌     | 229/500 [00:40<01:00,  4.46 examples/s][A
-Extract answers 256:  46%|████▌     | 230/500 [00:41<00:55,  4.88 examples/s][A
-Extract answers 256:  46%|████▌     | 231/500 [00:41<00:51,  5.21 examples/s][A
-Extract answers 256:  46%|████▋     | 232/500 [00:41<00:48,  5.55 examples/s][A
-Extract answers 256:  47%|████▋     | 233/500 [00:41<00:48,  5.46 examples/s][A
-Extract answers 256:  47%|████▋     | 234/500 [00:41<00:49,  5.42 examples/s][A
-Extract answers 256:  47%|████▋     | 235/500 [00:42<00:47,  5.59 examples/s][A
-Extract answers 256:  47%|████▋     | 236/500 [00:42<00:48,  5.42 examples/s][A
-Extract answers 256:  47%|████▋     | 237/500 [00:42<00:51,  5.12 examples/s][A
-Extract answers 256:  48%|████▊     | 238/500 [00:42<00:49,  5.34 examples/s][A
-Extract answers 256:  48%|████▊     | 239/500 [00:42<00:53,  4.88 examples/s][A
-Extract answers 256:  48%|████▊     | 240/500 [00:43<00:50,  5.17 examples/s][A
-Extract answers 256:  48%|████▊     | 241/500 [00:43<00:49,  5.25 examples/s][A
-Extract answers 256:  48%|████▊     | 242/500 [00:43<00:47,  5.47 examples/s][A
-Extract answers 256:  49%|████▊     | 243/500 [00:43<00:46,  5.57 examples/s][A
-Extract answers 256:  49%|████▉     | 244/500 [00:43<00:43,  5.83 examples/s][A
-Extract answers 256:  49%|████▉     | 245/500 [00:43<00:42,  5.99 examples/s][A
-Extract answers 256:  49%|████▉     | 246/500 [00:43<00:42,  6.04 examples/s][A
-Extract answers 256:  49%|████▉     | 247/500 [00:44<00:40,  6.20 examples/s][A
-Extract answers 256:  50%|████▉     | 248/500 [00:44<00:44,  5.66 examples/s][A
-Extract answers 256:  50%|████▉     | 249/500 [00:44<00:54,  4.58 examples/s][A
-Extract answers 256:  50%|█████     | 250/500 [00:44<00:49,  5.02 examples/s][A
-Extract answers 256:  50%|█████     | 251/500 [00:44<00:46,  5.30 examples/s][A
-Extract answers 256:  50%|█████     | 252/500 [00:45<00:44,  5.57 examples/s][A
-Extract answers 256:  51%|█████     | 253/500 [00:45<00:42,  5.75 examples/s][A
-Extract answers 256:  51%|█████     | 254/500 [00:45<00:44,  5.57 examples/s][A
-Extract answers 256:  51%|█████     | 255/500 [00:45<00:42,  5.71 examples/s][A
-Extract answers 256:  51%|█████     | 256/500 [00:45<00:44,  5.48 examples/s][A
-Extract answers 256:  51%|█████▏    | 257/500 [00:46<00:45,  5.34 examples/s][A
-Extract answers 256:  52%|█████▏    | 258/500 [00:46<00:42,  5.65 examples/s][A
-Extract answers 256:  52%|█████▏    | 259/500 [00:46<00:41,  5.86 examples/s][A
-Extract answers 256:  52%|█████▏    | 260/500 [00:46<00:39,  6.05 examples/s][A
-Extract answers 256:  52%|█████▏    | 261/500 [00:46<00:41,  5.70 examples/s][A
-Extract answers 256:  52%|█████▏    | 262/500 [00:46<00:41,  5.76 examples/s][A
-Extract answers 256:  53%|█████▎    | 263/500 [00:47<00:39,  6.02 examples/s][A
-Extract answers 256:  53%|█████▎    | 264/500 [00:47<00:38,  6.11 examples/s][A
-Extract answers 256:  53%|█████▎    | 265/500 [00:47<00:39,  6.01 examples/s][A
-Extract answers 256:  53%|█████▎    | 266/500 [00:47<00:38,  6.05 examples/s][A
-Extract answers 256:  53%|█████▎    | 267/500 [00:47<00:41,  5.58 examples/s][A
-Extract answers 256:  54%|█████▎    | 268/500 [00:47<00:41,  5.58 examples/s][A
-Extract answers 256:  54%|█████▍    | 269/500 [00:48<00:39,  5.89 examples/s][A
-Extract answers 256:  54%|█████▍    | 270/500 [00:48<00:37,  6.11 examples/s][A
-Extract answers 256:  54%|█████▍    | 271/500 [00:48<00:36,  6.23 examples/s][A
-Extract answers 256:  54%|█████▍    | 272/500 [00:48<00:36,  6.28 examples/s][A
-Extract answers 256:  55%|█████▍    | 273/500 [00:48<00:36,  6.20 examples/s][A
-Extract answers 256:  55%|█████▍    | 274/500 [00:48<00:37,  6.04 examples/s][A
-Extract answers 256:  55%|█████▌    | 275/500 [00:49<00:37,  5.96 examples/s][A
-Extract answers 256:  55%|█████▌    | 276/500 [00:49<00:36,  6.18 examples/s][A
-Extract answers 256:  55%|█████▌    | 277/500 [00:49<00:37,  6.01 examples/s][A
-Extract answers 256:  56%|█████▌    | 278/500 [00:49<00:38,  5.82 examples/s][A
-Extract answers 256:  56%|█████▌    | 279/500 [00:49<00:37,  5.94 examples/s][A
-Extract answers 256:  56%|█████▌    | 280/500 [00:49<00:37,  5.90 examples/s][A
-Extract answers 256:  56%|█████▌    | 281/500 [00:50<00:36,  6.08 examples/s][A
-Extract answers 256:  56%|█████▋    | 282/500 [00:50<00:37,  5.88 examples/s][A
-Extract answers 256:  57%|█████▋    | 283/500 [00:50<00:36,  6.03 examples/s][A
-Extract answers 256:  57%|█████▋    | 284/500 [00:50<00:39,  5.46 examples/s][A
-Extract answers 256:  57%|█████▋    | 285/500 [00:50<00:41,  5.14 examples/s][A
-Extract answers 256:  57%|█████▋    | 286/500 [00:51<00:40,  5.34 examples/s][A
-Extract answers 256:  57%|█████▋    | 287/500 [00:51<00:40,  5.30 examples/s][A
-Extract answers 256:  58%|█████▊    | 288/500 [00:51<00:38,  5.50 examples/s][A
-Extract answers 256:  58%|█████▊    | 289/500 [00:51<00:38,  5.42 examples/s][A
-Extract answers 256:  58%|█████▊    | 290/500 [00:51<00:37,  5.60 examples/s][A
-Extract answers 256:  58%|█████▊    | 291/500 [00:51<00:38,  5.40 examples/s][A
-Extract answers 256:  58%|█████▊    | 292/500 [00:52<00:36,  5.72 examples/s][A
-Extract answers 256:  59%|█████▊    | 293/500 [00:52<00:37,  5.52 examples/s][A
-Extract answers 256:  59%|█████▉    | 294/500 [00:52<00:41,  4.94 examples/s][A
-Extract answers 256:  59%|█████▉    | 295/500 [00:52<00:38,  5.30 examples/s][A
-Extract answers 256:  59%|█████▉    | 296/500 [00:52<00:38,  5.29 examples/s][A
-Extract answers 256:  59%|█████▉    | 297/500 [00:53<00:39,  5.08 examples/s][A
-Extract answers 256:  60%|█████▉    | 298/500 [00:53<00:37,  5.41 examples/s][A
-Extract answers 256:  60%|█████▉    | 299/500 [00:53<00:45,  4.46 examples/s][A
-Extract answers 256:  60%|██████    | 300/500 [00:53<00:40,  4.93 examples/s][A
-Extract answers 256:  60%|██████    | 301/500 [00:53<00:37,  5.30 examples/s][A
-Extract answers 256:  60%|██████    | 302/500 [00:54<00:35,  5.53 examples/s][A
-Extract answers 256:  61%|██████    | 303/500 [00:54<00:48,  4.07 examples/s][A
-Extract answers 256:  61%|██████    | 304/500 [00:54<00:43,  4.48 examples/s][A
-Extract answers 256:  61%|██████    | 305/500 [00:54<00:41,  4.72 examples/s][A
-Extract answers 256:  61%|██████    | 306/500 [00:54<00:40,  4.81 examples/s][A
-Extract answers 256:  61%|██████▏   | 307/500 [00:55<00:37,  5.08 examples/s][A
-Extract answers 256:  62%|██████▏   | 308/500 [00:55<00:37,  5.08 examples/s][A
-Extract answers 256:  62%|██████▏   | 309/500 [00:55<00:37,  5.10 examples/s][A
-Extract answers 256:  62%|██████▏   | 310/500 [00:55<00:34,  5.47 examples/s][A
-Extract answers 256:  62%|██████▏   | 311/500 [00:55<00:34,  5.51 examples/s][A
-Extract answers 256:  62%|██████▏   | 312/500 [00:56<00:32,  5.82 examples/s][A
-Extract answers 256:  63%|██████▎   | 313/500 [00:56<00:34,  5.39 examples/s][A
-Extract answers 256:  63%|██████▎   | 314/500 [00:56<00:33,  5.57 examples/s][A
-Extract answers 256:  63%|██████▎   | 315/500 [00:56<00:33,  5.57 examples/s][A
-Extract answers 256:  63%|██████▎   | 316/500 [00:56<00:32,  5.71 examples/s][A
-Extract answers 256:  63%|██████▎   | 317/500 [00:56<00:32,  5.71 examples/s][A
-Extract answers 256:  64%|██████▎   | 318/500 [00:57<00:30,  5.89 examples/s][A
-Extract answers 256:  64%|██████▍   | 319/500 [00:57<00:33,  5.38 examples/s][A
-Extract answers 256:  64%|██████▍   | 320/500 [00:57<00:32,  5.54 examples/s][A
-Extract answers 256:  64%|██████▍   | 321/500 [00:57<00:33,  5.33 examples/s][A
-Extract answers 256:  64%|██████▍   | 322/500 [00:57<00:31,  5.59 examples/s][A
-Extract answers 256:  65%|██████▍   | 323/500 [00:57<00:30,  5.85 examples/s][A
-Extract answers 256:  65%|██████▍   | 324/500 [00:58<00:31,  5.67 examples/s][A
-Extract answers 256:  65%|██████▌   | 325/500 [00:58<00:30,  5.65 examples/s][A
-Extract answers 256:  65%|██████▌   | 326/500 [00:58<00:29,  5.92 examples/s][A
-Extract answers 256:  65%|██████▌   | 327/500 [00:58<00:30,  5.71 examples/s][A
-Extract answers 256:  66%|██████▌   | 328/500 [00:58<00:29,  5.76 examples/s][A
-Extract answers 256:  66%|██████▌   | 329/500 [00:59<00:29,  5.82 examples/s][A
-Extract answers 256:  66%|██████▌   | 330/500 [00:59<00:28,  5.99 examples/s][A
-Extract answers 256:  66%|██████▌   | 331/500 [00:59<00:27,  6.06 examples/s][A
-Extract answers 256:  66%|██████▋   | 332/500 [00:59<00:32,  5.10 examples/s][A
-Extract answers 256:  67%|██████▋   | 333/500 [00:59<00:31,  5.27 examples/s][A
-Extract answers 256:  67%|██████▋   | 334/500 [00:59<00:30,  5.52 examples/s][A
-Extract answers 256:  67%|██████▋   | 335/500 [01:00<00:29,  5.62 examples/s][A
-Extract answers 256:  67%|██████▋   | 336/500 [01:00<00:27,  5.87 examples/s][A
-Extract answers 256:  67%|██████▋   | 337/500 [01:00<00:27,  5.91 examples/s][A
-Extract answers 256:  68%|██████▊   | 338/500 [01:00<00:26,  6.09 examples/s][A
-Extract answers 256:  68%|██████▊   | 339/500 [01:00<00:26,  6.05 examples/s][A
-Extract answers 256:  68%|██████▊   | 340/500 [01:00<00:28,  5.64 examples/s][A
-Extract answers 256:  68%|██████▊   | 341/500 [01:01<00:32,  4.89 examples/s][A
-Extract answers 256:  68%|██████▊   | 342/500 [01:01<00:30,  5.26 examples/s][A
-Extract answers 256:  69%|██████▊   | 343/500 [01:01<00:28,  5.51 examples/s][A
-Extract answers 256:  69%|██████▉   | 344/500 [01:01<00:27,  5.65 examples/s][A
-Extract answers 256:  69%|██████▉   | 345/500 [01:01<00:26,  5.85 examples/s][A
-Extract answers 256:  69%|██████▉   | 346/500 [01:02<00:25,  6.06 examples/s][A
-Extract answers 256:  69%|██████▉   | 347/500 [01:02<00:25,  5.96 examples/s][A
-Extract answers 256:  70%|██████▉   | 348/500 [01:02<00:27,  5.62 examples/s][A
-Extract answers 256:  70%|██████▉   | 349/500 [01:02<00:26,  5.67 examples/s][A
-Extract answers 256:  70%|███████   | 350/500 [01:02<00:25,  5.91 examples/s][A
-Extract answers 256:  70%|███████   | 351/500 [01:02<00:24,  6.13 examples/s][A
-Extract answers 256:  70%|███████   | 352/500 [01:03<00:29,  5.10 examples/s][A
-Extract answers 256:  71%|███████   | 353/500 [01:03<00:27,  5.29 examples/s][A
-Extract answers 256:  71%|███████   | 354/500 [01:03<00:26,  5.58 examples/s][A
-Extract answers 256:  71%|███████   | 355/500 [01:03<00:25,  5.76 examples/s][A
-Extract answers 256:  71%|███████   | 356/500 [01:03<00:25,  5.72 examples/s][A
-Extract answers 256:  71%|███████▏  | 357/500 [01:04<00:28,  4.95 examples/s][A
-Extract answers 256:  72%|███████▏  | 358/500 [01:04<00:27,  5.25 examples/s][A
-Extract answers 256:  72%|███████▏  | 359/500 [01:04<00:27,  5.19 examples/s][A
-Extract answers 256:  72%|███████▏  | 360/500 [01:04<00:25,  5.39 examples/s][A
-Extract answers 256:  72%|███████▏  | 361/500 [01:04<00:24,  5.59 examples/s][A
-Extract answers 256:  72%|███████▏  | 362/500 [01:04<00:24,  5.57 examples/s][A
-Extract answers 256:  73%|███████▎  | 363/500 [01:05<00:24,  5.56 examples/s][A
-Extract answers 256:  73%|███████▎  | 364/500 [01:05<00:23,  5.81 examples/s][A
-Extract answers 256:  73%|███████▎  | 365/500 [01:05<00:26,  5.14 examples/s][A
-Extract answers 256:  73%|███████▎  | 366/500 [01:05<00:24,  5.43 examples/s][A
-Extract answers 256:  73%|███████▎  | 367/500 [01:05<00:23,  5.69 examples/s][A
-Extract answers 256:  74%|███████▎  | 368/500 [01:05<00:22,  5.95 examples/s][A
-Extract answers 256:  74%|███████▍  | 369/500 [01:06<00:21,  6.13 examples/s][A
-Extract answers 256:  74%|███████▍  | 370/500 [01:06<00:21,  6.13 examples/s][A
-Extract answers 256:  74%|███████▍  | 371/500 [01:06<00:20,  6.18 examples/s][A
-Extract answers 256:  74%|███████▍  | 372/500 [01:06<00:20,  6.24 examples/s][A
-Extract answers 256:  75%|███████▍  | 373/500 [01:06<00:21,  6.04 examples/s][A
-Extract answers 256:  75%|███████▍  | 374/500 [01:07<00:22,  5.69 examples/s][A
-Extract answers 256:  75%|███████▌  | 375/500 [01:07<00:20,  5.96 examples/s][A
-Extract answers 256:  75%|███████▌  | 376/500 [01:07<00:20,  6.12 examples/s][A
-Extract answers 256:  75%|███████▌  | 377/500 [01:07<00:21,  5.65 examples/s][A
-Extract answers 256:  76%|███████▌  | 378/500 [01:07<00:20,  5.95 examples/s][A
-Extract answers 256:  76%|███████▌  | 379/500 [01:07<00:19,  6.16 examples/s][A
-Extract answers 256:  76%|███████▌  | 380/500 [01:08<00:20,  5.76 examples/s][A
-Extract answers 256:  76%|███████▌  | 381/500 [01:08<00:23,  5.15 examples/s][A
-Extract answers 256:  76%|███████▋  | 382/500 [01:08<00:22,  5.20 examples/s][A
-Extract answers 256:  77%|███████▋  | 383/500 [01:08<00:21,  5.32 examples/s][A
-Extract answers 256:  77%|███████▋  | 384/500 [01:08<00:22,  5.23 examples/s][A
-Extract answers 256:  77%|███████▋  | 385/500 [01:09<00:21,  5.29 examples/s][A
-Extract answers 256:  77%|███████▋  | 386/500 [01:09<00:20,  5.62 examples/s][A
-Extract answers 256:  77%|███████▋  | 387/500 [01:09<00:19,  5.77 examples/s][A
-Extract answers 256:  78%|███████▊  | 388/500 [01:09<00:18,  6.01 examples/s][A
-Extract answers 256:  78%|███████▊  | 389/500 [01:09<00:18,  5.97 examples/s][A
-Extract answers 256:  78%|███████▊  | 390/500 [01:09<00:19,  5.62 examples/s][A
-Extract answers 256:  78%|███████▊  | 391/500 [01:10<00:18,  5.78 examples/s][A
-Extract answers 256:  78%|███████▊  | 392/500 [01:10<00:18,  5.81 examples/s][A
-Extract answers 256:  79%|███████▊  | 393/500 [01:10<00:18,  5.77 examples/s][A
-Extract answers 256:  79%|███████▉  | 394/500 [01:10<00:18,  5.68 examples/s][A
-Extract answers 256:  79%|███████▉  | 395/500 [01:10<00:18,  5.60 examples/s][A
-Extract answers 256:  79%|███████▉  | 396/500 [01:10<00:17,  5.82 examples/s][A
-Extract answers 256:  79%|███████▉  | 397/500 [01:11<00:17,  5.98 examples/s][A
-Extract answers 256:  80%|███████▉  | 398/500 [01:11<00:16,  6.17 examples/s][A
-Extract answers 256:  80%|███████▉  | 399/500 [01:11<00:16,  6.14 examples/s][A
-Extract answers 256:  80%|████████  | 400/500 [01:11<00:16,  6.07 examples/s][A
-Extract answers 256:  80%|████████  | 401/500 [01:11<00:16,  5.99 examples/s][A
-Extract answers 256:  80%|████████  | 402/500 [01:11<00:16,  5.93 examples/s][A
-Extract answers 256:  81%|████████  | 403/500 [01:12<00:16,  5.79 examples/s][A
-Extract answers 256:  81%|████████  | 404/500 [01:12<00:15,  6.01 examples/s][A
-Extract answers 256:  81%|████████  | 405/500 [01:12<00:15,  6.25 examples/s][A
-Extract answers 256:  81%|████████  | 406/500 [01:12<00:14,  6.37 examples/s][A
-Extract answers 256:  81%|████████▏ | 407/500 [01:12<00:14,  6.48 examples/s][A
-Extract answers 256:  82%|████████▏ | 408/500 [01:12<00:14,  6.50 examples/s][A
-Extract answers 256:  82%|████████▏ | 409/500 [01:13<00:18,  4.98 examples/s][A
-Extract answers 256:  82%|████████▏ | 410/500 [01:13<00:17,  5.11 examples/s][A
-Extract answers 256:  82%|████████▏ | 411/500 [01:13<00:16,  5.38 examples/s][A
-Extract answers 256:  82%|████████▏ | 412/500 [01:13<00:15,  5.67 examples/s][A
-Extract answers 256:  83%|████████▎ | 413/500 [01:13<00:15,  5.70 examples/s][A
-Extract answers 256:  83%|████████▎ | 414/500 [01:13<00:15,  5.64 examples/s][A
-Extract answers 256:  83%|████████▎ | 415/500 [01:14<00:15,  5.55 examples/s][A
-Extract answers 256:  83%|████████▎ | 416/500 [01:14<00:14,  5.81 examples/s][A
-Extract answers 256:  83%|████████▎ | 417/500 [01:14<00:15,  5.28 examples/s][A
-Extract answers 256:  84%|████████▎ | 418/500 [01:14<00:14,  5.62 examples/s][A
-Extract answers 256:  84%|████████▍ | 419/500 [01:14<00:14,  5.56 examples/s][A
-Extract answers 256:  84%|████████▍ | 420/500 [01:15<00:16,  4.74 examples/s][A
-Extract answers 256:  84%|████████▍ | 421/500 [01:15<00:22,  3.55 examples/s][A
-Extract answers 256:  84%|████████▍ | 422/500 [01:15<00:19,  4.00 examples/s][A
-Extract answers 256:  85%|████████▍ | 423/500 [01:15<00:18,  4.14 examples/s][A
-Extract answers 256:  85%|████████▍ | 424/500 [01:16<00:16,  4.62 examples/s][A
-Extract answers 256:  85%|████████▌ | 425/500 [01:16<00:14,  5.03 examples/s][A
-Extract answers 256:  85%|████████▌ | 426/500 [01:16<00:17,  4.29 examples/s][A
-Extract answers 256:  85%|████████▌ | 427/500 [01:16<00:16,  4.56 examples/s][A
-Extract answers 256:  86%|████████▌ | 428/500 [01:16<00:14,  4.98 examples/s][A
-Extract answers 256:  86%|████████▌ | 429/500 [01:17<00:13,  5.23 examples/s][A
-Extract answers 256:  86%|████████▌ | 430/500 [01:17<00:13,  5.26 examples/s][A
-Extract answers 256:  86%|████████▌ | 431/500 [01:17<00:12,  5.55 examples/s][A
-Extract answers 256:  86%|████████▋ | 432/500 [01:17<00:13,  5.20 examples/s][A
-Extract answers 256:  87%|████████▋ | 433/500 [01:17<00:12,  5.33 examples/s][A
-Extract answers 256:  87%|████████▋ | 434/500 [01:18<00:12,  5.35 examples/s][A
-Extract answers 256:  87%|████████▋ | 435/500 [01:18<00:11,  5.60 examples/s][A
-Extract answers 256:  87%|████████▋ | 436/500 [01:18<00:13,  4.85 examples/s][A
-Extract answers 256:  87%|████████▋ | 437/500 [01:18<00:12,  5.24 examples/s][A
-Extract answers 256:  88%|████████▊ | 438/500 [01:18<00:11,  5.50 examples/s][A
-Extract answers 256:  88%|████████▊ | 439/500 [01:19<00:11,  5.15 examples/s][A
-Extract answers 256:  88%|████████▊ | 440/500 [01:19<00:13,  4.58 examples/s][A
-Extract answers 256:  88%|████████▊ | 441/500 [01:19<00:12,  4.85 examples/s][A
-Extract answers 256:  88%|████████▊ | 442/500 [01:19<00:11,  5.19 examples/s][A
-Extract answers 256:  89%|████████▊ | 443/500 [01:19<00:10,  5.43 examples/s][A
-Extract answers 256:  89%|████████▉ | 444/500 [01:19<00:09,  5.71 examples/s][A
-Extract answers 256:  89%|████████▉ | 445/500 [01:20<00:10,  5.44 examples/s][A
-Extract answers 256:  89%|████████▉ | 446/500 [01:20<00:10,  5.40 examples/s][A
-Extract answers 256:  89%|████████▉ | 447/500 [01:20<00:09,  5.53 examples/s][A
-Extract answers 256:  90%|████████▉ | 448/500 [01:20<00:08,  5.80 examples/s][A
-Extract answers 256:  90%|████████▉ | 449/500 [01:20<00:08,  6.01 examples/s][A
-Extract answers 256:  90%|█████████ | 450/500 [01:20<00:08,  6.18 examples/s][A
-Extract answers 256:  90%|█████████ | 451/500 [01:21<00:07,  6.24 examples/s][A
-Extract answers 256:  90%|█████████ | 452/500 [01:21<00:08,  5.89 examples/s][A
-Extract answers 256:  91%|█████████ | 453/500 [01:21<00:07,  6.03 examples/s][A
-Extract answers 256:  91%|█████████ | 454/500 [01:21<00:07,  6.05 examples/s][A
-Extract answers 256:  91%|█████████ | 455/500 [01:21<00:08,  5.53 examples/s][A
-Extract answers 256:  91%|█████████ | 456/500 [01:22<00:07,  5.85 examples/s][A
-Extract answers 256:  91%|█████████▏| 457/500 [01:22<00:07,  5.63 examples/s][A
-Extract answers 256:  92%|█████████▏| 458/500 [01:22<00:07,  5.93 examples/s][A
-Extract answers 256:  92%|█████████▏| 459/500 [01:22<00:06,  6.11 examples/s][A
-Extract answers 256:  92%|█████████▏| 460/500 [01:22<00:06,  6.00 examples/s][A
-Extract answers 256:  92%|█████████▏| 461/500 [01:22<00:06,  5.87 examples/s][A
-Extract answers 256:  92%|█████████▏| 462/500 [01:23<00:06,  6.06 examples/s][A
-Extract answers 256:  93%|█████████▎| 463/500 [01:23<00:06,  6.10 examples/s][A
-Extract answers 256:  93%|█████████▎| 464/500 [01:23<00:05,  6.16 examples/s][A
-Extract answers 256:  93%|█████████▎| 465/500 [01:23<00:06,  5.82 examples/s][A
-Extract answers 256:  93%|█████████▎| 466/500 [01:23<00:05,  6.02 examples/s][A
-Extract answers 256:  93%|█████████▎| 467/500 [01:23<00:05,  5.85 examples/s][A
-Extract answers 256:  94%|█████████▎| 468/500 [01:24<00:05,  5.69 examples/s][A
-Extract answers 256:  94%|█████████▍| 469/500 [01:24<00:05,  5.76 examples/s][A
-Extract answers 256:  94%|█████████▍| 470/500 [01:24<00:05,  5.99 examples/s][A
-Extract answers 256:  94%|█████████▍| 471/500 [01:24<00:04,  5.81 examples/s][A
-Extract answers 256:  94%|█████████▍| 472/500 [01:24<00:04,  5.99 examples/s][A
-Extract answers 256:  95%|█████████▍| 473/500 [01:24<00:04,  5.86 examples/s][A
-Extract answers 256:  95%|█████████▍| 474/500 [01:25<00:04,  5.94 examples/s][A
-Extract answers 256:  95%|█████████▌| 475/500 [01:25<00:04,  5.76 examples/s][A
-Extract answers 256:  95%|█████████▌| 476/500 [01:25<00:04,  5.87 examples/s][A
-Extract answers 256:  95%|█████████▌| 477/500 [01:25<00:03,  5.97 examples/s][A
-Extract answers 256:  96%|█████████▌| 478/500 [01:25<00:03,  6.06 examples/s][A
-Extract answers 256:  96%|█████████▌| 479/500 [01:25<00:03,  5.67 examples/s][A
-Extract answers 256:  96%|█████████▌| 480/500 [01:26<00:03,  5.87 examples/s][A
-Extract answers 256:  96%|█████████▌| 481/500 [01:26<00:03,  5.21 examples/s][A
-Extract answers 256:  96%|█████████▋| 482/500 [01:26<00:03,  4.72 examples/s][A
-Extract answers 256:  97%|█████████▋| 483/500 [01:26<00:03,  5.04 examples/s][A
-Extract answers 256:  97%|█████████▋| 484/500 [01:26<00:03,  4.63 examples/s][A
-Extract answers 256:  97%|█████████▋| 485/500 [01:27<00:03,  4.85 examples/s][A
-Extract answers 256:  97%|█████████▋| 486/500 [01:27<00:02,  5.15 examples/s][A
-Extract answers 256:  97%|█████████▋| 487/500 [01:27<00:02,  5.36 examples/s][A
-Extract answers 256:  98%|█████████▊| 488/500 [01:27<00:02,  5.71 examples/s][A
-Extract answers 256:  98%|█████████▊| 489/500 [01:27<00:01,  5.92 examples/s][A
-Extract answers 256:  98%|█████████▊| 490/500 [01:27<00:01,  6.02 examples/s][A
-Extract answers 256:  98%|█████████▊| 491/500 [01:28<00:01,  6.15 examples/s][A
-Extract answers 256:  98%|█████████▊| 492/500 [01:28<00:01,  6.21 examples/s][A
-Extract answers 256:  99%|█████████▊| 493/500 [01:28<00:01,  5.86 examples/s][A
-Extract answers 256:  99%|█████████▉| 494/500 [01:28<00:01,  5.92 examples/s][A
-Extract answers 256:  99%|█████████▉| 495/500 [01:28<00:00,  5.09 examples/s][A
-Extract answers 256:  99%|█████████▉| 496/500 [01:29<00:00,  5.02 examples/s][A
-Extract answers 256:  99%|█████████▉| 497/500 [01:29<00:00,  4.98 examples/s][A
-Extract answers 256: 100%|█████████▉| 498/500 [01:29<00:00,  5.00 examples/s][A
-Extract answers 256: 100%|█████████▉| 499/500 [01:29<00:00,  5.06 examples/s][A
-Extract answers 256: 100%|██████████| 500/500 [01:29<00:00,  5.19 examples/s][AExtract answers 256: 100%|██████████| 500/500 [01:30<00:00,  5.52 examples/s]
-
-Compute weighted pred 256:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute weighted pred 256:   0%|          | 2/500 [00:01<06:40,  1.24 examples/s][A
-Compute weighted pred 256:   1%|          | 5/500 [00:01<02:20,  3.53 examples/s][A
-Compute weighted pred 256:   2%|▏         | 8/500 [00:02<01:54,  4.29 examples/s][A
-Compute weighted pred 256:   2%|▏         | 12/500 [00:02<01:14,  6.51 examples/s][A
-Compute weighted pred 256:   3%|▎         | 15/500 [00:02<00:56,  8.66 examples/s][A
-Compute weighted pred 256:   4%|▎         | 18/500 [00:03<01:35,  5.04 examples/s][A
-Compute weighted pred 256:   4%|▍         | 21/500 [00:04<01:17,  6.22 examples/s][A
-Compute weighted pred 256:   5%|▍         | 23/500 [00:04<01:05,  7.27 examples/s][A
-Compute weighted pred 256:   5%|▌         | 26/500 [00:04<00:55,  8.51 examples/s][A
-Compute weighted pred 256:   6%|▌         | 29/500 [00:04<00:44, 10.51 examples/s][A
-Compute weighted pred 256:   6%|▋         | 32/500 [00:04<00:41, 11.25 examples/s][A
-Compute weighted pred 256:   7%|▋         | 34/500 [00:04<00:39, 11.74 examples/s][A
-Compute weighted pred 256:   7%|▋         | 37/500 [00:05<00:47,  9.77 examples/s][A
-Compute weighted pred 256:   8%|▊         | 42/500 [00:05<00:33, 13.78 examples/s][A
-Compute weighted pred 256:   9%|▉         | 44/500 [00:05<00:36, 12.40 examples/s][A
-Compute weighted pred 256:   9%|▉         | 46/500 [00:05<00:38, 11.85 examples/s][A
-Compute weighted pred 256:  10%|▉         | 49/500 [00:06<00:31, 14.17 examples/s][A
-Compute weighted pred 256:  10%|█         | 52/500 [00:07<01:29,  5.01 examples/s][A
-Compute weighted pred 256:  12%|█▏        | 58/500 [00:07<00:53,  8.32 examples/s][A
-Compute weighted pred 256:  12%|█▏        | 61/500 [00:07<00:43, 10.00 examples/s][A
-Compute weighted pred 256:  13%|█▎        | 63/500 [00:07<00:44,  9.81 examples/s][A
-Compute weighted pred 256:  13%|█▎        | 65/500 [00:08<00:50,  8.55 examples/s][A
-Compute weighted pred 256:  13%|█▎        | 67/500 [00:09<01:55,  3.73 examples/s][A
-Compute weighted pred 256:  14%|█▍        | 69/500 [00:10<02:08,  3.35 examples/s][A
-Compute weighted pred 256:  14%|█▍        | 70/500 [00:12<03:39,  1.96 examples/s][A
-Compute weighted pred 256:  15%|█▍        | 74/500 [00:12<02:03,  3.44 examples/s][A
-Compute weighted pred 256:  15%|█▌        | 77/500 [00:13<01:49,  3.85 examples/s][A
-Compute weighted pred 256:  16%|█▋        | 82/500 [00:13<01:06,  6.26 examples/s][A
-Compute weighted pred 256:  17%|█▋        | 84/500 [00:14<01:38,  4.22 examples/s][A
-Compute weighted pred 256:  17%|█▋        | 86/500 [00:14<01:27,  4.74 examples/s][A
-Compute weighted pred 256:  19%|█▊        | 93/500 [00:14<00:45,  8.87 examples/s][A
-Compute weighted pred 256:  19%|█▉        | 96/500 [00:15<00:44,  9.00 examples/s][A
-Compute weighted pred 256:  20%|█▉        | 99/500 [00:15<00:42,  9.34 examples/s][A
-Compute weighted pred 256:  20%|██        | 102/500 [00:15<00:40,  9.80 examples/s][A
-Compute weighted pred 256:  21%|██        | 104/500 [00:15<00:41,  9.44 examples/s][A
-Compute weighted pred 256:  21%|██▏       | 107/500 [00:16<00:46,  8.54 examples/s][A
-Compute weighted pred 256:  22%|██▏       | 109/500 [00:16<00:43,  8.96 examples/s][A
-Compute weighted pred 256:  22%|██▏       | 111/500 [00:17<01:08,  5.70 examples/s][A
-Compute weighted pred 256:  23%|██▎       | 113/500 [00:17<01:09,  5.59 examples/s][A
-Compute weighted pred 256:  23%|██▎       | 115/500 [00:17<01:10,  5.48 examples/s][A
-Compute weighted pred 256:  25%|██▍       | 123/500 [00:18<00:30, 12.55 examples/s][A
-Compute weighted pred 256:  25%|██▌       | 127/500 [00:19<00:50,  7.39 examples/s][A
-Compute weighted pred 256:  26%|██▌       | 130/500 [00:19<00:41,  8.97 examples/s][A
-Compute weighted pred 256:  27%|██▋       | 135/500 [00:19<00:37,  9.77 examples/s][A
-Compute weighted pred 256:  28%|██▊       | 138/500 [00:19<00:31, 11.50 examples/s][A
-Compute weighted pred 256:  28%|██▊       | 141/500 [00:20<00:31, 11.47 examples/s][A
-Compute weighted pred 256:  29%|██▉       | 144/500 [00:20<00:26, 13.53 examples/s][A
-Compute weighted pred 256:  30%|██▉       | 148/500 [00:21<00:55,  6.39 examples/s][A
-Compute weighted pred 256:  30%|███       | 152/500 [00:21<00:45,  7.70 examples/s][A
-Compute weighted pred 256:  31%|███       | 154/500 [00:21<00:42,  8.13 examples/s][A
-Compute weighted pred 256:  31%|███▏      | 157/500 [00:22<00:37,  9.08 examples/s][A
-Compute weighted pred 256:  32%|███▏      | 160/500 [00:22<00:31, 10.77 examples/s][A
-Compute weighted pred 256:  33%|███▎      | 164/500 [00:22<00:26, 12.55 examples/s][A
-Compute weighted pred 256:  33%|███▎      | 166/500 [00:24<01:29,  3.74 examples/s][A
-Compute weighted pred 256:  34%|███▍      | 169/500 [00:24<01:06,  4.99 examples/s][A
-Compute weighted pred 256:  34%|███▍      | 171/500 [00:24<00:59,  5.54 examples/s][A
-Compute weighted pred 256:  35%|███▌      | 177/500 [00:25<00:34,  9.47 examples/s][A
-Compute weighted pred 256:  36%|███▌      | 180/500 [00:25<00:45,  6.97 examples/s][A
-Compute weighted pred 256:  37%|███▋      | 184/500 [00:26<00:38,  8.28 examples/s][A
-Compute weighted pred 256:  37%|███▋      | 187/500 [00:26<00:35,  8.70 examples/s][A
-Compute weighted pred 256:  38%|███▊      | 189/500 [00:27<00:47,  6.58 examples/s][A
-Compute weighted pred 256:  39%|███▊      | 193/500 [00:27<00:35,  8.75 examples/s][A
-Compute weighted pred 256:  39%|███▉      | 195/500 [00:27<00:35,  8.64 examples/s][A
-Compute weighted pred 256:  40%|████      | 200/500 [00:27<00:28, 10.40 examples/s][A
-Compute weighted pred 256:  41%|████      | 204/500 [00:28<00:25, 11.58 examples/s][A
-Compute weighted pred 256:  41%|████      | 206/500 [00:28<00:33,  8.76 examples/s][A
-Compute weighted pred 256:  42%|████▏     | 210/500 [00:28<00:24, 11.61 examples/s][A
-Compute weighted pred 256:  43%|████▎     | 214/500 [00:29<00:43,  6.56 examples/s][A
-Compute weighted pred 256:  43%|████▎     | 216/500 [00:30<00:45,  6.18 examples/s][A
-Compute weighted pred 256:  44%|████▍     | 222/500 [00:30<00:27, 10.22 examples/s][A
-Compute weighted pred 256:  45%|████▌     | 225/500 [00:31<00:56,  4.88 examples/s][A
-Compute weighted pred 256:  46%|████▌     | 229/500 [00:33<01:20,  3.38 examples/s][A
-Compute weighted pred 256:  47%|████▋     | 233/500 [00:34<01:00,  4.40 examples/s][A
-Compute weighted pred 256:  47%|████▋     | 235/500 [00:34<00:53,  5.00 examples/s][A
-Compute weighted pred 256:  47%|████▋     | 237/500 [00:34<00:55,  4.72 examples/s][A
-Compute weighted pred 256:  48%|████▊     | 239/500 [00:35<00:52,  4.96 examples/s][A
-Compute weighted pred 256:  48%|████▊     | 241/500 [00:35<00:44,  5.76 examples/s][A
-Compute weighted pred 256:  49%|████▉     | 245/500 [00:35<00:29,  8.58 examples/s][A
-Compute weighted pred 256:  50%|████▉     | 248/500 [00:36<00:32,  7.69 examples/s][A
-Compute weighted pred 256:  50%|█████     | 252/500 [00:36<00:42,  5.80 examples/s][A
-Compute weighted pred 256:  51%|█████     | 255/500 [00:37<00:34,  7.07 examples/s][A
-Compute weighted pred 256:  52%|█████▏    | 259/500 [00:37<00:24,  9.81 examples/s][A
-Compute weighted pred 256:  52%|█████▏    | 261/500 [00:37<00:25,  9.21 examples/s][A
-Compute weighted pred 256:  53%|█████▎    | 264/500 [00:37<00:20, 11.48 examples/s][A
-Compute weighted pred 256:  53%|█████▎    | 267/500 [00:37<00:18, 12.93 examples/s][A
-Compute weighted pred 256:  54%|█████▍    | 272/500 [00:37<00:12, 18.38 examples/s][A
-Compute weighted pred 256:  55%|█████▌    | 275/500 [00:38<00:15, 14.27 examples/s][A
-Compute weighted pred 256:  56%|█████▌    | 278/500 [00:38<00:15, 14.25 examples/s][A
-Compute weighted pred 256:  56%|█████▋    | 282/500 [00:38<00:12, 17.91 examples/s][A
-Compute weighted pred 256:  57%|█████▋    | 285/500 [00:39<00:26,  8.02 examples/s][A
-Compute weighted pred 256:  57%|█████▋    | 287/500 [00:39<00:25,  8.23 examples/s][A
-Compute weighted pred 256:  58%|█████▊    | 289/500 [00:40<00:25,  8.13 examples/s][A
-Compute weighted pred 256:  58%|█████▊    | 291/500 [00:40<00:23,  8.93 examples/s][A
-Compute weighted pred 256:  59%|█████▉    | 294/500 [00:40<00:20, 10.05 examples/s][A
-Compute weighted pred 256:  59%|█████▉    | 296/500 [00:40<00:19, 10.70 examples/s][A
-Compute weighted pred 256:  60%|█████▉    | 299/500 [00:44<01:47,  1.86 examples/s][A
-Compute weighted pred 256:  61%|██████    | 304/500 [00:44<01:00,  3.23 examples/s][A
-Compute weighted pred 256:  61%|██████    | 306/500 [00:45<00:55,  3.48 examples/s][A
-Compute weighted pred 256:  62%|██████▏   | 308/500 [00:45<00:47,  4.04 examples/s][A
-Compute weighted pred 256:  62%|██████▏   | 311/500 [00:45<00:34,  5.43 examples/s][A
-Compute weighted pred 256:  63%|██████▎   | 316/500 [00:45<00:21,  8.60 examples/s][A
-Compute weighted pred 256:  64%|██████▎   | 318/500 [00:46<00:20,  8.75 examples/s][A
-Compute weighted pred 256:  64%|██████▍   | 321/500 [00:46<00:18,  9.62 examples/s][A
-Compute weighted pred 256:  65%|██████▍   | 324/500 [00:46<00:17,  9.82 examples/s][A
-Compute weighted pred 256:  65%|██████▌   | 327/500 [00:47<00:20,  8.47 examples/s][A
-Compute weighted pred 256:  66%|██████▌   | 329/500 [00:47<00:21,  8.10 examples/s][A
-Compute weighted pred 256:  66%|██████▋   | 332/500 [00:48<00:32,  5.14 examples/s][A
-Compute weighted pred 256:  67%|██████▋   | 333/500 [00:48<00:30,  5.48 examples/s][A
-Compute weighted pred 256:  67%|██████▋   | 335/500 [00:48<00:25,  6.55 examples/s][A
-Compute weighted pred 256:  68%|██████▊   | 340/500 [00:48<00:19,  8.38 examples/s][A
-Compute weighted pred 256:  69%|██████▊   | 343/500 [00:50<00:30,  5.14 examples/s][A
-Compute weighted pred 256:  69%|██████▉   | 347/500 [00:50<00:22,  6.70 examples/s][A
-Compute weighted pred 256:  70%|███████   | 350/500 [00:50<00:24,  6.24 examples/s][A
-Compute weighted pred 256:  70%|███████   | 352/500 [00:54<01:08,  2.15 examples/s][A
-Compute weighted pred 256:  71%|███████   | 353/500 [00:54<01:04,  2.27 examples/s][A
-Compute weighted pred 256:  71%|███████   | 356/500 [00:54<00:45,  3.18 examples/s][A
-Compute weighted pred 256:  71%|███████▏  | 357/500 [00:54<00:43,  3.27 examples/s][A
-Compute weighted pred 256:  72%|███████▏  | 360/500 [00:55<00:30,  4.65 examples/s][A
-Compute weighted pred 256:  72%|███████▏  | 362/500 [00:55<00:24,  5.66 examples/s][A
-Compute weighted pred 256:  73%|███████▎  | 365/500 [00:55<00:19,  6.80 examples/s][A
-Compute weighted pred 256:  74%|███████▍  | 371/500 [00:55<00:10, 12.17 examples/s][A
-Compute weighted pred 256:  75%|███████▍  | 374/500 [00:56<00:13,  9.32 examples/s][A
-Compute weighted pred 256:  75%|███████▌  | 377/500 [00:56<00:11, 11.16 examples/s][A
-Compute weighted pred 256:  76%|███████▌  | 380/500 [00:56<00:08, 13.40 examples/s][A
-Compute weighted pred 256:  77%|███████▋  | 383/500 [00:56<00:11, 10.33 examples/s][A
-Compute weighted pred 256:  77%|███████▋  | 386/500 [00:57<00:09, 12.47 examples/s][A
-Compute weighted pred 256:  78%|███████▊  | 390/500 [00:57<00:07, 14.92 examples/s][A
-Compute weighted pred 256:  79%|███████▊  | 393/500 [00:57<00:09, 10.94 examples/s][A
-Compute weighted pred 256:  79%|███████▉  | 395/500 [00:57<00:09, 11.07 examples/s][A
-Compute weighted pred 256:  80%|███████▉  | 398/500 [00:58<00:07, 13.27 examples/s][A
-Compute weighted pred 256:  80%|████████  | 401/500 [00:58<00:06, 14.80 examples/s][A
-Compute weighted pred 256:  81%|████████  | 403/500 [00:58<00:09, 10.03 examples/s][A
-Compute weighted pred 256:  82%|████████▏ | 409/500 [00:58<00:05, 16.03 examples/s][A
-Compute weighted pred 256:  83%|████████▎ | 413/500 [00:59<00:05, 15.41 examples/s][A
-Compute weighted pred 256:  83%|████████▎ | 417/500 [01:06<00:52,  1.57 examples/s][A
-Compute weighted pred 256:  84%|████████▍ | 420/500 [01:06<00:39,  2.03 examples/s][A
-Compute weighted pred 256:  84%|████████▍ | 422/500 [01:07<00:34,  2.29 examples/s][A
-Compute weighted pred 256:  85%|████████▌ | 426/500 [01:08<00:30,  2.45 examples/s][A
-Compute weighted pred 256:  86%|████████▌ | 429/500 [01:08<00:21,  3.28 examples/s][A
-Compute weighted pred 256:  86%|████████▋ | 432/500 [01:09<00:19,  3.49 examples/s][A
-Compute weighted pred 256:  87%|████████▋ | 434/500 [01:09<00:17,  3.78 examples/s][A
-Compute weighted pred 256:  88%|████████▊ | 438/500 [01:09<00:10,  5.67 examples/s][A
-Compute weighted pred 256:  88%|████████▊ | 440/500 [01:10<00:13,  4.54 examples/s][A
-Compute weighted pred 256:  89%|████████▊ | 443/500 [01:10<00:10,  5.58 examples/s][A
-Compute weighted pred 256:  89%|████████▉ | 445/500 [01:11<00:09,  5.62 examples/s][A
-Compute weighted pred 256:  89%|████████▉ | 447/500 [01:11<00:09,  5.46 examples/s][A
-Compute weighted pred 256:  90%|█████████ | 452/500 [01:11<00:05,  8.81 examples/s][A
-Compute weighted pred 256:  91%|█████████ | 454/500 [01:12<00:04,  9.39 examples/s][A
-Compute weighted pred 256:  91%|█████████▏| 457/500 [01:12<00:05,  8.39 examples/s][A
-Compute weighted pred 256:  93%|█████████▎| 463/500 [01:12<00:02, 13.21 examples/s][A
-Compute weighted pred 256:  93%|█████████▎| 467/500 [01:12<00:02, 13.80 examples/s][A
-Compute weighted pred 256:  94%|█████████▍| 471/500 [01:13<00:01, 14.93 examples/s][A
-Compute weighted pred 256:  95%|█████████▍| 474/500 [01:13<00:01, 15.90 examples/s][A
-Compute weighted pred 256:  95%|█████████▌| 477/500 [01:14<00:03,  6.40 examples/s][A
-Compute weighted pred 256:  96%|█████████▌| 479/500 [01:15<00:03,  5.66 examples/s][A
-Compute weighted pred 256:  96%|█████████▌| 481/500 [01:15<00:04,  4.57 examples/s][A
-Compute weighted pred 256:  96%|█████████▋| 482/500 [01:16<00:05,  3.10 examples/s][A
-Compute weighted pred 256:  97%|█████████▋| 484/500 [01:17<00:04,  3.51 examples/s][A
-Compute weighted pred 256:  97%|█████████▋| 485/500 [01:17<00:03,  3.83 examples/s][A
-Compute weighted pred 256:  97%|█████████▋| 486/500 [01:17<00:03,  3.98 examples/s][A
-Compute weighted pred 256:  97%|█████████▋| 487/500 [01:17<00:02,  4.54 examples/s][A
-Compute weighted pred 256:  98%|█████████▊| 490/500 [01:17<00:01,  7.28 examples/s][A
-Compute weighted pred 256:  99%|█████████▊| 493/500 [01:17<00:00,  9.85 examples/s][A
-Compute weighted pred 256:  99%|█████████▉| 495/500 [01:19<00:01,  4.04 examples/s][A
-Compute weighted pred 256:  99%|█████████▉| 497/500 [01:19<00:00,  4.69 examples/s][A
-Compute weighted pred 256: 100%|█████████▉| 498/500 [01:19<00:00,  4.52 examples/s][A
-Compute weighted pred 256: 100%|█████████▉| 499/500 [01:20<00:00,  3.95 examples/s][A
-Compute weighted pred 256: 100%|██████████| 500/500 [01:20<00:00,  3.11 examples/s][ACompute weighted pred 256: 100%|██████████| 500/500 [01:20<00:00,  6.20 examples/s]
-
-Compute majority pred 256:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute majority pred 256:   2%|▏         | 9/500 [00:00<00:06, 80.05 examples/s][A
-Compute majority pred 256:   4%|▍         | 19/500 [00:00<00:05, 81.90 examples/s][A
-Compute majority pred 256:   6%|▌         | 29/500 [00:00<00:05, 82.69 examples/s][A
-Compute majority pred 256:   8%|▊         | 39/500 [00:00<00:05, 83.06 examples/s][A
-Compute majority pred 256:  10%|▉         | 49/500 [00:00<00:05, 83.03 examples/s][A
-Compute majority pred 256:  12%|█▏        | 59/500 [00:00<00:05, 83.38 examples/s][A
-Compute majority pred 256:  14%|█▍        | 69/500 [00:00<00:05, 83.02 examples/s][A
-Compute majority pred 256:  16%|█▌        | 79/500 [00:00<00:05, 83.21 examples/s][A
-Compute majority pred 256:  18%|█▊        | 89/500 [00:01<00:04, 83.40 examples/s][A
-Compute majority pred 256:  20%|█▉        | 99/500 [00:01<00:04, 83.57 examples/s][A
-Compute majority pred 256:  22%|██▏       | 109/500 [00:01<00:04, 83.56 examples/s][A
-Compute majority pred 256:  24%|██▍       | 119/500 [00:01<00:04, 83.24 examples/s][A
-Compute majority pred 256:  26%|██▌       | 129/500 [00:01<00:04, 83.30 examples/s][A
-Compute majority pred 256:  28%|██▊       | 139/500 [00:01<00:04, 83.33 examples/s][A
-Compute majority pred 256:  30%|██▉       | 149/500 [00:01<00:04, 83.33 examples/s][A
-Compute majority pred 256:  32%|███▏      | 159/500 [00:01<00:04, 83.32 examples/s][A
-Compute majority pred 256:  34%|███▍      | 169/500 [00:02<00:03, 83.51 examples/s][A
-Compute majority pred 256:  36%|███▌      | 179/500 [00:02<00:03, 83.63 examples/s][A
-Compute majority pred 256:  38%|███▊      | 189/500 [00:02<00:03, 83.57 examples/s][A
-Compute majority pred 256:  40%|███▉      | 199/500 [00:02<00:03, 83.46 examples/s][A
-Compute majority pred 256:  42%|████▏     | 209/500 [00:02<00:03, 83.51 examples/s][A
-Compute majority pred 256:  44%|████▍     | 219/500 [00:02<00:03, 83.19 examples/s][A
-Compute majority pred 256:  46%|████▌     | 229/500 [00:02<00:03, 83.29 examples/s][A
-Compute majority pred 256:  48%|████▊     | 239/500 [00:02<00:03, 83.27 examples/s][A
-Compute majority pred 256:  50%|████▉     | 249/500 [00:02<00:03, 83.19 examples/s][A
-Compute majority pred 256:  52%|█████▏    | 259/500 [00:03<00:02, 83.40 examples/s][A
-Compute majority pred 256:  54%|█████▍    | 269/500 [00:03<00:02, 83.53 examples/s][A
-Compute majority pred 256:  56%|█████▌    | 279/500 [00:03<00:02, 83.18 examples/s][A
-Compute majority pred 256:  58%|█████▊    | 289/500 [00:03<00:02, 83.14 examples/s][A
-Compute majority pred 256:  60%|█████▉    | 299/500 [00:03<00:02, 83.00 examples/s][A
-Compute majority pred 256:  62%|██████▏   | 309/500 [00:03<00:02, 83.14 examples/s][A
-Compute majority pred 256:  64%|██████▍   | 319/500 [00:03<00:02, 83.18 examples/s][A
-Compute majority pred 256:  66%|██████▌   | 329/500 [00:03<00:02, 83.34 examples/s][A
-Compute majority pred 256:  68%|██████▊   | 339/500 [00:04<00:01, 83.49 examples/s][A
-Compute majority pred 256:  70%|██████▉   | 349/500 [00:04<00:01, 83.59 examples/s][A
-Compute majority pred 256:  72%|███████▏  | 359/500 [00:04<00:01, 83.51 examples/s][A
-Compute majority pred 256:  74%|███████▍  | 369/500 [00:04<00:01, 83.59 examples/s][A
-Compute majority pred 256:  76%|███████▌  | 379/500 [00:04<00:01, 83.79 examples/s][A
-Compute majority pred 256:  78%|███████▊  | 389/500 [00:04<00:01, 83.76 examples/s][A
-Compute majority pred 256:  80%|███████▉  | 399/500 [00:04<00:01, 83.74 examples/s][A
-Compute majority pred 256:  82%|████████▏ | 409/500 [00:04<00:01, 83.82 examples/s][A
-Compute majority pred 256:  84%|████████▍ | 419/500 [00:05<00:00, 83.80 examples/s][A
-Compute majority pred 256:  86%|████████▌ | 429/500 [00:05<00:00, 83.70 examples/s][A
-Compute majority pred 256:  88%|████████▊ | 439/500 [00:05<00:00, 83.77 examples/s][A
-Compute majority pred 256:  90%|████████▉ | 449/500 [00:05<00:00, 83.96 examples/s][A
-Compute majority pred 256:  92%|█████████▏| 459/500 [00:05<00:00, 83.83 examples/s][A
-Compute majority pred 256:  94%|█████████▍| 469/500 [00:05<00:00, 83.90 examples/s][A
-Compute majority pred 256:  96%|█████████▌| 479/500 [00:05<00:00, 83.97 examples/s][A
-Compute majority pred 256:  98%|█████████▊| 489/500 [00:05<00:00, 83.61 examples/s][A
-Compute majority pred 256: 100%|█████████▉| 499/500 [00:05<00:00, 83.78 examples/s][ACompute majority pred 256: 100%|██████████| 500/500 [00:06<00:00, 76.44 examples/s]
-
-Compute naive pred 256:   0%|          | 0/500 [00:00<?, ? examples/s][A
-Compute naive pred 256:  44%|████▍     | 222/500 [00:00<00:00, 2181.96 examples/s][A
-Compute naive pred 256:  91%|█████████ | 453/500 [00:00<00:00, 2250.64 examples/s][ACompute naive pred 256: 100%|██████████| 500/500 [00:00<00:00, 648.48 examples/s] 
-Computing majority & weighted predictions: 100%|██████████| 9/9 [06:42<00:00, 91.96s/it]Computing majority & weighted predictions: 100%|██████████| 9/9 [06:42<00:00, 44.73s/it]
-INFO:__main__:Scoring time: 404.03547286987305 s
-Uploading the dataset shards:   0%|          | 0/1 [00:00<?, ?it/s]
-Creating parquet from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
-Creating parquet from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  1.87ba/s][ACreating parquet from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  1.87ba/s]
-
-  0%|          | 0/1 [00:00<?, ?it/s][A/home/dlimpus/.conda/envs/sal/lib/python3.11/site-packages/huggingface_hub/lfs.py:337: UserWarning: hf_transfer is enabled but does not support uploading from bytes or BinaryIO, falling back to regular upload
-  warnings.warn(
-
-100%|██████████| 1/1 [00:03<00:00,  3.24s/it][A100%|██████████| 1/1 [00:03<00:00,  3.24s/it]
-Uploading the dataset shards: 100%|██████████| 1/1 [00:04<00:00,  4.51s/it]Uploading the dataset shards: 100%|██████████| 1/1 [00:04<00:00,  4.51s/it]
-INFO:root:Pushed dataset to https://huggingface.co/datasets/TheRealPilot638/Falcon3-1B-bon_256_no_chunking_H200/commit/c3b4e2b6b1921efd0f4c81897d1460d60404c6de
-INFO:__main__:Total runtime: 13022.195881128311
-INFO:__main__:Total power consumtion: 1579.7189961111133 Wh
-INFO:__main__:Done 🔥!

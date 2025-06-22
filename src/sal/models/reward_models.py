@@ -95,7 +95,7 @@ class MathShepherd(PRM):
             model_id,
             device_map="auto",
             attn_implementation="flash_attention_2",
-            torch_dtype=torch.float16,
+            torch_dtype=torch.float16
         ).eval()
         return model, tokenizer
 
@@ -142,7 +142,7 @@ class RLHFFlow(PRM):
     ) -> tuple[PreTrainedModel, PreTrainedTokenizer]:
         tokenizer = AutoTokenizer.from_pretrained(
             "RLHFlow/Llama3.1-8B-PRM-Deepseek-Data"
-        )
+        )        
         model = AutoModelForCausalLM.from_pretrained(
             "RLHFlow/Llama3.1-8B-PRM-Deepseek-Data",
             device_map="auto",
@@ -189,7 +189,7 @@ class RLHFFlow(PRM):
                     conversation.append({"content": text, "role": "user"})
                     conversation.append({"content": "+", "role": "assistant"})
                     input_ids = self.tokenizer.apply_chat_template(
-                        conversation, return_tensors="pt"
+                        conversation, return_tensors="pt", max_length=4096, truncation=True
                     ).to(self.model.device)
                     with torch.no_grad():
                         logits = self.model(input_ids).logits[
@@ -218,6 +218,7 @@ class RLHFFlow(PRM):
 
         special_tok_id = self.tokenizer("ки", return_tensors="pt").input_ids[0, 1]
         # We construct two parallel dialogues, one with a "+" token per assistant turn, the other with the dummy token "ки" for masking
+        torch.cuda.empty_cache()
         conversations = []
         conversations2 = []
         for question, answers in zip(questions, outputs, strict=True):
@@ -241,36 +242,78 @@ class RLHFFlow(PRM):
                 conversations2.append(conversation2)
 
         output_scores = []
-        for i in range(0, len(conversations), batch_size):
-            convs_batch = conversations[i : i + batch_size]
-            convs2_batch = conversations2[i : i + batch_size]
-            inputs_batch = self.tokenizer.apply_chat_template(
-                convs_batch, padding=True, return_tensors="pt"
-            ).to(self.model.device)
-            inputs2_batch = self.tokenizer.apply_chat_template(
-                convs2_batch, padding=True, return_tensors="pt"
-            ).to(self.model.device)
-            assert inputs_batch.shape == inputs2_batch.shape
-            with torch.no_grad():
-                logits = self.model(inputs_batch).logits[:, :, self.candidate_tokens]
-                scores = logits.softmax(dim=-1)[
-                    :, :, 0
-                ]  # 0 means the prob of + (1 mean -)
+        
+        # Process all batches
+        for batch_start in range(0, len(conversations), batch_size):
+            try:
+                convs_batch = conversations[batch_start : batch_start + batch_size]
+                convs2_batch = conversations2[batch_start : batch_start + batch_size]
+                inputs_batch = self.tokenizer.apply_chat_template(
+                    convs_batch, padding=True, return_tensors="pt", max_length=4096, truncation=True
+                ).to(self.model.device)
+                inputs2_batch = self.tokenizer.apply_chat_template(
+                    convs2_batch, padding=True, return_tensors="pt", max_length=4096, truncation=True
+                ).to(self.model.device)
+                
+                # Handle shape mismatch
+                try:
+                    assert inputs_batch.shape == inputs2_batch.shape
+                except AssertionError:
+                    print(f"Shape mismatch between inputs1 and inputs2: {inputs_batch.shape} != {inputs2_batch.shape}")
+                    max_len = max(inputs_batch.shape[-1], inputs2_batch.shape[-1])
+                    if inputs_batch.shape[-1] < max_len:
+                        inputs_batch = torch.nn.functional.pad(inputs_batch, (0, max_len - inputs_batch.shape[-1]))
+                    if inputs2_batch.shape[-1] < max_len:
+                        inputs2_batch = torch.nn.functional.pad(inputs2_batch, (0, max_len - inputs2_batch.shape[-1]))
 
-                for i in range(len(convs_batch)):
-                    # We slice on the N-1 token since the model is trained to predict the Nth one ("+" in this case)
-                    step_scores_flat = scores[i, :-1][
-                        inputs2_batch[i, 1:] == special_tok_id
-                    ].tolist()
-                    output_scores.append(step_scores_flat)
+                # Process the batch
+                try:
+                    with torch.no_grad():
+                        logits = self.model(inputs_batch).logits[:, :, self.candidate_tokens]
+                        scores = logits.softmax(dim=-1)[:, :, 0]  # 0 means the prob of + (1 mean -)
 
-        # reshape the output scores to match the input
+                    for i in range(len(convs_batch)):
+                        # We slice on the N-1 token since the model is trained to predict the Nth one ("+" in this case)
+                        step_scores_flat = scores[i, :-1][
+                            inputs2_batch[i, 1:] == special_tok_id
+                        ].tolist()
+                        output_scores.append(step_scores_flat)
+
+                except torch.OutOfMemoryError:
+                    print(f"OOM at batch {batch_start}, falling back to individual processing")
+                    torch.cuda.empty_cache()
+                    # Handle OOM by processing examples individually
+                    for i in range(len(convs_batch)):
+                        try:
+                            single_input = inputs_batch[i:i+1]
+                            single_input2 = inputs2_batch[i:i+1] 
+                            with torch.no_grad():
+                                single_logits = self.model(single_input).logits[:, :, self.candidate_tokens]
+                                single_scores = single_logits.softmax(dim=-1)[:, :, 0]
+                            step_scores_flat = single_scores[0, :-1][
+                                single_input2[0, 1:] == special_tok_id
+                            ].tolist()
+                            output_scores.append(step_scores_flat)
+                        except Exception as e:
+                            print(f"Failed to process example {i} in batch {batch_start}: {e}")
+                            output_scores.append([])  # Empty scores for failed examples
+
+            except Exception as e:
+                print(f"Failed to process batch {batch_start}: {e}")
+                # Add empty scores for all examples in this failed batch
+                for _ in range(len(convs_batch)):
+                    output_scores.append([])
+
+        # Reshape the output scores to match the input (MOVED OUTSIDE THE LOOP)
         reshaped_output_scores = []
         counter = 0
         for question, answers in zip(questions, outputs):
             scores = []
             for answer in answers:
-                scores.append(output_scores[counter])
+                if counter < len(output_scores):
+                    scores.append(output_scores[counter])
+                else:
+                    scores.append([])  # Fallback for missing scores
                 counter += 1
             reshaped_output_scores.append(scores)
 
@@ -339,6 +382,91 @@ class SkyworkO1_7B(SkyworkO1):
         prm_model_path = "Skywork/Skywork-o1-Open-PRM-Qwen-2.5-7B"
         return SkyworkO1._load_model_and_tokenizer(prm_model_path, **model_kwargs)
 
+# pulled from: https://github.com/huggingface/search-and-learn/issues/43
+# class Qwen_2_5_Math(PRM):
+#     @classmethod
+#     def _load_model_and_tokenizer(
+#         cls, prm_model_path, **model_kwargs
+#     ) -> tuple[PreTrainedModel, PreTrainedTokenizer]:
+#         tokenizer = AutoTokenizer.from_pretrained(
+#             prm_model_path, trust_remote_code=True
+#         )
+#         model = AutoModelForCausalLM.from_pretrained(
+#             prm_model_path,
+#             device_map="auto",
+#             torch_dtype=torch.bfloat16,
+#             **model_kwargs,
+#         ).eval()
+
+#         return model, tokenizer
+
+#     def score(
+#         self, questions: list[str], outputs: list[list[str], batch_size: int = 2]
+#     ) -> list[list[float]]:
+#         # adapted from math shepherd
+#         inputs_for_prm = []
+#         lengths = []   
+#         output_scores = []     
+#         for question, answers in zip(questions, outputs):
+#             prompt = self.search_config.system_prompt + "\n" + question + "\n"
+#             special_outputs = [o.replace("\n\n", "<extra_0>") for o in output]
+#             inputs_for_prm.extend([f"{prompt} {o}" for o in special_outputs])
+#             lengths.append(len(output))
+
+#         output_scores = []
+#         for i in range(0, len(lengths), batch_size)
+#             inputs_batch = inputs[i : i + batch_size]
+#             inputs_batch = tokenizer(inputs_batch, padding=True, return_tensors="pt").to(model.device)
+#             with torch.no_grad():
+#                 logits.model(**inputs_batch).logits[:, :, 0]
+#                 step_scores_flat = scores[inputs_batch.input]
+
+#             processed_responses = []
+#             for answer in answers:
+#                 messages = [
+#                     {"role": "system", "content": "Please reason step by step, and put your final answer within \\boxed{}."},
+#                     {"role": "user", "content": question},
+#                     {"role": "assistant", "content": answer.replace("\n\n", "<extra_0>") + "<extra_0>"},
+#                 ]
+#                 conversation_str = self.tokenizer.apply_chat_template(
+#                     messages, tokenize=False, add_generation_prompt=False
+#                 )
+#                 processed_responses.append(conversation_str)
+
+#             input_ids = self.tokenizer(
+#                 processed_responses, return_tensors="pt", padding=True, truncation=True
+#             )["input_ids"].to(self.model.device)
+            
+#             with torch.no_grad():
+#                 outputs = self.model(input_ids=input_ids)
+            
+#             step_sep_id = self.tokenizer.encode("<extra_0>")[0]
+#             token_masks = (input_ids == step_sep_id)
+#             step_rewards = self.make_step_rewards(outputs[0], token_masks)
+#             all_scores.append(step_rewards)
+        
+#         return all_scores
+
+#     @staticmethod
+#     def make_step_rewards(logits, token_masks):
+#         probabilities = F.softmax(logits, dim=-1)
+#         probabilities = probabilities * token_masks.unsqueeze(-1)  # bs, seq_len, num_labels
+        
+#         all_scores_res = []
+#         for i in range(probabilities.size(0)):
+#             sample = probabilities[i]  # seq_len, num_labels
+#             positive_probs = sample[sample != 0].view(-1, 2)[:, 1]  # valid_tokens, num_labels
+#             all_scores_res.append(positive_probs.cpu().tolist())
+        
+#         return all_scores_res
+
+# class Qwen_2_5_Math_7B(Qwen_2_5_Math):
+#     def load_model_and_tokenizer(
+#         self, **model_kwargs
+#     ) -> tuple[PreTrainedModel, PreTrainedTokenizer]:
+#         prm_model_path = "Qwen/Qwen2.5-Math-PRM-7B"
+#         return Qwen_2_5_Math._load_model_and_tokenizer(prm_model_path, **model_kwargs)
+
 
 def load_prm(config: Config) -> PRM:
     if config.prm_path == "peiyi9979/math-shepherd-mistral-7b-prm":
@@ -352,5 +480,8 @@ def load_prm(config: Config) -> PRM:
 
     if config.prm_path == "Skywork/Skywork-o1-Open-PRM-Qwen-2.5-7B":
         return SkyworkO1_7B(config)
+
+    if config.prm_path == "Qwen/Qwen2.5-Math-PRM-7B":
+        return Qwen_2_5_Math_7B(config)
 
     raise NotImplementedError(f"PRM {config.prm_path} not implemented")

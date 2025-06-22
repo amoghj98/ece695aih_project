@@ -1,0 +1,6 @@
+model_path: deepseek-ai/DeepSeek-R1-Distill-Llama-8B
+filter_duplicates: true
+approach: vanilla
+n: 1 # doesn't matter
+search_batch_size: 1 # doesn't matter
+seed: 0

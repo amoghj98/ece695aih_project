@@ -27,6 +27,7 @@ from vllm import LLM
 from sal.config import Config
 from sal.models.reward_models import load_prm
 from sal.search import beam_search, best_of_n, dvts
+from sal.search.vanilla import vanilla
 from sal.utils.data import get_dataset, save_dataset
 from sal.utils.parser import H4ArgumentParser
 from sal.utils.score import score
@@ -42,6 +43,7 @@ APPROACHES = {
     "beam_search": beam_search,
     "dvts": dvts,
     "best_of_n": best_of_n,
+    "vanilla": vanilla
 }
 
 def main():
@@ -56,7 +58,7 @@ def main():
     parser = H4ArgumentParser(Config)
     config = parser.parse()
 
-    approach_fn = APPROACHES[config.approach]
+    approach_fn = APPROACHES[config.approach] # this set approach_fn to the value, not key
 
     num_gpus = torch.cuda.device_count()
     llm = LLM(
@@ -64,14 +66,15 @@ def main():
         gpu_memory_utilization=config.gpu_memory_utilization,
         enable_prefix_caching=True,
         seed=config.seed,
-        tensor_parallel_size=num_gpus,
+        tensor_parallel_size=1, # 1 for now
     )
-    prm_start = time.time()
-    prm = load_prm(config)
-    prm_end = time.time()
-    prm_load_time = prm_end - prm_start
+    if approach_fn != vanilla: # only for search strategies
+        prm_start = time.time()
+        prm = load_prm(config)
+        prm_end = time.time()
+        prm_load_time = prm_end - prm_start
 
-    logger.info(f"PRM load time: {prm_load_time}")
+        logger.info(f"PRM load time: {prm_load_time}")
 
     dataset = get_dataset(config)
 
@@ -80,7 +83,11 @@ def main():
         approach_fn,
         batched=True,
         batch_size=config.search_batch_size,
-        fn_kwargs={"config": config, "llm": llm, "prm": prm},
+        fn_kwargs={
+            "config": config, 
+            "llm": llm,
+            "prm": prm if approach_fn != vanilla else None # prm is None is approach is vanilla
+            }, 
         desc="Running search",
         load_from_cache_file=False,
     )
@@ -89,12 +96,13 @@ def main():
 
     logger.info(f"Dataset mapping time: {dataset_time} s")
 
-    score_start = time.time()
-    dataset = score(dataset, config)
-    score_end = time.time()
-    score_time = score_end - score_start
+    if approach_fn != vanilla:
+        score_start = time.time()
+        dataset = score(dataset, config)
+        score_end = time.time()
+        score_time = score_end - score_start
 
-    logger.info(f"Scoring time: {score_time} s")
+        logger.info(f"Scoring time: {score_time} s")
 
     save_dataset(dataset, config)
 

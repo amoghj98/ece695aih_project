@@ -16,9 +16,11 @@ conda activate sal
 
 MAIL_TYPE=BEGIN,END,FAIL,TIME_LIMIT_90
 
+export CONFIG=recipes/Olmo-1B-hf/best_of_n.yaml
+
 for SEED in 0 1 2 3
 do
-    for e in {2..7..2}
+    for e in {2..9..2}
     do
         N=$(echo 2^$e | bc -l)
         # echo $N
@@ -30,10 +32,11 @@ do
         --mail-type=${MAIL_TYPE} --mail-user=${USER}@purdue.edu \
         --job-name=$JOB_NAME \
         --cpus-per-gpu=14 -A cocosys \
-        recipes/launch_array.slurm recipes/Olmo-1B-0724-hf/best_of_n.yaml \
+        bon.slurm recipes/Olmo-1B-hf/best_of_n.yaml \
         --n=$N \
+        --num_samples=500 \
         --seed=$SEED \
-        --hub_dataset_id=TheRealPilot638/Olmo-1B-0724-best_of_${N}_H200
+        --hub_dataset_id=TheRealPilot638/Olmo-1B-hf-bon_${N}_no_chunking_H200       
     done
 done
     

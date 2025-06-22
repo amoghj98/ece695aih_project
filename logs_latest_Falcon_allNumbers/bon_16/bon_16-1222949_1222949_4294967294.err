@@ -1,0 +1,343 @@
++ conda activate sal
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate sal
++ '[' -n '' ']'
++ local ask_conda
+++ PS1=
+++ __conda_exe shell.posix activate sal
+++ /apps/external/conda/2024.09/bin/conda shell.posix activate sal
++ ask_conda='PS1='\''(sal) '\''
+export PATH='\''/home/dlimpus/rcac-utils:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/apps/external/conda/2024.09/condabin:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(sal) '\'''
++ eval 'PS1='\''(sal) '\''
+export PATH='\''/home/dlimpus/rcac-utils:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/apps/external/conda/2024.09/condabin:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(sal) '\'''
+++ PS1='(sal) '
+++ export PATH=/home/dlimpus/rcac-utils:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/apps/external/conda/2024.09/condabin:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts
+++ PATH=/home/dlimpus/rcac-utils:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/apps/external/conda/2024.09/condabin:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(sal) '
+++ CONDA_PROMPT_MODIFIER='(sal) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ STARTS=($(seq 0 500 500))
+++ seq 0 500 500
++ python scripts/test_time_compute.py recipes/Falcon3-1B-Instruct/best_of_n.yaml --n=16 --num_samples=500 --seed=2 --hub_dataset_id=TheRealPilot638/Falcon3-1B-bon_16_no_chunking_H200 --push_to_hub=True
+/home/dlimpus/.conda/envs/sal/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+No module named 'vllm._version'
+  from vllm.version import __version__ as VLLM_VERSION
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.65s/it]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:01<00:00,  1.65s/it]
+
+INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.45s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.45s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:07<00:02,  2.43s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.71s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.98s/it]
+INFO:__main__:PRM load time: 8.75926423072815
+Parameter 'fn_kwargs'={'config': Config(approach='best_of_n', model_path='tiiuae/Falcon3-1B-Instruct', gpu_memory_utilization=0.5, prm_path='RLHFlow/Llama3.1-8B-PRM-Deepseek-Data', output_dir=None, num_proc=None, push_to_hub=True, hub_dataset_id='TheRealPilot638/Falcon3-1B-bon_16_no_chunking_H200', hub_dataset_private=False, overwrite_hub_revision=False, apply_voting=True, dataset_name='HuggingFaceH4/MATH-500', dataset_config=None, dataset_split='test', dataset_start=None, dataset_end=None, num_samples=500, system_prompt='Solve the following math problem efficiently and clearly:\n\n- For simple problems (2 steps or fewer):\nProvide a concise solution with minimal explanation.\n\n- For complex problems (3 steps or more):\nUse this step-by-step format:\n\n## Step 1: [Concise description]\n[Brief explanation and calculations]\n\n## Step 2: [Concise description]\n[Brief explanation and calculations]\n\n...\n\nRegardless of the approach, always conclude with:\n\nTherefore, the final answer is: $\\boxed{answer}$. I hope it is correct.\n\nWhere [answer] is just the final number or expression that solves the problem.', custom_chat_template='{%- if custom_tools is defined %}\n    {%- set tools = custom_tools %}\n{%- endif %}\n{%- if not tools_in_user_message is defined %}\n    {%- set tools_in_user_message = true %}\n{%- endif %}\n{%- if not date_string is defined %}\n    {%- if strftime_now is defined %}\n        {%- set date_string = strftime_now("%d %b %Y") %}\n    {%- else %}\n        {%- set date_string = "26 Jul 2024" %}\n    {%- endif %}\n{%- endif %}\n{%- if not tools is defined %}\n    {%- set tools = none %}\n{%- endif %}\n\n{#- This block extracts the system message, so we can slot it into the right place. #}\n{%- if messages[0][\'role\'] == \'system\' %}\n    {%- set system_message = messages[0][\'content\']|trim %}\n    {%- set messages = messages[1:] %}\n{%- else %}\n    {%- set system_message = "" %}\n{%- endif %}\n\n{#- System message #}\n{{- "<|start_header_id|>system<|end_header_id|>\\n\\n" }}\n{%- if tools is not none %}\n    {{- "Environment: ipython\\n" }}\n{%- endif %}\n{{- "Cutting Knowledge Date: December 2023\\n" }}\n{{- "Today Date: " + date_string + "\\n\\n" }}\n{%- if tools is not none and not tools_in_user_message %}\n    {{- "You have access to the following functions. To call a function, please respond with JSON for a function call." }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n{%- endif %}\n{{- system_message }}\n{{- "<|eot_id|>" }}\n\n{#- Custom tools are passed in a user message with some extra guidance #}\n{%- if tools_in_user_message and not tools is none %}\n    {#- Extract the first user message so we can plug it in here #}\n    {%- if messages | length != 0 %}\n        {%- set first_user_message = messages[0][\'content\']|trim %}\n        {%- set messages = messages[1:] %}\n    {%- else %}\n        {{- raise_exception("Cannot put tools in the first user message when there\'s no first user message!") }}\n{%- endif %}\n    {{- \'<|start_header_id|>user<|end_header_id|>\\n\\n\' -}}\n    {{- "Given the following functions, please respond with a JSON for a function call " }}\n    {{- "with its proper arguments that best answers the given prompt.\\n\\n" }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n    {{- first_user_message + "<|eot_id|>"}}\n{%- endif %}\n\n{%- for message in messages %}\n    {%- if not (message.role == \'ipython\' or message.role == \'tool\' or \'tool_calls\' in message) %}\n        {{- \'<|start_header_id|>\' + message[\'role\'] + \'<|end_header_id|>\\n\\n\'+ message[\'content\'] + \'<|eot_id|>\' }}\n    {%- elif \'tool_calls\' in message %}\n        {%- if not message.tool_calls|length == 1 %}\n            {{- raise_exception("This model only supports single tool-calls at once!") }}\n        {%- endif %}\n        {%- set tool_call = message.tool_calls[0].function %}\n        {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' -}}\n        {{- \'{"name": "\' + tool_call.name + \'", \' }}\n        {{- \'"parameters": \' }}\n        {{- tool_call.arguments | tojson }}\n        {{- "}" }}\n        {{- "<|eot_id|>" }}\n    {%- elif message.role == "tool" or message.role == "ipython" %}\n        {{- "<|start_header_id|>ipython<|end_header_id|>\\n\\n" }}\n        {%- if message.content is mapping or message.content is iterable %}\n            {{- message.content | tojson }}\n        {%- else %}\n            {{- message.content }}\n        {%- endif %}\n        {{- "<|eot_id|>" }}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' }}\n{%- endif %}\n', n=16, temperature=0.8, top_p=1.0, prm_batch_size=4, search_batch_size=25, seed=2, max_tokens=2048, agg_strategy='last', beam_width=4, num_iterations=40, lookahead=1, filter_duplicates=True, sort_completed=True), 'llm': <vllm.entrypoints.llm.LLM object at 0x14de41547c10>, 'prm': <sal.models.reward_models.RLHFFlow object at 0x14de3b91eb10>} of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+WARNING:datasets.fingerprint:Parameter 'fn_kwargs'={'config': Config(approach='best_of_n', model_path='tiiuae/Falcon3-1B-Instruct', gpu_memory_utilization=0.5, prm_path='RLHFlow/Llama3.1-8B-PRM-Deepseek-Data', output_dir=None, num_proc=None, push_to_hub=True, hub_dataset_id='TheRealPilot638/Falcon3-1B-bon_16_no_chunking_H200', hub_dataset_private=False, overwrite_hub_revision=False, apply_voting=True, dataset_name='HuggingFaceH4/MATH-500', dataset_config=None, dataset_split='test', dataset_start=None, dataset_end=None, num_samples=500, system_prompt='Solve the following math problem efficiently and clearly:\n\n- For simple problems (2 steps or fewer):\nProvide a concise solution with minimal explanation.\n\n- For complex problems (3 steps or more):\nUse this step-by-step format:\n\n## Step 1: [Concise description]\n[Brief explanation and calculations]\n\n## Step 2: [Concise description]\n[Brief explanation and calculations]\n\n...\n\nRegardless of the approach, always conclude with:\n\nTherefore, the final answer is: $\\boxed{answer}$. I hope it is correct.\n\nWhere [answer] is just the final number or expression that solves the problem.', custom_chat_template='{%- if custom_tools is defined %}\n    {%- set tools = custom_tools %}\n{%- endif %}\n{%- if not tools_in_user_message is defined %}\n    {%- set tools_in_user_message = true %}\n{%- endif %}\n{%- if not date_string is defined %}\n    {%- if strftime_now is defined %}\n        {%- set date_string = strftime_now("%d %b %Y") %}\n    {%- else %}\n        {%- set date_string = "26 Jul 2024" %}\n    {%- endif %}\n{%- endif %}\n{%- if not tools is defined %}\n    {%- set tools = none %}\n{%- endif %}\n\n{#- This block extracts the system message, so we can slot it into the right place. #}\n{%- if messages[0][\'role\'] == \'system\' %}\n    {%- set system_message = messages[0][\'content\']|trim %}\n    {%- set messages = messages[1:] %}\n{%- else %}\n    {%- set system_message = "" %}\n{%- endif %}\n\n{#- System message #}\n{{- "<|start_header_id|>system<|end_header_id|>\\n\\n" }}\n{%- if tools is not none %}\n    {{- "Environment: ipython\\n" }}\n{%- endif %}\n{{- "Cutting Knowledge Date: December 2023\\n" }}\n{{- "Today Date: " + date_string + "\\n\\n" }}\n{%- if tools is not none and not tools_in_user_message %}\n    {{- "You have access to the following functions. To call a function, please respond with JSON for a function call." }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n{%- endif %}\n{{- system_message }}\n{{- "<|eot_id|>" }}\n\n{#- Custom tools are passed in a user message with some extra guidance #}\n{%- if tools_in_user_message and not tools is none %}\n    {#- Extract the first user message so we can plug it in here #}\n    {%- if messages | length != 0 %}\n        {%- set first_user_message = messages[0][\'content\']|trim %}\n        {%- set messages = messages[1:] %}\n    {%- else %}\n        {{- raise_exception("Cannot put tools in the first user message when there\'s no first user message!") }}\n{%- endif %}\n    {{- \'<|start_header_id|>user<|end_header_id|>\\n\\n\' -}}\n    {{- "Given the following functions, please respond with a JSON for a function call " }}\n    {{- "with its proper arguments that best answers the given prompt.\\n\\n" }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n    {{- first_user_message + "<|eot_id|>"}}\n{%- endif %}\n\n{%- for message in messages %}\n    {%- if not (message.role == \'ipython\' or message.role == \'tool\' or \'tool_calls\' in message) %}\n        {{- \'<|start_header_id|>\' + message[\'role\'] + \'<|end_header_id|>\\n\\n\'+ message[\'content\'] + \'<|eot_id|>\' }}\n    {%- elif \'tool_calls\' in message %}\n        {%- if not message.tool_calls|length == 1 %}\n            {{- raise_exception("This model only supports single tool-calls at once!") }}\n        {%- endif %}\n        {%- set tool_call = message.tool_calls[0].function %}\n        {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' -}}\n        {{- \'{"name": "\' + tool_call.name + \'", \' }}\n        {{- \'"parameters": \' }}\n        {{- tool_call.arguments | tojson }}\n        {{- "}" }}\n        {{- "<|eot_id|>" }}\n    {%- elif message.role == "tool" or message.role == "ipython" %}\n        {{- "<|start_header_id|>ipython<|end_header_id|>\\n\\n" }}\n        {%- if message.content is mapping or message.content is iterable %}\n            {{- message.content | tojson }}\n        {%- else %}\n            {{- message.content }}\n        {%- endif %}\n        {{- "<|eot_id|>" }}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' }}\n{%- endif %}\n', n=16, temperature=0.8, top_p=1.0, prm_batch_size=4, search_batch_size=25, seed=2, max_tokens=2048, agg_strategy='last', beam_width=4, num_iterations=40, lookahead=1, filter_duplicates=True, sort_completed=True), 'llm': <vllm.entrypoints.llm.LLM object at 0x14de41547c10>, 'prm': <sal.models.reward_models.RLHFFlow object at 0x14de3b91eb10>} of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+Running search:   0%|          | 0/500 [00:00<?, ? examples/s]INFO:sal.search.best_of_n:LLM generate time: 23.385282039642334
+INFO:sal.search.best_of_n:Score time: 17.664819717407227
+Running search:   5%|▌         | 25/500 [00:41<13:00,  1.64s/ examples]INFO:sal.search.best_of_n:LLM generate time: 21.08530879020691
+INFO:sal.search.best_of_n:Score time: 14.182884454727173
+Running search:  10%|█         | 50/500 [01:16<11:18,  1.51s/ examples]INFO:sal.search.best_of_n:LLM generate time: 22.03291964530945
+INFO:sal.search.best_of_n:Score time: 15.264325857162476
+Running search:  15%|█▌        | 75/500 [01:53<10:37,  1.50s/ examples]INFO:sal.search.best_of_n:LLM generate time: 23.89254641532898
+INFO:sal.search.best_of_n:Score time: 15.397801160812378
+Running search:  20%|██        | 100/500 [02:32<10:11,  1.53s/ examples]INFO:sal.search.best_of_n:LLM generate time: 24.4630708694458
+INFO:sal.search.best_of_n:Score time: 15.910982131958008
+Running search:  25%|██▌       | 125/500 [03:13<09:45,  1.56s/ examples]INFO:sal.search.best_of_n:LLM generate time: 23.869961261749268
+INFO:sal.search.best_of_n:Score time: 14.886216163635254
+Running search:  30%|███       | 150/500 [03:52<09:04,  1.56s/ examples]INFO:sal.search.best_of_n:LLM generate time: 25.679211616516113
+INFO:sal.search.best_of_n:Score time: 18.265196084976196
+Running search:  35%|███▌      | 175/500 [04:36<08:47,  1.62s/ examples]INFO:sal.search.best_of_n:LLM generate time: 23.661706686019897
+INFO:sal.search.best_of_n:Score time: 15.653398752212524
+Running search:  40%|████      | 200/500 [05:15<08:02,  1.61s/ examples]INFO:sal.search.best_of_n:LLM generate time: 25.92785906791687
+INFO:sal.search.best_of_n:Score time: 17.659094095230103
+Running search:  45%|████▌     | 225/500 [05:59<07:33,  1.65s/ examples]INFO:sal.search.best_of_n:LLM generate time: 27.623552322387695
+INFO:sal.search.best_of_n:Score time: 18.32668375968933
+Running search:  50%|█████     | 250/500 [06:45<07:07,  1.71s/ examples]INFO:sal.search.best_of_n:LLM generate time: 19.644522190093994
+INFO:sal.search.best_of_n:Score time: 13.54778790473938
+Running search:  55%|█████▌    | 275/500 [07:18<05:58,  1.59s/ examples]INFO:sal.search.best_of_n:LLM generate time: 28.954936265945435
+INFO:sal.search.best_of_n:Score time: 18.92066979408264
+Running search:  60%|██████    | 300/500 [08:06<05:38,  1.69s/ examples]INFO:sal.search.best_of_n:LLM generate time: 22.873528003692627
+INFO:sal.search.best_of_n:Score time: 16.096618175506592
+Running search:  65%|██████▌   | 325/500 [08:45<04:48,  1.65s/ examples]INFO:sal.search.best_of_n:LLM generate time: 24.50842595100403
+INFO:sal.search.best_of_n:Score time: 16.205632209777832
+Running search:  70%|███████   | 350/500 [09:25<04:06,  1.64s/ examples]INFO:sal.search.best_of_n:LLM generate time: 24.339322805404663
+INFO:sal.search.best_of_n:Score time: 16.81832003593445
+Running search:  75%|███████▌  | 375/500 [10:07<03:25,  1.65s/ examples]INFO:sal.search.best_of_n:LLM generate time: 23.271888494491577
+INFO:sal.search.best_of_n:Score time: 15.6843101978302
+Running search:  80%|████████  | 400/500 [10:46<02:41,  1.62s/ examples]INFO:sal.search.best_of_n:LLM generate time: 25.099528074264526
+INFO:sal.search.best_of_n:Score time: 16.514979600906372
+Running search:  85%|████████▌ | 425/500 [11:27<02:02,  1.63s/ examples]INFO:sal.search.best_of_n:LLM generate time: 25.85555362701416
+INFO:sal.search.best_of_n:Score time: 17.772040843963623
+Running search:  90%|█████████ | 450/500 [12:11<01:23,  1.67s/ examples]INFO:sal.search.best_of_n:LLM generate time: 21.599658489227295
+INFO:sal.search.best_of_n:Score time: 15.436707973480225
+Running search:  95%|█████████▌| 475/500 [12:48<00:40,  1.61s/ examples]INFO:sal.search.best_of_n:LLM generate time: 26.48546290397644
+INFO:sal.search.best_of_n:Score time: 16.53599786758423
+Running search: 100%|██████████| 500/500 [13:31<00:00,  1.64s/ examples]Running search: 100%|██████████| 500/500 [13:31<00:00,  1.62s/ examples]
+INFO:__main__:Dataset mapping time: 811.4320638179779 s
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 3391.55 examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 3301.92 examples/s]
+Computing majority & weighted predictions:   0%|          | 0/5 [00:00<?, ?it/s]
+Subsample 1:   0%|          | 0/500 [00:00<?, ? examples/s][ASubsample 1: 100%|██████████| 500/500 [00:00<00:00, 5456.69 examples/s]
+
+Extract answers 1:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Extract answers 1:  20%|██        | 101/500 [00:00<00:00, 995.21 examples/s][A
+Extract answers 1:  46%|████▌     | 230/500 [00:00<00:00, 1165.02 examples/s][A
+Extract answers 1:  69%|██████▉   | 347/500 [00:00<00:00, 1166.08 examples/s][A
+Extract answers 1:  94%|█████████▍| 471/500 [00:00<00:00, 1186.77 examples/s][AExtract answers 1: 100%|██████████| 500/500 [00:00<00:00, 1078.62 examples/s]
+
+Compute weighted pred 1:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Compute weighted pred 1:   0%|          | 2/500 [00:00<00:52,  9.45 examples/s][A
+Compute weighted pred 1:   7%|▋         | 35/500 [00:00<00:04, 101.07 examples/s][A
+Compute weighted pred 1:  10%|█         | 52/500 [00:00<00:04, 107.15 examples/s][A
+Compute weighted pred 1:  14%|█▍        | 70/500 [00:00<00:04, 91.21 examples/s] [A
+Compute weighted pred 1:  19%|█▉        | 97/500 [00:00<00:03, 115.50 examples/s][A
+Compute weighted pred 1:  28%|██▊       | 138/500 [00:01<00:02, 178.93 examples/s][A
+Compute weighted pred 1:  35%|███▍      | 174/500 [00:01<00:01, 188.55 examples/s][A
+Compute weighted pred 1:  43%|████▎     | 215/500 [00:01<00:01, 232.56 examples/s][A
+Compute weighted pred 1:  55%|█████▌    | 275/500 [00:01<00:00, 268.54 examples/s][A
+Compute weighted pred 1:  64%|██████▍   | 319/500 [00:01<00:00, 237.07 examples/s][A
+Compute weighted pred 1:  70%|███████   | 352/500 [00:02<00:00, 195.64 examples/s][A
+Compute weighted pred 1:  83%|████████▎ | 414/500 [00:02<00:00, 265.24 examples/s][A
+Compute weighted pred 1:  96%|█████████▌| 479/500 [00:02<00:00, 244.52 examples/s][ACompute weighted pred 1: 100%|██████████| 500/500 [00:02<00:00, 199.47 examples/s]
+
+Compute majority pred 1:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Compute majority pred 1: 100%|██████████| 500/500 [00:00<00:00, 4762.54 examples/s][ACompute majority pred 1: 100%|██████████| 500/500 [00:00<00:00, 4569.57 examples/s]
+
+Compute naive pred 1:   0%|          | 0/500 [00:00<?, ? examples/s][ACompute naive pred 1: 100%|██████████| 500/500 [00:00<00:00, 6338.30 examples/s]
+Computing majority & weighted predictions:  20%|██        | 1/5 [00:03<00:13,  3.26s/it]
+Subsample 2:   0%|          | 0/500 [00:00<?, ? examples/s][ASubsample 2: 100%|██████████| 500/500 [00:00<00:00, 5053.88 examples/s]
+
+Extract answers 2:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Extract answers 2:  13%|█▎        | 67/500 [00:00<00:00, 652.37 examples/s][A
+Extract answers 2:  27%|██▋       | 136/500 [00:00<00:00, 662.01 examples/s][A
+Extract answers 2:  41%|████      | 203/500 [00:00<00:00, 661.36 examples/s][A
+Extract answers 2:  60%|█████▉    | 299/500 [00:00<00:00, 643.64 examples/s][A
+Extract answers 2:  73%|███████▎  | 365/500 [00:00<00:00, 646.23 examples/s][A
+Extract answers 2:  87%|████████▋ | 433/500 [00:00<00:00, 654.96 examples/s][A
+Extract answers 2: 100%|██████████| 500/500 [00:00<00:00, 575.21 examples/s][AExtract answers 2: 100%|██████████| 500/500 [00:00<00:00, 612.53 examples/s]
+
+Compute weighted pred 2:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Compute weighted pred 2:   0%|          | 2/500 [00:00<00:26, 19.13 examples/s][A
+Compute weighted pred 2:  17%|█▋        | 85/500 [00:00<00:01, 395.25 examples/s][A
+Compute weighted pred 2:  25%|██▌       | 127/500 [00:00<00:01, 317.31 examples/s][A
+Compute weighted pred 2:  36%|███▌      | 178/500 [00:00<00:00, 338.16 examples/s][A
+Compute weighted pred 2:  47%|████▋     | 234/500 [00:00<00:00, 371.57 examples/s][A
+Compute weighted pred 2:  61%|██████    | 305/500 [00:00<00:00, 341.98 examples/s][A
+Compute weighted pred 2:  70%|███████   | 352/500 [00:01<00:00, 338.97 examples/s][A
+Compute weighted pred 2:  88%|████████▊ | 441/500 [00:01<00:00, 457.61 examples/s][A
+Compute weighted pred 2:  99%|█████████▉| 495/500 [00:01<00:00, 475.08 examples/s][ACompute weighted pred 2: 100%|██████████| 500/500 [00:01<00:00, 374.21 examples/s]
+
+Compute majority pred 2:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Compute majority pred 2: 100%|██████████| 500/500 [00:00<00:00, 3516.15 examples/s][ACompute majority pred 2: 100%|██████████| 500/500 [00:00<00:00, 3403.13 examples/s]
+
+Compute naive pred 2:   0%|          | 0/500 [00:00<?, ? examples/s][ACompute naive pred 2: 100%|██████████| 500/500 [00:00<00:00, 5720.56 examples/s]
+Computing majority & weighted predictions:  40%|████      | 2/5 [00:05<00:08,  2.81s/it]
+Subsample 4:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Subsample 4: 100%|██████████| 500/500 [00:00<00:00, 4840.78 examples/s][ASubsample 4: 100%|██████████| 500/500 [00:00<00:00, 4627.25 examples/s]
+
+Extract answers 4:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Extract answers 4:   7%|▋         | 35/500 [00:00<00:01, 326.41 examples/s][A
+Extract answers 4:  14%|█▍        | 71/500 [00:00<00:01, 343.05 examples/s][A
+Extract answers 4:  25%|██▍       | 124/500 [00:00<00:01, 343.21 examples/s][A
+Extract answers 4:  32%|███▏      | 161/500 [00:00<00:00, 349.91 examples/s][A
+Extract answers 4:  43%|████▎     | 213/500 [00:00<00:00, 346.55 examples/s][A
+Extract answers 4:  50%|████▉     | 248/500 [00:00<00:00, 343.07 examples/s][A
+Extract answers 4:  60%|█████▉    | 299/500 [00:00<00:00, 336.37 examples/s][A
+Extract answers 4:  67%|██████▋   | 335/500 [00:00<00:00, 340.14 examples/s][A
+Extract answers 4:  74%|███████▍  | 370/500 [00:01<00:00, 339.12 examples/s][A
+Extract answers 4:  81%|████████▏ | 407/500 [00:01<00:00, 344.67 examples/s][A
+Extract answers 4:  92%|█████████▏| 458/500 [00:01<00:00, 337.24 examples/s][A
+Extract answers 4:  99%|█████████▉| 495/500 [00:01<00:00, 340.62 examples/s][AExtract answers 4: 100%|██████████| 500/500 [00:01<00:00, 328.53 examples/s]
+
+Compute weighted pred 4:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Compute weighted pred 4:   6%|▌         | 29/500 [00:00<00:01, 257.15 examples/s][A
+Compute weighted pred 4:  15%|█▌        | 75/500 [00:01<00:11, 36.47 examples/s] [A
+Compute weighted pred 4:  21%|██        | 104/500 [00:02<00:07, 52.20 examples/s][A
+Compute weighted pred 4:  33%|███▎      | 165/500 [00:02<00:03, 100.94 examples/s][A
+Compute weighted pred 4:  50%|████▉     | 249/500 [00:02<00:01, 180.50 examples/s][A
+Compute weighted pred 4:  62%|██████▏   | 309/500 [00:02<00:00, 217.83 examples/s][A
+Compute weighted pred 4:  74%|███████▍  | 372/500 [00:02<00:00, 257.69 examples/s][A
+Compute weighted pred 4:  84%|████████▍ | 420/500 [00:02<00:00, 288.64 examples/s][A
+Compute weighted pred 4:  94%|█████████▍| 471/500 [00:02<00:00, 278.41 examples/s][ACompute weighted pred 4: 100%|██████████| 500/500 [00:03<00:00, 153.17 examples/s]
+
+Compute majority pred 4:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Compute majority pred 4:  65%|██████▍   | 323/500 [00:00<00:00, 3192.43 examples/s][ACompute majority pred 4: 100%|██████████| 500/500 [00:00<00:00, 2430.07 examples/s]
+
+Compute naive pred 4:   0%|          | 0/500 [00:00<?, ? examples/s][ACompute naive pred 4: 100%|██████████| 500/500 [00:00<00:00, 4946.16 examples/s]
+Computing majority & weighted predictions:  60%|██████    | 3/5 [00:10<00:07,  3.90s/it]
+Subsample 8:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Subsample 8: 100%|██████████| 500/500 [00:00<00:00, 4246.02 examples/s][ASubsample 8: 100%|██████████| 500/500 [00:00<00:00, 4070.67 examples/s]
+
+Extract answers 8:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Extract answers 8:   3%|▎         | 16/500 [00:00<00:03, 150.91 examples/s][A
+Extract answers 8:   7%|▋         | 34/500 [00:00<00:02, 165.45 examples/s][A
+Extract answers 8:  10%|█         | 52/500 [00:00<00:02, 170.28 examples/s][A
+Extract answers 8:  14%|█▍        | 70/500 [00:00<00:02, 171.10 examples/s][A
+Extract answers 8:  18%|█▊        | 88/500 [00:00<00:02, 167.67 examples/s][A
+Extract answers 8:  21%|██        | 105/500 [00:00<00:02, 164.99 examples/s][A
+Extract answers 8:  25%|██▍       | 123/500 [00:00<00:02, 168.20 examples/s][A
+Extract answers 8:  28%|██▊       | 141/500 [00:00<00:02, 170.93 examples/s][A
+Extract answers 8:  32%|███▏      | 159/500 [00:00<00:02, 169.82 examples/s][A
+Extract answers 8:  37%|███▋      | 184/500 [00:01<00:01, 165.97 examples/s][A
+Extract answers 8:  41%|████      | 203/500 [00:01<00:01, 170.83 examples/s][A
+Extract answers 8:  44%|████▍     | 221/500 [00:01<00:01, 168.92 examples/s][A
+Extract answers 8:  48%|████▊     | 238/500 [00:01<00:01, 166.72 examples/s][A
+Extract answers 8:  51%|█████     | 255/500 [00:01<00:01, 166.04 examples/s][A
+Extract answers 8:  55%|█████▍    | 273/500 [00:01<00:01, 169.46 examples/s][A
+Extract answers 8:  58%|█████▊    | 291/500 [00:01<00:01, 168.99 examples/s][A
+Extract answers 8:  62%|██████▏   | 308/500 [00:01<00:01, 168.33 examples/s][A
+Extract answers 8:  65%|██████▌   | 326/500 [00:01<00:01, 169.61 examples/s][A
+Extract answers 8:  69%|██████▉   | 344/500 [00:02<00:00, 170.09 examples/s][A
+Extract answers 8:  74%|███████▍  | 370/500 [00:02<00:00, 168.70 examples/s][A
+Extract answers 8:  78%|███████▊  | 389/500 [00:02<00:00, 169.74 examples/s][A
+Extract answers 8:  82%|████████▏ | 409/500 [00:02<00:00, 171.61 examples/s][A
+Extract answers 8:  87%|████████▋ | 433/500 [00:02<00:00, 163.96 examples/s][A
+Extract answers 8:  90%|█████████ | 450/500 [00:02<00:00, 163.99 examples/s][A
+Extract answers 8:  94%|█████████▎| 468/500 [00:02<00:00, 167.38 examples/s][A
+Extract answers 8:  97%|█████████▋| 486/500 [00:02<00:00, 166.20 examples/s][AExtract answers 8: 100%|██████████| 500/500 [00:03<00:00, 164.01 examples/s]
+
+Compute weighted pred 8:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Compute weighted pred 8:   2%|▏         | 9/500 [00:00<00:06, 75.20 examples/s][A
+Compute weighted pred 8:   6%|▋         | 32/500 [00:00<00:04, 104.03 examples/s][A
+Compute weighted pred 8:  13%|█▎        | 67/500 [00:00<00:02, 152.02 examples/s][A
+Compute weighted pred 8:  17%|█▋        | 83/500 [00:00<00:02, 141.88 examples/s][A
+Compute weighted pred 8:  21%|██        | 103/500 [00:00<00:02, 154.80 examples/s][A
+Compute weighted pred 8:  25%|██▍       | 124/500 [00:00<00:02, 149.46 examples/s][A
+Compute weighted pred 8:  29%|██▉       | 146/500 [00:01<00:02, 132.42 examples/s][A
+Compute weighted pred 8:  32%|███▏      | 160/500 [00:01<00:02, 131.02 examples/s][A
+Compute weighted pred 8:  36%|███▌      | 179/500 [00:01<00:03, 89.93 examples/s] [A
+Compute weighted pred 8:  43%|████▎     | 214/500 [00:01<00:02, 125.73 examples/s][A
+Compute weighted pred 8:  50%|████▉     | 249/500 [00:01<00:02, 121.72 examples/s][A
+Compute weighted pred 8:  58%|█████▊    | 290/500 [00:02<00:01, 168.05 examples/s][A
+Compute weighted pred 8:  63%|██████▎   | 316/500 [00:02<00:01, 161.00 examples/s][A
+Compute weighted pred 8:  70%|██████▉   | 348/500 [00:02<00:00, 157.12 examples/s][A
+Compute weighted pred 8:  75%|███████▍  | 374/500 [00:02<00:00, 155.20 examples/s][A
+Compute weighted pred 8:  82%|████████▏ | 412/500 [00:02<00:00, 196.83 examples/s][A
+Compute weighted pred 8:  88%|████████▊ | 440/500 [00:03<00:00, 149.83 examples/s][A
+Compute weighted pred 8:  94%|█████████▎| 468/500 [00:03<00:00, 158.43 examples/s][A
+Compute weighted pred 8: 100%|█████████▉| 498/500 [00:03<00:00, 163.54 examples/s][ACompute weighted pred 8: 100%|██████████| 500/500 [00:03<00:00, 143.08 examples/s]
+
+Compute majority pred 8:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Compute majority pred 8:  40%|███▉      | 199/500 [00:00<00:00, 1957.29 examples/s][A
+Compute majority pred 8:  80%|████████  | 401/500 [00:00<00:00, 1990.23 examples/s][ACompute majority pred 8: 100%|██████████| 500/500 [00:00<00:00, 1613.56 examples/s]
+
+Compute naive pred 8:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Compute naive pred 8: 100%|██████████| 500/500 [00:00<00:00, 4576.65 examples/s][ACompute naive pred 8: 100%|██████████| 500/500 [00:00<00:00, 4363.31 examples/s]
+Computing majority & weighted predictions:  80%|████████  | 4/5 [00:18<00:05,  5.17s/it]
+Subsample 16:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Subsample 16: 100%|██████████| 500/500 [00:00<00:00, 3748.32 examples/s][ASubsample 16: 100%|██████████| 500/500 [00:00<00:00, 3605.28 examples/s]
+
+Extract answers 16:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Extract answers 16:   2%|▏         | 8/500 [00:00<00:06, 73.55 examples/s][A
+Extract answers 16:   4%|▎         | 18/500 [00:00<00:05, 81.23 examples/s][A
+Extract answers 16:   6%|▌         | 28/500 [00:00<00:05, 85.99 examples/s][A
+Extract answers 16:   8%|▊         | 38/500 [00:00<00:05, 86.53 examples/s][A
+Extract answers 16:  10%|▉         | 49/500 [00:00<00:04, 90.81 examples/s][A
+Extract answers 16:  12%|█▏        | 59/500 [00:00<00:04, 90.55 examples/s][A
+Extract answers 16:  14%|█▍        | 69/500 [00:00<00:04, 89.31 examples/s][A
+Extract answers 16:  16%|█▌        | 78/500 [00:00<00:04, 86.52 examples/s][A
+Extract answers 16:  17%|█▋        | 87/500 [00:01<00:04, 86.07 examples/s][A
+Extract answers 16:  19%|█▉        | 97/500 [00:01<00:04, 86.13 examples/s][A
+Extract answers 16:  21%|██        | 106/500 [00:01<00:04, 84.29 examples/s][A
+Extract answers 16:  23%|██▎       | 116/500 [00:01<00:04, 85.69 examples/s][A
+Extract answers 16:  25%|██▌       | 126/500 [00:01<00:04, 87.26 examples/s][A
+Extract answers 16:  27%|██▋       | 136/500 [00:01<00:04, 89.35 examples/s][A
+Extract answers 16:  29%|██▉       | 146/500 [00:01<00:04, 88.16 examples/s][A
+Extract answers 16:  31%|███       | 156/500 [00:01<00:03, 88.14 examples/s][A
+Extract answers 16:  33%|███▎      | 165/500 [00:01<00:03, 86.83 examples/s][A
+Extract answers 16:  35%|███▍      | 174/500 [00:02<00:03, 85.91 examples/s][A
+Extract answers 16:  37%|███▋      | 184/500 [00:02<00:03, 86.13 examples/s][A
+Extract answers 16:  39%|███▉      | 194/500 [00:02<00:03, 87.08 examples/s][A
+Extract answers 16:  41%|████      | 204/500 [00:02<00:03, 89.77 examples/s][A
+Extract answers 16:  43%|████▎     | 214/500 [00:02<00:03, 88.44 examples/s][A
+Extract answers 16:  45%|████▍     | 224/500 [00:02<00:03, 88.28 examples/s][A
+Extract answers 16:  47%|████▋     | 234/500 [00:02<00:03, 87.09 examples/s][A
+Extract answers 16:  49%|████▉     | 244/500 [00:02<00:02, 86.39 examples/s][A
+Extract answers 16:  51%|█████     | 254/500 [00:02<00:02, 85.05 examples/s][A
+Extract answers 16:  53%|█████▎    | 264/500 [00:03<00:02, 87.06 examples/s][A
+Extract answers 16:  55%|█████▍    | 274/500 [00:03<00:02, 88.59 examples/s][A
+Extract answers 16:  57%|█████▋    | 284/500 [00:03<00:02, 89.00 examples/s][A
+Extract answers 16:  59%|█████▉    | 294/500 [00:03<00:02, 86.99 examples/s][A
+Extract answers 16:  61%|██████    | 304/500 [00:03<00:02, 87.80 examples/s][A
+Extract answers 16:  63%|██████▎   | 314/500 [00:03<00:02, 87.57 examples/s][A
+Extract answers 16:  65%|██████▍   | 324/500 [00:03<00:02, 87.34 examples/s][A
+Extract answers 16:  67%|██████▋   | 334/500 [00:03<00:01, 87.29 examples/s][A
+Extract answers 16:  69%|██████▉   | 344/500 [00:03<00:01, 88.32 examples/s][A
+Extract answers 16:  71%|███████   | 354/500 [00:04<00:01, 88.18 examples/s][A
+Extract answers 16:  73%|███████▎  | 363/500 [00:04<00:01, 86.15 examples/s][A
+Extract answers 16:  75%|███████▍  | 373/500 [00:04<00:01, 87.93 examples/s][A
+Extract answers 16:  77%|███████▋  | 383/500 [00:04<00:01, 87.40 examples/s][A
+Extract answers 16:  79%|███████▊  | 393/500 [00:04<00:01, 88.76 examples/s][A
+Extract answers 16:  81%|████████  | 403/500 [00:04<00:01, 90.40 examples/s][A
+Extract answers 16:  83%|████████▎ | 417/500 [00:04<00:00, 88.28 examples/s][A
+Extract answers 16:  85%|████████▌ | 426/500 [00:04<00:00, 81.22 examples/s][A
+Extract answers 16:  87%|████████▋ | 436/500 [00:05<00:00, 81.87 examples/s][A
+Extract answers 16:  89%|████████▉ | 445/500 [00:05<00:00, 81.63 examples/s][A
+Extract answers 16:  91%|█████████ | 455/500 [00:05<00:00, 84.03 examples/s][A
+Extract answers 16:  93%|█████████▎| 465/500 [00:05<00:00, 85.87 examples/s][A
+Extract answers 16:  95%|█████████▌| 475/500 [00:05<00:00, 87.77 examples/s][A
+Extract answers 16:  97%|█████████▋| 484/500 [00:05<00:00, 86.14 examples/s][A
+Extract answers 16:  99%|█████████▉| 494/500 [00:05<00:00, 88.67 examples/s][AExtract answers 16: 100%|██████████| 500/500 [00:05<00:00, 85.59 examples/s]
+
+Compute weighted pred 16:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Compute weighted pred 16:   0%|          | 2/500 [00:00<01:23,  5.99 examples/s][A
+Compute weighted pred 16:   3%|▎         | 16/500 [00:00<00:12, 39.80 examples/s][A
+Compute weighted pred 16:   5%|▌         | 26/500 [00:00<00:08, 53.89 examples/s][A
+Compute weighted pred 16:   9%|▉         | 44/500 [00:00<00:05, 80.16 examples/s][A
+Compute weighted pred 16:  13%|█▎        | 65/500 [00:01<00:05, 75.51 examples/s][A
+Compute weighted pred 16:  15%|█▌        | 75/500 [00:01<00:14, 29.74 examples/s][A
+Compute weighted pred 16:  17%|█▋        | 84/500 [00:02<00:12, 33.13 examples/s][A
+Compute weighted pred 16:  19%|█▉        | 96/500 [00:02<00:09, 42.65 examples/s][A
+Compute weighted pred 16:  22%|██▏       | 110/500 [00:02<00:07, 54.33 examples/s][A
+Compute weighted pred 16:  25%|██▍       | 124/500 [00:02<00:05, 67.45 examples/s][A
+Compute weighted pred 16:  29%|██▊       | 143/500 [00:02<00:04, 86.54 examples/s][A
+Compute weighted pred 16:  33%|███▎      | 165/500 [00:03<00:05, 65.70 examples/s][A
+Compute weighted pred 16:  36%|███▌      | 180/500 [00:03<00:04, 76.80 examples/s][A
+Compute weighted pred 16:  39%|███▉      | 196/500 [00:03<00:03, 80.19 examples/s][A
+Compute weighted pred 16:  43%|████▎     | 216/500 [00:03<00:03, 86.33 examples/s][A
+Compute weighted pred 16:  47%|████▋     | 237/500 [00:03<00:02, 97.77 examples/s][A
+Compute weighted pred 16:  50%|████▉     | 249/500 [00:04<00:03, 70.83 examples/s][A
+Compute weighted pred 16:  54%|█████▎    | 268/500 [00:04<00:02, 86.62 examples/s][A
+Compute weighted pred 16:  57%|█████▋    | 285/500 [00:04<00:02, 85.52 examples/s][A
+Compute weighted pred 16:  59%|█████▉    | 297/500 [00:04<00:02, 87.35 examples/s][A
+Compute weighted pred 16:  63%|██████▎   | 314/500 [00:04<00:01, 97.48 examples/s][A
+Compute weighted pred 16:  66%|██████▋   | 332/500 [00:04<00:01, 108.12 examples/s][A
+Compute weighted pred 16:  70%|██████▉   | 348/500 [00:04<00:01, 112.41 examples/s][A
+Compute weighted pred 16:  73%|███████▎  | 366/500 [00:05<00:01, 77.99 examples/s] [A
+Compute weighted pred 16:  76%|███████▌  | 381/500 [00:05<00:01, 88.52 examples/s][A
+Compute weighted pred 16:  79%|███████▉  | 396/500 [00:05<00:01, 97.29 examples/s][A
+Compute weighted pred 16:  83%|████████▎ | 415/500 [00:05<00:00, 107.49 examples/s][A
+Compute weighted pred 16:  86%|████████▌ | 430/500 [00:06<00:01, 68.87 examples/s] [A
+Compute weighted pred 16:  88%|████████▊ | 440/500 [00:06<00:01, 56.93 examples/s][A
+Compute weighted pred 16:  91%|█████████▏| 457/500 [00:06<00:00, 72.39 examples/s][A
+Compute weighted pred 16:  96%|█████████▌| 479/500 [00:06<00:00, 82.04 examples/s][A
+Compute weighted pred 16:  99%|█████████▉| 494/500 [00:06<00:00, 80.59 examples/s][ACompute weighted pred 16: 100%|██████████| 500/500 [00:07<00:00, 70.64 examples/s]
+
+Compute majority pred 16:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Compute majority pred 16:  22%|██▏       | 112/500 [00:00<00:00, 1094.01 examples/s][A
+Compute majority pred 16:  45%|████▌     | 225/500 [00:00<00:00, 1110.32 examples/s][A
+Compute majority pred 16:  67%|██████▋   | 337/500 [00:00<00:00, 1109.92 examples/s][A
+Compute majority pred 16:  90%|████████▉ | 448/500 [00:00<00:00, 1105.57 examples/s][ACompute majority pred 16: 100%|██████████| 500/500 [00:00<00:00, 954.65 examples/s] 
+
+Compute naive pred 16:   0%|          | 0/500 [00:00<?, ? examples/s][A
+Compute naive pred 16: 100%|██████████| 500/500 [00:00<00:00, 3869.76 examples/s][ACompute naive pred 16: 100%|██████████| 500/500 [00:00<00:00, 3709.63 examples/s]
+Computing majority & weighted predictions: 100%|██████████| 5/5 [00:31<00:00,  8.25s/it]Computing majority & weighted predictions: 100%|██████████| 5/5 [00:31<00:00,  6.36s/it]
+INFO:__main__:Scoring time: 31.94121265411377 s
+Uploading the dataset shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Creating parquet from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][ACreating parquet from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 21.90ba/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:00<00:00,  1.67it/s][A100%|██████████| 1/1 [00:00<00:00,  1.67it/s]
+Uploading the dataset shards: 100%|██████████| 1/1 [00:00<00:00,  1.09it/s]Uploading the dataset shards: 100%|██████████| 1/1 [00:00<00:00,  1.09it/s]
+INFO:root:Pushed dataset to https://huggingface.co/datasets/TheRealPilot638/Falcon3-1B-bon_16_no_chunking_H200/commit/714d9632fb4841028550ecf381a452023337e4fc
+INFO:__main__:Total runtime: 875.6947422027588
+INFO:__main__:Total power consumtion: 108.84759888888897 Wh
+INFO:__main__:Done 🔥!

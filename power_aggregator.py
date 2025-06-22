@@ -42,7 +42,9 @@ def powerAggregator(approach, filePath='./logs/', cpuOverhead=0.5, coolingOverhe
 
 if __name__ == "__main__":
     p = 0
-    p += powerAggregator('bon_4')
-    p += powerAggregator('bon_16')
-    p += powerAggregator('bon_64')
+    p += powerAggregator('vanilla')
+    # p += powerAggregator('bs_4')
+    # p += powerAggregator('bs_16')
+    # p += powerAggregator('bs_64')
+    #p += powerAggregator('bon_256')
     print(f'Total Consumed Power: {p/1e3} kWh')

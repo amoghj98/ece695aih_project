@@ -1,0 +1,351 @@
++ conda activate sal
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate sal
++ '[' -n '' ']'
++ local ask_conda
+++ PS1=
+++ __conda_exe shell.posix activate sal
+++ /apps/external/conda/2024.09/bin/conda shell.posix activate sal
++ ask_conda='PS1='\''(sal) '\''
+export PATH='\''/home/dlimpus/rcac-utils:/apps/external/apps/xalt3/xalt/xalt/bin:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/apps/external/conda/2024.09/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(sal) '\'''
++ eval 'PS1='\''(sal) '\''
+export PATH='\''/home/dlimpus/rcac-utils:/apps/external/apps/xalt3/xalt/xalt/bin:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/apps/external/conda/2024.09/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(sal) '\'''
+++ PS1='(sal) '
+++ export PATH=/home/dlimpus/rcac-utils:/apps/external/apps/xalt3/xalt/xalt/bin:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/apps/external/conda/2024.09/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand
+++ PATH=/home/dlimpus/rcac-utils:/apps/external/apps/xalt3/xalt/xalt/bin:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/apps/external/conda/2024.09/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(sal) '
+++ CONDA_PROMPT_MODIFIER='(sal) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ STARTS=($(seq 0 500 500))
+++ seq 0 500 500
++ python scripts/test_time_compute.py recipes/Llama-3.2-1B-Instruct/beam_search.yaml --n=4 --seed=3 --hub_dataset_id=TheRealPilot638/Llama-3.2-1B-beam-search_4_no_chunking_H200 --push_to_hub=False
+/home/dlimpus/.conda/envs/sal/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+No module named 'vllm._version'
+  from vllm.version import __version__ as VLLM_VERSION
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:09<00:00,  9.66s/it]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:09<00:00,  9.66s/it]
+
+INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:05<00:17,  5.76s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:23<00:25, 12.69s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:41<00:15, 15.21s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:45<00:00, 10.94s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:45<00:00, 11.48s/it]
+INFO:__main__:PRM load time: 46.69050168991089
+Parameter 'fn_kwargs'={'config': Config(approach='beam_search', model_path='meta-llama/Llama-3.2-1B-Instruct', gpu_memory_utilization=0.5, prm_path='RLHFlow/Llama3.1-8B-PRM-Deepseek-Data', output_dir=None, num_proc=None, push_to_hub=False, hub_dataset_id='TheRealPilot638/Llama-3.2-1B-beam-search_4_no_chunking_H200', hub_dataset_private=False, overwrite_hub_revision=True, apply_voting=True, dataset_name='HuggingFaceH4/MATH-500', dataset_config=None, dataset_split='test', dataset_start=None, dataset_end=None, num_samples=500, system_prompt='Solve the following math problem efficiently and clearly:\n\n- For simple problems (2 steps or fewer):\nProvide a concise solution with minimal explanation.\n\n- For complex problems (3 steps or more):\nUse this step-by-step format:\n\n## Step 1: [Concise description]\n[Brief explanation and calculations]\n\n## Step 2: [Concise description]\n[Brief explanation and calculations]\n\n...\n\nRegardless of the approach, always conclude with:\n\nTherefore, the final answer is: $\\boxed{answer}$. I hope it is correct.\n\nWhere [answer] is just the final number or expression that solves the problem.', custom_chat_template='{%- if custom_tools is defined %}\n    {%- set tools = custom_tools %}\n{%- endif %}\n{%- if not tools_in_user_message is defined %}\n    {%- set tools_in_user_message = true %}\n{%- endif %}\n{%- if not date_string is defined %}\n    {%- if strftime_now is defined %}\n        {%- set date_string = strftime_now("%d %b %Y") %}\n    {%- else %}\n        {%- set date_string = "26 Jul 2024" %}\n    {%- endif %}\n{%- endif %}\n{%- if not tools is defined %}\n    {%- set tools = none %}\n{%- endif %}\n\n{#- This block extracts the system message, so we can slot it into the right place. #}\n{%- if messages[0][\'role\'] == \'system\' %}\n    {%- set system_message = messages[0][\'content\']|trim %}\n    {%- set messages = messages[1:] %}\n{%- else %}\n    {%- set system_message = "" %}\n{%- endif %}\n\n{#- System message #}\n{{- "<|start_header_id|>system<|end_header_id|>\\n\\n" }}\n{%- if tools is not none %}\n    {{- "Environment: ipython\\n" }}\n{%- endif %}\n{{- "Cutting Knowledge Date: December 2023\\n" }}\n{{- "Today Date: " + date_string + "\\n\\n" }}\n{%- if tools is not none and not tools_in_user_message %}\n    {{- "You have access to the following functions. To call a function, please respond with JSON for a function call." }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n{%- endif %}\n{{- system_message }}\n{{- "<|eot_id|>" }}\n\n{#- Custom tools are passed in a user message with some extra guidance #}\n{%- if tools_in_user_message and not tools is none %}\n    {#- Extract the first user message so we can plug it in here #}\n    {%- if messages | length != 0 %}\n        {%- set first_user_message = messages[0][\'content\']|trim %}\n        {%- set messages = messages[1:] %}\n    {%- else %}\n        {{- raise_exception("Cannot put tools in the first user message when there\'s no first user message!") }}\n{%- endif %}\n    {{- \'<|start_header_id|>user<|end_header_id|>\\n\\n\' -}}\n    {{- "Given the following functions, please respond with a JSON for a function call " }}\n    {{- "with its proper arguments that best answers the given prompt.\\n\\n" }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n    {{- first_user_message + "<|eot_id|>"}}\n{%- endif %}\n\n{%- for message in messages %}\n    {%- if not (message.role == \'ipython\' or message.role == \'tool\' or \'tool_calls\' in message) %}\n        {{- \'<|start_header_id|>\' + message[\'role\'] + \'<|end_header_id|>\\n\\n\'+ message[\'content\'] + \'<|eot_id|>\' }}\n    {%- elif \'tool_calls\' in message %}\n        {%- if not message.tool_calls|length == 1 %}\n            {{- raise_exception("This model only supports single tool-calls at once!") }}\n        {%- endif %}\n        {%- set tool_call = message.tool_calls[0].function %}\n        {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' -}}\n        {{- \'{"name": "\' + tool_call.name + \'", \' }}\n        {{- \'"parameters": \' }}\n        {{- tool_call.arguments | tojson }}\n        {{- "}" }}\n        {{- "<|eot_id|>" }}\n    {%- elif message.role == "tool" or message.role == "ipython" %}\n        {{- "<|start_header_id|>ipython<|end_header_id|>\\n\\n" }}\n        {%- if message.content is mapping or message.content is iterable %}\n            {{- message.content | tojson }}\n        {%- else %}\n            {{- message.content }}\n        {%- endif %}\n        {{- "<|eot_id|>" }}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' }}\n{%- endif %}\n', n=4, temperature=0.8, top_p=1.0, prm_batch_size=4, search_batch_size=1, seed=3, max_tokens=2048, agg_strategy='last', beam_width=4, num_iterations=40, lookahead=1, filter_duplicates=True, sort_completed=False), 'llm': <vllm.entrypoints.llm.LLM object at 0x14a890ccf050>, 'prm': <sal.models.reward_models.RLHFFlow object at 0x14a88acc7510>} of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+WARNING:datasets.fingerprint:Parameter 'fn_kwargs'={'config': Config(approach='beam_search', model_path='meta-llama/Llama-3.2-1B-Instruct', gpu_memory_utilization=0.5, prm_path='RLHFlow/Llama3.1-8B-PRM-Deepseek-Data', output_dir=None, num_proc=None, push_to_hub=False, hub_dataset_id='TheRealPilot638/Llama-3.2-1B-beam-search_4_no_chunking_H200', hub_dataset_private=False, overwrite_hub_revision=True, apply_voting=True, dataset_name='HuggingFaceH4/MATH-500', dataset_config=None, dataset_split='test', dataset_start=None, dataset_end=None, num_samples=500, system_prompt='Solve the following math problem efficiently and clearly:\n\n- For simple problems (2 steps or fewer):\nProvide a concise solution with minimal explanation.\n\n- For complex problems (3 steps or more):\nUse this step-by-step format:\n\n## Step 1: [Concise description]\n[Brief explanation and calculations]\n\n## Step 2: [Concise description]\n[Brief explanation and calculations]\n\n...\n\nRegardless of the approach, always conclude with:\n\nTherefore, the final answer is: $\\boxed{answer}$. I hope it is correct.\n\nWhere [answer] is just the final number or expression that solves the problem.', custom_chat_template='{%- if custom_tools is defined %}\n    {%- set tools = custom_tools %}\n{%- endif %}\n{%- if not tools_in_user_message is defined %}\n    {%- set tools_in_user_message = true %}\n{%- endif %}\n{%- if not date_string is defined %}\n    {%- if strftime_now is defined %}\n        {%- set date_string = strftime_now("%d %b %Y") %}\n    {%- else %}\n        {%- set date_string = "26 Jul 2024" %}\n    {%- endif %}\n{%- endif %}\n{%- if not tools is defined %}\n    {%- set tools = none %}\n{%- endif %}\n\n{#- This block extracts the system message, so we can slot it into the right place. #}\n{%- if messages[0][\'role\'] == \'system\' %}\n    {%- set system_message = messages[0][\'content\']|trim %}\n    {%- set messages = messages[1:] %}\n{%- else %}\n    {%- set system_message = "" %}\n{%- endif %}\n\n{#- System message #}\n{{- "<|start_header_id|>system<|end_header_id|>\\n\\n" }}\n{%- if tools is not none %}\n    {{- "Environment: ipython\\n" }}\n{%- endif %}\n{{- "Cutting Knowledge Date: December 2023\\n" }}\n{{- "Today Date: " + date_string + "\\n\\n" }}\n{%- if tools is not none and not tools_in_user_message %}\n    {{- "You have access to the following functions. To call a function, please respond with JSON for a function call." }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n{%- endif %}\n{{- system_message }}\n{{- "<|eot_id|>" }}\n\n{#- Custom tools are passed in a user message with some extra guidance #}\n{%- if tools_in_user_message and not tools is none %}\n    {#- Extract the first user message so we can plug it in here #}\n    {%- if messages | length != 0 %}\n        {%- set first_user_message = messages[0][\'content\']|trim %}\n        {%- set messages = messages[1:] %}\n    {%- else %}\n        {{- raise_exception("Cannot put tools in the first user message when there\'s no first user message!") }}\n{%- endif %}\n    {{- \'<|start_header_id|>user<|end_header_id|>\\n\\n\' -}}\n    {{- "Given the following functions, please respond with a JSON for a function call " }}\n    {{- "with its proper arguments that best answers the given prompt.\\n\\n" }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n    {{- first_user_message + "<|eot_id|>"}}\n{%- endif %}\n\n{%- for message in messages %}\n    {%- if not (message.role == \'ipython\' or message.role == \'tool\' or \'tool_calls\' in message) %}\n        {{- \'<|start_header_id|>\' + message[\'role\'] + \'<|end_header_id|>\\n\\n\'+ message[\'content\'] + \'<|eot_id|>\' }}\n    {%- elif \'tool_calls\' in message %}\n        {%- if not message.tool_calls|length == 1 %}\n            {{- raise_exception("This model only supports single tool-calls at once!") }}\n        {%- endif %}\n        {%- set tool_call = message.tool_calls[0].function %}\n        {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' -}}\n        {{- \'{"name": "\' + tool_call.name + \'", \' }}\n        {{- \'"parameters": \' }}\n        {{- tool_call.arguments | tojson }}\n        {{- "}" }}\n        {{- "<|eot_id|>" }}\n    {%- elif message.role == "tool" or message.role == "ipython" %}\n        {{- "<|start_header_id|>ipython<|end_header_id|>\\n\\n" }}\n        {%- if message.content is mapping or message.content is iterable %}\n            {{- message.content | tojson }}\n        {%- else %}\n            {{- message.content }}\n        {%- endif %}\n        {{- "<|eot_id|>" }}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' }}\n{%- endif %}\n', n=4, temperature=0.8, top_p=1.0, prm_batch_size=4, search_batch_size=1, seed=3, max_tokens=2048, agg_strategy='last', beam_width=4, num_iterations=40, lookahead=1, filter_duplicates=True, sort_completed=False), 'llm': <vllm.entrypoints.llm.LLM object at 0x14a890ccf050>, 'prm': <sal.models.reward_models.RLHFFlow object at 0x14a88acc7510>} of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+Running search:   0%|          | 0/500 [00:00<?, ? examples/s]
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.5829393863677979
+
+Beam search iterations:   2%|▎         | 1/40 [00:00<00:22,  1.72it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.2447664737701416
+
+Beam search iterations:   5%|▌         | 2/40 [00:00<00:14,  2.60it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.2264842987060547
+
+Beam search iterations:   8%|▊         | 3/40 [00:01<00:11,  3.20it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.22770190238952637
+
+Beam search iterations:  10%|█         | 4/40 [00:01<00:10,  3.58it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.2629661560058594
+
+Beam search iterations:  12%|█▎        | 5/40 [00:01<00:09,  3.66it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.27158641815185547
+
+Beam search iterations:  15%|█▌        | 6/40 [00:01<00:09,  3.67it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.23002886772155762
+
+Beam search iterations:  18%|█▊        | 7/40 [00:02<00:08,  3.86it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.20632433891296387
+
+Beam search iterations:  20%|██        | 8/40 [00:02<00:07,  4.13it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.2872459888458252
+
+Beam search iterations:  22%|██▎       | 9/40 [00:02<00:07,  3.90it/s][AINFO:sal.search.beam_search:beam search loop 2 time: 0.18625259399414062
+
+Beam search iterations:  25%|██▌       | 10/40 [00:02<00:07,  4.26it/s][ABeam search iterations:  25%|██▌       | 10/40 [00:02<00:08,  3.50it/s]
+INFO:sal.search.beam_search:post beam search time: 2.384185791015625e-06
+Running search:   0%|          | 1/500 [00:02<23:53,  2.87s/ examples]
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.720034122467041
+
+Beam search iterations:   2%|▎         | 1/40 [00:00<00:28,  1.39it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.49412012100219727
+
+Beam search iterations:   5%|▌         | 2/40 [00:01<00:22,  1.70it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 1.9234848022460938
+
+Beam search iterations:   8%|▊         | 3/40 [00:03<00:44,  1.20s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.7805271148681641
+
+Beam search iterations:  10%|█         | 4/40 [00:03<00:37,  1.03s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 5.20358419418335
+
+Beam search iterations:  12%|█▎        | 5/40 [00:09<01:28,  2.54s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9045588970184326
+
+Beam search iterations:  15%|█▌        | 6/40 [00:10<01:07,  1.98s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.1077167987823486
+
+Beam search iterations:  18%|█▊        | 7/40 [00:11<00:55,  1.70s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.3656790256500244
+
+Beam search iterations:  20%|██        | 8/40 [00:12<00:50,  1.59s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.2055425643920898
+
+Beam search iterations:  22%|██▎       | 9/40 [00:13<00:45,  1.47s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.181931972503662
+
+Beam search iterations:  25%|██▌       | 10/40 [00:14<00:41,  1.38s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.2957427501678467
+
+Beam search iterations:  28%|██▊       | 11/40 [00:16<00:39,  1.36s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.7977786064147949
+
+Beam search iterations:  30%|███       | 12/40 [00:16<00:33,  1.19s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.051950216293335
+
+Beam search iterations:  32%|███▎      | 13/40 [00:18<00:30,  1.15s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.5162291526794434
+
+Beam search iterations:  35%|███▌      | 14/40 [00:19<00:32,  1.26s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 5.788029670715332
+
+Beam search iterations:  38%|███▊      | 15/40 [00:25<01:05,  2.62s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.2314462661743164
+
+Beam search iterations:  40%|████      | 16/40 [00:26<00:52,  2.20s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.2674305438995361
+
+Beam search iterations:  42%|████▎     | 17/40 [00:27<00:44,  1.92s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.360001564025879
+
+Beam search iterations:  45%|████▌     | 18/40 [00:29<00:38,  1.75s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.1456549167633057
+
+Beam search iterations:  48%|████▊     | 19/40 [00:30<00:32,  1.57s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.1769309043884277
+
+Beam search iterations:  50%|█████     | 20/40 [00:31<00:29,  1.45s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.3554191589355469
+
+Beam search iterations:  52%|█████▎    | 21/40 [00:32<00:27,  1.42s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9573020935058594
+
+Beam search iterations:  55%|█████▌    | 22/40 [00:33<00:23,  1.28s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9962742328643799
+
+Beam search iterations:  57%|█████▊    | 23/40 [00:34<00:20,  1.20s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.1439013481140137
+
+Beam search iterations:  60%|██████    | 24/40 [00:35<00:18,  1.18s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.1426479816436768
+
+Beam search iterations:  62%|██████▎   | 25/40 [00:37<00:17,  1.17s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9544317722320557
+
+Beam search iterations:  65%|██████▌   | 26/40 [00:38<00:15,  1.11s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.0553679466247559
+
+Beam search iterations:  68%|██████▊   | 27/40 [00:39<00:14,  1.09s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.0161170959472656
+
+Beam search iterations:  70%|███████   | 28/40 [00:40<00:12,  1.07s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 1.4661650657653809
+
+Beam search iterations:  72%|███████▎  | 29/40 [00:41<00:13,  1.19s/it][AINFO:sal.search.beam_search:beam search loop 2 time: 0.8733322620391846
+
+Beam search iterations:  75%|███████▌  | 30/40 [00:42<00:10,  1.09s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9275999069213867
+
+Beam search iterations:  78%|███████▊  | 31/40 [00:43<00:09,  1.04s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9437108039855957
+
+Beam search iterations:  80%|████████  | 32/40 [00:44<00:08,  1.01s/it][AINFO:sal.search.beam_search:beam search loop 2 time: 0.914311408996582
+
+Beam search iterations:  82%|████████▎ | 33/40 [00:45<00:06,  1.02it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.938185453414917
+
+Beam search iterations:  85%|████████▌ | 34/40 [00:46<00:05,  1.03it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9424407482147217
+
+Beam search iterations:  88%|████████▊ | 35/40 [00:47<00:04,  1.04it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9565083980560303
+
+Beam search iterations:  90%|█████████ | 36/40 [00:48<00:03,  1.04it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9577298164367676
+
+Beam search iterations:  92%|█████████▎| 37/40 [00:49<00:02,  1.04it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9608855247497559
+
+Beam search iterations:  95%|█████████▌| 38/40 [00:50<00:01,  1.04it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9916980266571045
+
+Beam search iterations:  98%|█████████▊| 39/40 [00:51<00:00,  1.03it/s][ABeam search iterations:  98%|█████████▊| 39/40 [00:57<00:01,  1.47s/it]
+INFO:sal.search.beam_search:post beam search time: 2.384185791015625e-06
+Running search:   0%|          | 2/500 [01:00<4:50:28, 35.00s/ examples]
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.5740573406219482
+
+Beam search iterations:   2%|▎         | 1/40 [00:00<00:22,  1.74it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.5841419696807861
+
+Beam search iterations:   5%|▌         | 2/40 [00:01<00:22,  1.72it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.6993985176086426
+
+Beam search iterations:   8%|▊         | 3/40 [00:01<00:23,  1.58it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.6193575859069824
+
+Beam search iterations:  10%|█         | 4/40 [00:02<00:22,  1.59it/s][ABeam search iterations:  10%|█         | 4/40 [00:02<00:23,  1.51it/s]
+INFO:sal.search.beam_search:post beam search time: 9.5367431640625e-07
+Running search:   1%|          | 3/500 [01:03<2:47:34, 20.23s/ examples]
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.3866255283355713
+
+Beam search iterations:   2%|▎         | 1/40 [00:00<00:15,  2.59it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.40075159072875977
+
+Beam search iterations:   5%|▌         | 2/40 [00:00<00:15,  2.53it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.2678232192993164
+
+Beam search iterations:   8%|▊         | 3/40 [00:01<00:12,  2.97it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.21767234802246094
+
+Beam search iterations:  10%|█         | 4/40 [00:01<00:10,  3.45it/s][ABeam search iterations:  10%|█         | 4/40 [00:01<00:12,  2.93it/s]
+INFO:sal.search.beam_search:post beam search time: 4.76837158203125e-07
+Running search:   1%|          | 4/500 [01:04<1:45:40, 12.78s/ examples]
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.4708521366119385
+
+Beam search iterations:   2%|▎         | 1/40 [00:00<00:18,  2.12it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.8968911170959473
+
+Beam search iterations:   5%|▌         | 2/40 [00:01<00:27,  1.39it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.4473729133605957
+
+Beam search iterations:   8%|▊         | 3/40 [00:01<00:22,  1.68it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.44471049308776855
+
+Beam search iterations:  10%|█         | 4/40 [00:02<00:19,  1.86it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.46787190437316895
+
+Beam search iterations:  12%|█▎        | 5/40 [00:02<00:17,  1.95it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.4201822280883789
+
+Beam search iterations:  15%|█▌        | 6/40 [00:03<00:16,  2.08it/s][ABeam search iterations:  15%|█▌        | 6/40 [00:03<00:18,  1.80it/s]
+INFO:sal.search.beam_search:post beam search time: 7.152557373046875e-07
+Running search:   1%|          | 5/500 [01:07<1:17:22,  9.38s/ examples]
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.42006587982177734
+
+Beam search iterations:   2%|▎         | 1/40 [00:00<00:16,  2.38it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.495863676071167
+
+Beam search iterations:   5%|▌         | 2/40 [00:00<00:17,  2.15it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.31887388229370117
+
+Beam search iterations:   8%|▊         | 3/40 [00:01<00:14,  2.51it/s][ABeam search iterations:   8%|▊         | 3/40 [00:01<00:16,  2.24it/s]
+INFO:sal.search.beam_search:post beam search time: 9.5367431640625e-07
+Running search:   1%|          | 6/500 [01:09<54:42,  6.64s/ examples]  
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9188165664672852
+
+Beam search iterations:   2%|▎         | 1/40 [00:00<00:35,  1.09it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.2577955722808838
+
+Beam search iterations:   5%|▌         | 2/40 [00:01<00:20,  1.89it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.19026660919189453
+
+Beam search iterations:   8%|▊         | 3/40 [00:01<00:13,  2.67it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.20762944221496582
+
+Beam search iterations:  10%|█         | 4/40 [00:01<00:11,  3.24it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.20528292655944824
+
+Beam search iterations:  12%|█▎        | 5/40 [00:01<00:09,  3.68it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.20397567749023438
+
+Beam search iterations:  15%|█▌        | 6/40 [00:01<00:08,  4.02it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.22152924537658691
+
+Beam search iterations:  18%|█▊        | 7/40 [00:02<00:07,  4.17it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.3177797794342041
+
+Beam search iterations:  20%|██        | 8/40 [00:02<00:08,  3.78it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.2554941177368164
+
+Beam search iterations:  22%|██▎       | 9/40 [00:02<00:08,  3.82it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.2810065746307373
+
+Beam search iterations:  25%|██▌       | 10/40 [00:03<00:08,  3.73it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.27449607849121094
+
+Beam search iterations:  28%|██▊       | 11/40 [00:03<00:07,  3.70it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.8276972770690918
+
+Beam search iterations:  30%|███       | 12/40 [00:04<00:12,  2.27it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.5784037113189697
+
+Beam search iterations:  32%|███▎      | 13/40 [00:04<00:13,  2.08it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.27390027046203613
+
+Beam search iterations:  35%|███▌      | 14/40 [00:05<00:10,  2.39it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.2849721908569336
+
+Beam search iterations:  38%|███▊      | 15/40 [00:05<00:09,  2.64it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.3068389892578125
+
+Beam search iterations:  40%|████      | 16/40 [00:05<00:08,  2.80it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.30594444274902344
+
+Beam search iterations:  42%|████▎     | 17/40 [00:05<00:07,  2.93it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.29379701614379883
+
+Beam search iterations:  45%|████▌     | 18/40 [00:06<00:07,  3.05it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.3799910545349121
+
+Beam search iterations:  48%|████▊     | 19/40 [00:06<00:07,  2.91it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.3595411777496338
+
+Beam search iterations:  50%|█████     | 20/40 [00:06<00:06,  2.87it/s][ABeam search iterations:  50%|█████     | 20/40 [00:07<00:07,  2.80it/s]
+INFO:sal.search.beam_search:post beam search time: 9.5367431640625e-07
+Running search:   1%|▏         | 7/500 [01:16<55:55,  6.81s/ examples]
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.5853490829467773
+
+Beam search iterations:   2%|▎         | 1/40 [00:00<00:22,  1.71it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.8326518535614014
+
+Beam search iterations:   5%|▌         | 2/40 [00:01<00:27,  1.37it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.805422306060791
+
+Beam search iterations:   8%|▊         | 3/40 [00:02<00:28,  1.31it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.8073270320892334
+
+Beam search iterations:  10%|█         | 4/40 [00:03<00:28,  1.28it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.5119009017944336
+
+Beam search iterations:  12%|█▎        | 5/40 [00:03<00:23,  1.46it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.6371903419494629
+
+Beam search iterations:  15%|█▌        | 6/40 [00:04<00:22,  1.50it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.3726234436035156
+
+Beam search iterations:  18%|█▊        | 7/40 [00:04<00:18,  1.75it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 4.909485816955566
+
+Beam search iterations:  20%|██        | 8/40 [00:09<01:02,  1.95s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.4329371452331543
+
+Beam search iterations:  22%|██▎       | 9/40 [00:09<00:45,  1.48s/it][AINFO:sal.search.beam_search:beam search loop 2 time: 0.3834960460662842
+
+Beam search iterations:  25%|██▌       | 10/40 [00:10<00:34,  1.14s/it][AINFO:sal.search.beam_search:beam search loop 1 time: 0.32483863830566406
+
+Beam search iterations:  28%|██▊       | 11/40 [00:10<00:25,  1.12it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.361844539642334
+
+Beam search iterations:  30%|███       | 12/40 [00:10<00:20,  1.37it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.39833569526672363
+
+Beam search iterations:  32%|███▎      | 13/40 [00:11<00:16,  1.59it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.4369471073150635
+
+Beam search iterations:  35%|███▌      | 14/40 [00:11<00:14,  1.75it/s][AINFO:sal.search.beam_search:beam search loop 2 time: 0.34789013862609863
+
+Beam search iterations:  38%|███▊      | 15/40 [00:12<00:12,  1.98it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.3589131832122803
+
+Beam search iterations:  40%|████      | 16/40 [00:12<00:11,  2.17it/s][ABeam search iterations:  40%|████      | 16/40 [00:12<00:19,  1.25it/s]
+INFO:sal.search.beam_search:post beam search time: 9.5367431640625e-07
+Running search:   2%|▏         | 8/500 [01:28<1:11:20,  8.70s/ examples]
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.4181210994720459
+
+Beam search iterations:   2%|▎         | 1/40 [00:00<00:16,  2.39it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.4290471076965332
+
+Beam search iterations:   5%|▌         | 2/40 [00:00<00:16,  2.35it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.21836090087890625
+
+Beam search iterations:   8%|▊         | 3/40 [00:01<00:12,  3.03it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.23040556907653809
+
+Beam search iterations:  10%|█         | 4/40 [00:01<00:10,  3.44it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.25193023681640625
+
+Beam search iterations:  12%|█▎        | 5/40 [00:01<00:09,  3.61it/s][ABeam search iterations:  12%|█▎        | 5/40 [00:01<00:11,  2.98it/s]
+INFO:sal.search.beam_search:post beam search time: 7.152557373046875e-07
+Running search:   2%|▏         | 9/500 [01:30<53:14,  6.51s/ examples]  
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 1.3218724727630615
+
+Beam search iterations:   2%|▎         | 1/40 [00:01<00:51,  1.32s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.41901397705078125
+
+Beam search iterations:   5%|▌         | 2/40 [00:01<00:30,  1.26it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.5062389373779297
+
+Beam search iterations:   8%|▊         | 3/40 [00:02<00:24,  1.51it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 5.1103196144104
+
+Beam search iterations:  10%|█         | 4/40 [00:07<01:27,  2.42s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 4.763631343841553
+
+Beam search iterations:  12%|█▎        | 5/40 [00:12<01:54,  3.26s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.9571647644042969
+
+Beam search iterations:  15%|█▌        | 6/40 [00:13<01:24,  2.48s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.538719892501831
+
+Beam search iterations:  18%|█▊        | 7/40 [00:13<01:00,  1.85s/it][AINFO:sal.search.beam_search:beam search loop 3 time: 0.7093734741210938
+
+Beam search iterations:  20%|██        | 8/40 [00:14<00:47,  1.48s/it][AINFO:sal.search.beam_search:beam search loop 2 time: 0.5275094509124756
+
+Beam search iterations:  22%|██▎       | 9/40 [00:14<00:36,  1.18s/it][ABeam search iterations:  22%|██▎       | 9/40 [00:15<00:51,  1.67s/it]
+INFO:sal.search.beam_search:post beam search time: 1.1920928955078125e-06
+Running search:   2%|▏         | 10/500 [01:45<1:14:41,  9.15s/ examples]
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.3162503242492676
+
+Beam search iterations:   2%|▎         | 1/40 [00:00<00:12,  3.16it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.30873584747314453
+
+Beam search iterations:   5%|▌         | 2/40 [00:00<00:11,  3.21it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.3387274742126465
+
+Beam search iterations:   8%|▊         | 3/40 [00:00<00:11,  3.08it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.23784232139587402
+
+Beam search iterations:  10%|█         | 4/40 [00:01<00:10,  3.45it/s][AINFO:sal.search.beam_search:beam search loop 2 time: 0.30059027671813965
+
+Beam search iterations:  12%|█▎        | 5/40 [00:01<00:10,  3.40it/s][AINFO:sal.search.beam_search:beam search loop 2 time: 0.2127389907836914
+
+Beam search iterations:  15%|█▌        | 6/40 [00:01<00:09,  3.75it/s][AINFO:sal.search.beam_search:beam search loop 0 time: 0.19192957878112793
+
+Beam search iterations:  18%|█▊        | 7/40 [00:01<00:07,  4.13it/s][AINFO:sal.search.beam_search:beam search loop 1 time: 0.2959561347961426
+
+Beam search iterations:  20%|██        | 8/40 [00:02<00:08,  3.86it/s][AINFO:sal.search.beam_search:beam search loop 0 time: 0.18817138671875
+
+Beam search iterations:  22%|██▎       | 9/40 [00:02<00:07,  4.22it/s][AINFO:sal.search.beam_search:beam search loop 0 time: 0.16708898544311523
+
+Beam search iterations:  25%|██▌       | 10/40 [00:02<00:06,  4.64it/s][AINFO:sal.search.beam_search:beam search loop 0 time: 0.256244421005249
+
+Beam search iterations:  28%|██▊       | 11/40 [00:02<00:06,  4.38it/s][AINFO:sal.search.beam_search:beam search loop 1 time: 0.3257937431335449
+
+Beam search iterations:  30%|███       | 12/40 [00:03<00:07,  3.88it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.45490598678588867
+
+Beam search iterations:  32%|███▎      | 13/40 [00:03<00:08,  3.15it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.41975975036621094
+
+Beam search iterations:  35%|███▌      | 14/40 [00:04<00:09,  2.87it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.4456923007965088
+
+Beam search iterations:  38%|███▊      | 15/40 [00:04<00:09,  2.65it/s][AINFO:sal.search.beam_search:beam search loop 2 time: 0.3858072757720947
+
+Beam search iterations:  40%|████      | 16/40 [00:04<00:09,  2.63it/s][AINFO:sal.search.beam_search:beam search loop 1 time: 0.4576761722564697
+
+Beam search iterations:  42%|████▎     | 17/40 [00:05<00:09,  2.48it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.490680456161499
+
+Beam search iterations:  45%|████▌     | 18/40 [00:05<00:09,  2.33it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.44041872024536133
+
+Beam search iterations:  48%|████▊     | 19/40 [00:06<00:09,  2.31it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.46824216842651367
+
+Beam search iterations:  50%|█████     | 20/40 [00:06<00:08,  2.25it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.44633984565734863
+
+Beam search iterations:  52%|█████▎    | 21/40 [00:07<00:08,  2.25it/s][AINFO:sal.search.beam_search:beam search loop 3 time: 0.48398661613464355
+
+Beam search iterations:  55%|█████▌    | 22/40 [00:07<00:08,  2.19it/s][Aslurmstepd: error: *** JOB 1231773 ON i001 CANCELLED AT 2025-05-07T00:04:07 ***

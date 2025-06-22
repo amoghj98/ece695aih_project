@@ -28,7 +28,7 @@ do
         --job-name=$JOB_NAME \
         --cpus-per-gpu=14 -A cocosys \
         recipes/launch_array.slurm recipes/Olmo-1B-0724-hf/best_of_n.yaml \
-        --n=256 \
+        --n=64 \
         --seed=$SEED \
         --hub_dataset_id=TheRealPilot638/TestTimeScalingOlmo-1B-0724-hf-BON_50Q_profiling
     done

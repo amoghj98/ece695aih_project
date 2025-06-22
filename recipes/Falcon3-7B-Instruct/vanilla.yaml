@@ -1,0 +1,7 @@
+model_path: tiiuae/Falcon3-7B-Instruct
+filter_duplicates: true
+approach: vanilla
+n: 1 # doesn't matter
+search_batch_size: 1 # doesn't matter
+num_samples: 500 
+seed: 0

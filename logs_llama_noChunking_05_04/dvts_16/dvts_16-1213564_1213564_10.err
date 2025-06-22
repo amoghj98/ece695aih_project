@@ -1,0 +1,292 @@
++ conda activate sal
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate sal
++ '[' -n '' ']'
++ local ask_conda
+++ PS1=
+++ __conda_exe shell.posix activate sal
+++ /apps/external/conda/2024.09/bin/conda shell.posix activate sal
++ ask_conda='PS1='\''(sal) '\''
+export PATH='\''/home/dlimpus/rcac-utils:/apps/external/apps/xalt3/xalt/xalt/bin:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/apps/external/conda/2024.09/condabin:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(sal) '\'''
++ eval 'PS1='\''(sal) '\''
+export PATH='\''/home/dlimpus/rcac-utils:/apps/external/apps/xalt3/xalt/xalt/bin:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/apps/external/conda/2024.09/condabin:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(sal) '\'''
+++ PS1='(sal) '
+++ export PATH=/home/dlimpus/rcac-utils:/apps/external/apps/xalt3/xalt/xalt/bin:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/apps/external/conda/2024.09/condabin:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts
+++ PATH=/home/dlimpus/rcac-utils:/apps/external/apps/xalt3/xalt/xalt/bin:/apps/gautschi/cuda/12.6/bin:/home/dlimpus/.conda/envs/sal/bin:/home/dlimpus/rcac-utils:/apps/external/conda/2024.09/condabin:/home/dlimpus/.vscode-server/cli/servers/Stable-17baf841131aa23349f217ca7c570c76ee87b957/server/bin/remote-cli:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/hpss/bin:/opt/hsi/bin:/opt/puppetlabs/bin:/usr/site/rcac/sbin:/usr/site/rcac/bin:/usr/site/rcac/scripts:/opt/thinlinc/bin:/opt/thinlinc/sbin:/home/dlimpus/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/dlimpus/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(sal) '
+++ CONDA_PROMPT_MODIFIER='(sal) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ STEP=50
++ ENDPOINT=450
++ STARTS=($(seq 0 $STEP $ENDPOINT))
+++ seq 0 50 450
++ INPUT_FILE=
++ DATASET_START=450
++ DATASET_END=500
++ python scripts/test_time_compute.py recipes/Llama-3.2-1B-Instruct/dvts.yaml --n=16 --seed=0 --hub_dataset_id=TheRealPilot638/Llama-3.2-1B-dvts_16_no_chunking_H200 --dataset_start=450 --dataset_end=500 --push_to_hub=True
+/home/dlimpus/.conda/envs/sal/lib/python3.11/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+No module named 'vllm._version'
+  from vllm.version import __version__ as VLLM_VERSION
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:03<00:00,  3.05s/it]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:03<00:00,  3.05s/it]
+
+INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:10,  3.63s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:16<00:17,  8.89s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:29<00:10, 10.80s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:32<00:00,  7.63s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:32<00:00,  8.01s/it]
+INFO:__main__:PRM load time: 32.840951681137085
+Parameter 'fn_kwargs'={'config': Config(approach='dvts', model_path='meta-llama/Llama-3.2-1B-Instruct', gpu_memory_utilization=0.5, prm_path='RLHFlow/Llama3.1-8B-PRM-Deepseek-Data', output_dir=None, num_proc=None, push_to_hub=True, hub_dataset_id='TheRealPilot638/Llama-3.2-1B-dvts_16_no_chunking_H200', hub_dataset_private=False, overwrite_hub_revision=False, apply_voting=True, dataset_name='HuggingFaceH4/MATH-500', dataset_config=None, dataset_split='test', dataset_start=450, dataset_end=500, num_samples=500, system_prompt='Solve the following math problem efficiently and clearly:\n\n- For simple problems (2 steps or fewer):\nProvide a concise solution with minimal explanation.\n\n- For complex problems (3 steps or more):\nUse this step-by-step format:\n\n## Step 1: [Concise description]\n[Brief explanation and calculations]\n\n## Step 2: [Concise description]\n[Brief explanation and calculations]\n\n...\n\nRegardless of the approach, always conclude with:\n\nTherefore, the final answer is: $\\boxed{answer}$. I hope it is correct.\n\nWhere [answer] is just the final number or expression that solves the problem.', custom_chat_template='{%- if custom_tools is defined %}\n    {%- set tools = custom_tools %}\n{%- endif %}\n{%- if not tools_in_user_message is defined %}\n    {%- set tools_in_user_message = true %}\n{%- endif %}\n{%- if not date_string is defined %}\n    {%- if strftime_now is defined %}\n        {%- set date_string = strftime_now("%d %b %Y") %}\n    {%- else %}\n        {%- set date_string = "26 Jul 2024" %}\n    {%- endif %}\n{%- endif %}\n{%- if not tools is defined %}\n    {%- set tools = none %}\n{%- endif %}\n\n{#- This block extracts the system message, so we can slot it into the right place. #}\n{%- if messages[0][\'role\'] == \'system\' %}\n    {%- set system_message = messages[0][\'content\']|trim %}\n    {%- set messages = messages[1:] %}\n{%- else %}\n    {%- set system_message = "" %}\n{%- endif %}\n\n{#- System message #}\n{{- "<|start_header_id|>system<|end_header_id|>\\n\\n" }}\n{%- if tools is not none %}\n    {{- "Environment: ipython\\n" }}\n{%- endif %}\n{{- "Cutting Knowledge Date: December 2023\\n" }}\n{{- "Today Date: " + date_string + "\\n\\n" }}\n{%- if tools is not none and not tools_in_user_message %}\n    {{- "You have access to the following functions. To call a function, please respond with JSON for a function call." }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n{%- endif %}\n{{- system_message }}\n{{- "<|eot_id|>" }}\n\n{#- Custom tools are passed in a user message with some extra guidance #}\n{%- if tools_in_user_message and not tools is none %}\n    {#- Extract the first user message so we can plug it in here #}\n    {%- if messages | length != 0 %}\n        {%- set first_user_message = messages[0][\'content\']|trim %}\n        {%- set messages = messages[1:] %}\n    {%- else %}\n        {{- raise_exception("Cannot put tools in the first user message when there\'s no first user message!") }}\n{%- endif %}\n    {{- \'<|start_header_id|>user<|end_header_id|>\\n\\n\' -}}\n    {{- "Given the following functions, please respond with a JSON for a function call " }}\n    {{- "with its proper arguments that best answers the given prompt.\\n\\n" }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n    {{- first_user_message + "<|eot_id|>"}}\n{%- endif %}\n\n{%- for message in messages %}\n    {%- if not (message.role == \'ipython\' or message.role == \'tool\' or \'tool_calls\' in message) %}\n        {{- \'<|start_header_id|>\' + message[\'role\'] + \'<|end_header_id|>\\n\\n\'+ message[\'content\'] + \'<|eot_id|>\' }}\n    {%- elif \'tool_calls\' in message %}\n        {%- if not message.tool_calls|length == 1 %}\n            {{- raise_exception("This model only supports single tool-calls at once!") }}\n        {%- endif %}\n        {%- set tool_call = message.tool_calls[0].function %}\n        {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' -}}\n        {{- \'{"name": "\' + tool_call.name + \'", \' }}\n        {{- \'"parameters": \' }}\n        {{- tool_call.arguments | tojson }}\n        {{- "}" }}\n        {{- "<|eot_id|>" }}\n    {%- elif message.role == "tool" or message.role == "ipython" %}\n        {{- "<|start_header_id|>ipython<|end_header_id|>\\n\\n" }}\n        {%- if message.content is mapping or message.content is iterable %}\n            {{- message.content | tojson }}\n        {%- else %}\n            {{- message.content }}\n        {%- endif %}\n        {{- "<|eot_id|>" }}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' }}\n{%- endif %}\n', n=16, temperature=0.8, top_p=1.0, prm_batch_size=4, search_batch_size=25, seed=0, max_tokens=2048, agg_strategy='last', beam_width=4, num_iterations=40, lookahead=1, filter_duplicates=True, sort_completed=False), 'llm': <vllm.entrypoints.llm.LLM object at 0x14a328fee310>, 'prm': <sal.models.reward_models.RLHFFlow object at 0x14a32b39fa10>} of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+WARNING:datasets.fingerprint:Parameter 'fn_kwargs'={'config': Config(approach='dvts', model_path='meta-llama/Llama-3.2-1B-Instruct', gpu_memory_utilization=0.5, prm_path='RLHFlow/Llama3.1-8B-PRM-Deepseek-Data', output_dir=None, num_proc=None, push_to_hub=True, hub_dataset_id='TheRealPilot638/Llama-3.2-1B-dvts_16_no_chunking_H200', hub_dataset_private=False, overwrite_hub_revision=False, apply_voting=True, dataset_name='HuggingFaceH4/MATH-500', dataset_config=None, dataset_split='test', dataset_start=450, dataset_end=500, num_samples=500, system_prompt='Solve the following math problem efficiently and clearly:\n\n- For simple problems (2 steps or fewer):\nProvide a concise solution with minimal explanation.\n\n- For complex problems (3 steps or more):\nUse this step-by-step format:\n\n## Step 1: [Concise description]\n[Brief explanation and calculations]\n\n## Step 2: [Concise description]\n[Brief explanation and calculations]\n\n...\n\nRegardless of the approach, always conclude with:\n\nTherefore, the final answer is: $\\boxed{answer}$. I hope it is correct.\n\nWhere [answer] is just the final number or expression that solves the problem.', custom_chat_template='{%- if custom_tools is defined %}\n    {%- set tools = custom_tools %}\n{%- endif %}\n{%- if not tools_in_user_message is defined %}\n    {%- set tools_in_user_message = true %}\n{%- endif %}\n{%- if not date_string is defined %}\n    {%- if strftime_now is defined %}\n        {%- set date_string = strftime_now("%d %b %Y") %}\n    {%- else %}\n        {%- set date_string = "26 Jul 2024" %}\n    {%- endif %}\n{%- endif %}\n{%- if not tools is defined %}\n    {%- set tools = none %}\n{%- endif %}\n\n{#- This block extracts the system message, so we can slot it into the right place. #}\n{%- if messages[0][\'role\'] == \'system\' %}\n    {%- set system_message = messages[0][\'content\']|trim %}\n    {%- set messages = messages[1:] %}\n{%- else %}\n    {%- set system_message = "" %}\n{%- endif %}\n\n{#- System message #}\n{{- "<|start_header_id|>system<|end_header_id|>\\n\\n" }}\n{%- if tools is not none %}\n    {{- "Environment: ipython\\n" }}\n{%- endif %}\n{{- "Cutting Knowledge Date: December 2023\\n" }}\n{{- "Today Date: " + date_string + "\\n\\n" }}\n{%- if tools is not none and not tools_in_user_message %}\n    {{- "You have access to the following functions. To call a function, please respond with JSON for a function call." }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n{%- endif %}\n{{- system_message }}\n{{- "<|eot_id|>" }}\n\n{#- Custom tools are passed in a user message with some extra guidance #}\n{%- if tools_in_user_message and not tools is none %}\n    {#- Extract the first user message so we can plug it in here #}\n    {%- if messages | length != 0 %}\n        {%- set first_user_message = messages[0][\'content\']|trim %}\n        {%- set messages = messages[1:] %}\n    {%- else %}\n        {{- raise_exception("Cannot put tools in the first user message when there\'s no first user message!") }}\n{%- endif %}\n    {{- \'<|start_header_id|>user<|end_header_id|>\\n\\n\' -}}\n    {{- "Given the following functions, please respond with a JSON for a function call " }}\n    {{- "with its proper arguments that best answers the given prompt.\\n\\n" }}\n    {{- \'Respond in the format {"name": function name, "parameters": dictionary of argument name and its value}.\' }}\n    {{- "Do not use variables.\\n\\n" }}\n    {%- for t in tools %}\n        {{- t | tojson(indent=4) }}\n        {{- "\\n\\n" }}\n    {%- endfor %}\n    {{- first_user_message + "<|eot_id|>"}}\n{%- endif %}\n\n{%- for message in messages %}\n    {%- if not (message.role == \'ipython\' or message.role == \'tool\' or \'tool_calls\' in message) %}\n        {{- \'<|start_header_id|>\' + message[\'role\'] + \'<|end_header_id|>\\n\\n\'+ message[\'content\'] + \'<|eot_id|>\' }}\n    {%- elif \'tool_calls\' in message %}\n        {%- if not message.tool_calls|length == 1 %}\n            {{- raise_exception("This model only supports single tool-calls at once!") }}\n        {%- endif %}\n        {%- set tool_call = message.tool_calls[0].function %}\n        {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' -}}\n        {{- \'{"name": "\' + tool_call.name + \'", \' }}\n        {{- \'"parameters": \' }}\n        {{- tool_call.arguments | tojson }}\n        {{- "}" }}\n        {{- "<|eot_id|>" }}\n    {%- elif message.role == "tool" or message.role == "ipython" %}\n        {{- "<|start_header_id|>ipython<|end_header_id|>\\n\\n" }}\n        {%- if message.content is mapping or message.content is iterable %}\n            {{- message.content | tojson }}\n        {%- else %}\n            {{- message.content }}\n        {%- endif %}\n        {{- "<|eot_id|>" }}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- \'<|start_header_id|>assistant<|end_header_id|>\\n\\n\' }}\n{%- endif %}\n', n=16, temperature=0.8, top_p=1.0, prm_batch_size=4, search_batch_size=25, seed=0, max_tokens=2048, agg_strategy='last', beam_width=4, num_iterations=40, lookahead=1, filter_duplicates=True, sort_completed=False), 'llm': <vllm.entrypoints.llm.LLM object at 0x14a328fee310>, 'prm': <sal.models.reward_models.RLHFFlow object at 0x14a32b39fa10>} of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+Running search:   0%|          | 0/50 [00:00<?, ? examples/s]
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 0 time: 21.776428937911987
+
+Beam search iterations:   2%|▎         | 1/40 [00:21<14:09, 21.78s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 1 time: 17.931074857711792
+
+Beam search iterations:   5%|▌         | 2/40 [00:39<12:21, 19.51s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 2 time: 12.973360061645508
+
+Beam search iterations:   8%|▊         | 3/40 [00:52<10:11, 16.53s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 3 time: 17.2649405002594
+
+Beam search iterations:  10%|█         | 4/40 [01:09<10:05, 16.82s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 4 time: 17.47572898864746
+
+Beam search iterations:  12%|█▎        | 5/40 [01:27<09:56, 17.06s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 5 time: 17.700411558151245
+
+Beam search iterations:  15%|█▌        | 6/40 [01:45<09:47, 17.28s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 6 time: 15.776643753051758
+
+Beam search iterations:  18%|█▊        | 7/40 [02:00<09:13, 16.79s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 7 time: 15.88757061958313
+
+Beam search iterations:  20%|██        | 8/40 [02:16<08:47, 16.50s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 8 time: 11.556900262832642
+
+Beam search iterations:  22%|██▎       | 9/40 [02:28<07:43, 14.95s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 9 time: 11.085341215133667
+
+Beam search iterations:  25%|██▌       | 10/40 [02:39<06:52, 13.76s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 10 time: 11.316774845123291
+
+Beam search iterations:  28%|██▊       | 11/40 [02:50<06:17, 13.01s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 11 time: 10.456736087799072
+
+Beam search iterations:  30%|███       | 12/40 [03:01<05:42, 12.24s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 12 time: 9.582638025283813
+
+Beam search iterations:  32%|███▎      | 13/40 [03:10<05:08, 11.43s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 13 time: 8.768807172775269
+
+Beam search iterations:  35%|███▌      | 14/40 [03:19<04:36, 10.63s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 14 time: 6.073862791061401
+
+Beam search iterations:  38%|███▊      | 15/40 [03:25<03:51,  9.26s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 15 time: 4.953701496124268
+
+Beam search iterations:  40%|████      | 16/40 [03:30<03:11,  7.96s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 16 time: 4.766802549362183
+
+Beam search iterations:  42%|████▎     | 17/40 [03:35<02:41,  7.00s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 17 time: 4.681185245513916
+
+Beam search iterations:  45%|████▌     | 18/40 [03:40<02:18,  6.30s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 18 time: 4.452798128128052
+
+Beam search iterations:  48%|████▊     | 19/40 [03:44<02:00,  5.75s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 19 time: 4.258042573928833
+
+Beam search iterations:  50%|█████     | 20/40 [03:48<01:46,  5.30s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 20 time: 3.566472291946411
+
+Beam search iterations:  52%|█████▎    | 21/40 [03:52<01:30,  4.78s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 21 time: 3.4713785648345947
+
+Beam search iterations:  55%|█████▌    | 22/40 [03:55<01:18,  4.39s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 22 time: 7.113956689834595
+
+Beam search iterations:  57%|█████▊    | 23/40 [04:02<01:28,  5.21s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 23 time: 3.0015504360198975
+
+Beam search iterations:  60%|██████    | 24/40 [04:05<01:12,  4.54s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 24 time: 2.5682101249694824
+
+Beam search iterations:  62%|██████▎   | 25/40 [04:08<00:59,  3.95s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 25 time: 2.4819607734680176
+
+Beam search iterations:  65%|██████▌   | 26/40 [04:10<00:49,  3.51s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 26 time: 2.4196207523345947
+
+Beam search iterations:  68%|██████▊   | 27/40 [04:13<00:41,  3.18s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 27 time: 1.6058316230773926
+
+Beam search iterations:  70%|███████   | 28/40 [04:14<00:32,  2.71s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 28 time: 1.34470534324646
+
+Beam search iterations:  72%|███████▎  | 29/40 [04:16<00:25,  2.30s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 29 time: 1.403986930847168
+
+Beam search iterations:  75%|███████▌  | 30/40 [04:17<00:20,  2.03s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 30 time: 1.4005670547485352
+
+Beam search iterations:  78%|███████▊  | 31/40 [04:19<00:16,  1.84s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 31 time: 1.5584619045257568
+
+Beam search iterations:  80%|████████  | 32/40 [04:20<00:14,  1.76s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 32 time: 1.401606798171997
+
+Beam search iterations:  82%|████████▎ | 33/40 [04:22<00:11,  1.65s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 33 time: 1.0280933380126953
+
+Beam search iterations:  85%|████████▌ | 34/40 [04:23<00:08,  1.46s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 34 time: 1.0941088199615479
+
+Beam search iterations:  88%|████████▊ | 35/40 [04:24<00:06,  1.35s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 35 time: 1.226823091506958
+
+Beam search iterations:  90%|█████████ | 36/40 [04:25<00:05,  1.32s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 36 time: 1.2615880966186523
+
+Beam search iterations:  92%|█████████▎| 37/40 [04:26<00:03,  1.30s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 37 time: 1.4478974342346191
+
+Beam search iterations:  95%|█████████▌| 38/40 [04:28<00:02,  1.34s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 38 time: 1.1789400577545166
+
+Beam search iterations:  98%|█████████▊| 39/40 [04:29<00:01,  1.29s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 39 time: 3.4738197326660156
+
+Beam search iterations: 100%|██████████| 40/40 [04:32<00:00,  1.95s/it][ABeam search iterations: 100%|██████████| 40/40 [04:32<00:00,  6.82s/it]
+INFO:sal.search.diverse_verifier_tree_search:dvts post loop time: 0.000598907470703125
+Running search:  50%|█████     | 25/50 [04:32<04:32, 10.91s/ examples]
+Beam search iterations:   0%|          | 0/40 [00:00<?, ?it/s][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 0 time: 23.848941802978516
+
+Beam search iterations:   2%|▎         | 1/40 [00:23<15:30, 23.85s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 1 time: 20.769281148910522
+
+Beam search iterations:   5%|▌         | 2/40 [00:44<13:57, 22.04s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 2 time: 20.19536542892456
+
+Beam search iterations:   8%|▊         | 3/40 [01:04<13:04, 21.20s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 3 time: 19.747567892074585
+
+Beam search iterations:  10%|█         | 4/40 [01:24<12:22, 20.62s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 4 time: 19.65388298034668
+
+Beam search iterations:  12%|█▎        | 5/40 [01:44<11:49, 20.27s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 5 time: 19.38516616821289
+
+Beam search iterations:  15%|█▌        | 6/40 [02:03<11:19, 19.97s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 6 time: 18.52887487411499
+
+Beam search iterations:  18%|█▊        | 7/40 [02:22<10:43, 19.50s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 7 time: 18.303189039230347
+
+Beam search iterations:  20%|██        | 8/40 [02:40<10:11, 19.12s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 8 time: 14.027512073516846
+
+Beam search iterations:  22%|██▎       | 9/40 [02:54<09:03, 17.53s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 9 time: 18.874282121658325
+
+Beam search iterations:  25%|██▌       | 10/40 [03:13<08:58, 17.94s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 10 time: 11.978801250457764
+
+Beam search iterations:  28%|██▊       | 11/40 [03:25<07:47, 16.12s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 11 time: 11.371596097946167
+
+Beam search iterations:  30%|███       | 12/40 [03:36<06:50, 14.67s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 12 time: 10.82118844985962
+
+Beam search iterations:  32%|███▎      | 13/40 [03:47<06:04, 13.51s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 13 time: 8.549519300460815
+
+Beam search iterations:  35%|███▌      | 14/40 [03:56<05:12, 12.01s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 14 time: 7.48341178894043
+
+Beam search iterations:  38%|███▊      | 15/40 [04:03<04:26, 10.65s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 15 time: 6.422797679901123
+
+Beam search iterations:  40%|████      | 16/40 [04:09<03:44,  9.37s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 16 time: 6.735925197601318
+
+Beam search iterations:  42%|████▎     | 17/40 [04:16<03:17,  8.58s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 17 time: 6.242934465408325
+
+Beam search iterations:  45%|████▌     | 18/40 [04:22<02:53,  7.88s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 18 time: 6.369996547698975
+
+Beam search iterations:  48%|████▊     | 19/40 [04:29<02:35,  7.43s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 19 time: 5.881028413772583
+
+Beam search iterations:  50%|█████     | 20/40 [04:35<02:19,  6.96s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 20 time: 5.641344785690308
+
+Beam search iterations:  52%|█████▎    | 21/40 [04:40<02:04,  6.57s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 21 time: 6.941375494003296
+
+Beam search iterations:  55%|█████▌    | 22/40 [04:47<02:00,  6.68s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 22 time: 5.577286720275879
+
+Beam search iterations:  57%|█████▊    | 23/40 [04:53<01:47,  6.35s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 23 time: 4.6155922412872314
+
+Beam search iterations:  60%|██████    | 24/40 [04:57<01:33,  5.83s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 24 time: 4.6643476486206055
+
+Beam search iterations:  62%|██████▎   | 25/40 [05:02<01:22,  5.48s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 25 time: 5.362419843673706
+
+Beam search iterations:  65%|██████▌   | 26/40 [05:08<01:16,  5.44s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 26 time: 4.925628900527954
+
+Beam search iterations:  68%|██████▊   | 27/40 [05:12<01:08,  5.29s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 27 time: 4.638378858566284
+
+Beam search iterations:  70%|███████   | 28/40 [05:17<01:01,  5.09s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 28 time: 4.791483640670776
+
+Beam search iterations:  72%|███████▎  | 29/40 [05:22<00:55,  5.00s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 29 time: 4.791434049606323
+
+Beam search iterations:  75%|███████▌  | 30/40 [05:27<00:49,  4.94s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 30 time: 3.8809664249420166
+
+Beam search iterations:  78%|███████▊  | 31/40 [05:31<00:41,  4.62s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 31 time: 3.8665637969970703
+
+Beam search iterations:  80%|████████  | 32/40 [05:34<00:35,  4.40s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 32 time: 3.6541874408721924
+
+Beam search iterations:  82%|████████▎ | 33/40 [05:38<00:29,  4.17s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 33 time: 3.6445140838623047
+
+Beam search iterations:  85%|████████▌ | 34/40 [05:42<00:24,  4.01s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 34 time: 3.7647132873535156
+
+Beam search iterations:  88%|████████▊ | 35/40 [05:45<00:19,  3.94s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 35 time: 3.8970701694488525
+
+Beam search iterations:  90%|█████████ | 36/40 [05:49<00:15,  3.93s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 36 time: 3.9926466941833496
+
+Beam search iterations:  92%|█████████▎| 37/40 [05:53<00:11,  3.95s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 37 time: 3.1932053565979004
+
+Beam search iterations:  95%|█████████▌| 38/40 [05:57<00:07,  3.72s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 38 time: 3.2690250873565674
+
+Beam search iterations:  98%|█████████▊| 39/40 [06:00<00:03,  3.59s/it][AINFO:sal.search.diverse_verifier_tree_search:dvts loop 39 time: 9.26631784439087
+
+Beam search iterations: 100%|██████████| 40/40 [06:09<00:00,  5.29s/it][ABeam search iterations: 100%|██████████| 40/40 [06:09<00:00,  9.24s/it]
+INFO:sal.search.diverse_verifier_tree_search:dvts post loop time: 0.0008838176727294922
+Running search: 100%|██████████| 50/50 [10:42<00:00, 13.19s/ examples]Running search: 100%|██████████| 50/50 [10:42<00:00, 12.85s/ examples]
+INFO:__main__:Dataset mapping time: 642.4179148674011 s
+Map:   0%|          | 0/50 [00:00<?, ? examples/s]Map: 100%|██████████| 50/50 [00:00<00:00, 2406.98 examples/s]
+Computing majority & weighted predictions:   0%|          | 0/5 [00:00<?, ?it/s]
+Subsample 1:   0%|          | 0/50 [00:00<?, ? examples/s][ASubsample 1: 100%|██████████| 50/50 [00:00<00:00, 2932.75 examples/s]
+
+Extract answers 1:   0%|          | 0/50 [00:00<?, ? examples/s][AExtract answers 1: 100%|██████████| 50/50 [00:00<00:00, 752.97 examples/s]
+
+Compute weighted pred 1:   0%|          | 0/50 [00:00<?, ? examples/s][A
+Compute weighted pred 1:  10%|█         | 5/50 [00:00<00:01, 31.30 examples/s][A
+Compute weighted pred 1:  92%|█████████▏| 46/50 [00:00<00:00, 209.05 examples/s][ACompute weighted pred 1: 100%|██████████| 50/50 [00:00<00:00, 183.67 examples/s]
+
+Compute majority pred 1:   0%|          | 0/50 [00:00<?, ? examples/s][ACompute majority pred 1: 100%|██████████| 50/50 [00:00<00:00, 2762.83 examples/s]
+
+Compute naive pred 1:   0%|          | 0/50 [00:00<?, ? examples/s][ACompute naive pred 1: 100%|██████████| 50/50 [00:00<00:00, 3245.26 examples/s]
+Computing majority & weighted predictions:  20%|██        | 1/5 [00:00<00:01,  2.53it/s]
+Subsample 2:   0%|          | 0/50 [00:00<?, ? examples/s][ASubsample 2: 100%|██████████| 50/50 [00:00<00:00, 3032.14 examples/s]
+
+Extract answers 2:   0%|          | 0/50 [00:00<?, ? examples/s][AExtract answers 2: 100%|██████████| 50/50 [00:00<00:00, 622.56 examples/s]
+
+Compute weighted pred 2:   0%|          | 0/50 [00:00<?, ? examples/s][ACompute weighted pred 2: 100%|██████████| 50/50 [00:00<00:00, 1247.27 examples/s]
+
+Compute majority pred 2:   0%|          | 0/50 [00:00<?, ? examples/s][ACompute majority pred 2: 100%|██████████| 50/50 [00:00<00:00, 2303.58 examples/s]
+
+Compute naive pred 2:   0%|          | 0/50 [00:00<?, ? examples/s][ACompute naive pred 2: 100%|██████████| 50/50 [00:00<00:00, 3016.44 examples/s]
+Computing majority & weighted predictions:  40%|████      | 2/5 [00:00<00:00,  3.72it/s]
+Subsample 4:   0%|          | 0/50 [00:00<?, ? examples/s][ASubsample 4: 100%|██████████| 50/50 [00:00<00:00, 2797.25 examples/s]
+
+Extract answers 4:   0%|          | 0/50 [00:00<?, ? examples/s][A
+Extract answers 4:  76%|███████▌  | 38/50 [00:00<00:00, 370.38 examples/s][AExtract answers 4: 100%|██████████| 50/50 [00:00<00:00, 341.87 examples/s]
+
+Compute weighted pred 4:   0%|          | 0/50 [00:00<?, ? examples/s][A
+Compute weighted pred 4: 100%|██████████| 50/50 [00:00<00:00, 482.22 examples/s][ACompute weighted pred 4: 100%|██████████| 50/50 [00:00<00:00, 465.87 examples/s]
+
+Compute majority pred 4:   0%|          | 0/50 [00:00<?, ? examples/s][ACompute majority pred 4: 100%|██████████| 50/50 [00:00<00:00, 1817.70 examples/s]
+
+Compute naive pred 4:   0%|          | 0/50 [00:00<?, ? examples/s][ACompute naive pred 4: 100%|██████████| 50/50 [00:00<00:00, 2809.20 examples/s]
+Computing majority & weighted predictions:  60%|██████    | 3/5 [00:00<00:00,  3.41it/s]
+Subsample 8:   0%|          | 0/50 [00:00<?, ? examples/s][ASubsample 8: 100%|██████████| 50/50 [00:00<00:00, 2619.87 examples/s]
+
+Extract answers 8:   0%|          | 0/50 [00:00<?, ? examples/s][A
+Extract answers 8:  38%|███▊      | 19/50 [00:00<00:00, 176.30 examples/s][A
+Extract answers 8:  78%|███████▊  | 39/50 [00:00<00:00, 185.59 examples/s][AExtract answers 8: 100%|██████████| 50/50 [00:00<00:00, 175.58 examples/s]
+
+Compute weighted pred 8:   0%|          | 0/50 [00:00<?, ? examples/s][A
+Compute weighted pred 8:  18%|█▊        | 9/50 [00:00<00:01, 36.65 examples/s][A
+Compute weighted pred 8:  30%|███       | 15/50 [00:00<00:00, 41.82 examples/s][ACompute weighted pred 8: 100%|██████████| 50/50 [00:00<00:00, 111.33 examples/s]
+
+Compute majority pred 8:   0%|          | 0/50 [00:00<?, ? examples/s][ACompute majority pred 8: 100%|██████████| 50/50 [00:00<00:00, 1313.63 examples/s]
+
+Compute naive pred 8:   0%|          | 0/50 [00:00<?, ? examples/s][ACompute naive pred 8: 100%|██████████| 50/50 [00:00<00:00, 2578.22 examples/s]
+Computing majority & weighted predictions:  80%|████████  | 4/5 [00:01<00:00,  2.00it/s]
+Subsample 16:   0%|          | 0/50 [00:00<?, ? examples/s][ASubsample 16: 100%|██████████| 50/50 [00:00<00:00, 2376.16 examples/s]
+
+Extract answers 16:   0%|          | 0/50 [00:00<?, ? examples/s][A
+Extract answers 16:  20%|██        | 10/50 [00:00<00:00, 89.47 examples/s][A
+Extract answers 16:  40%|████      | 20/50 [00:00<00:00, 94.20 examples/s][A
+Extract answers 16:  60%|██████    | 30/50 [00:00<00:00, 95.30 examples/s][A
+Extract answers 16:  82%|████████▏ | 41/50 [00:00<00:00, 96.04 examples/s][AExtract answers 16: 100%|██████████| 50/50 [00:00<00:00, 91.51 examples/s]
+
+Compute weighted pred 16:   0%|          | 0/50 [00:00<?, ? examples/s][A
+Compute weighted pred 16:  76%|███████▌  | 38/50 [00:00<00:00, 339.52 examples/s][ACompute weighted pred 16: 100%|██████████| 50/50 [00:00<00:00, 351.15 examples/s]
+
+Compute majority pred 16:   0%|          | 0/50 [00:00<?, ? examples/s][ACompute majority pred 16: 100%|██████████| 50/50 [00:00<00:00, 858.38 examples/s]
+
+Compute naive pred 16:   0%|          | 0/50 [00:00<?, ? examples/s][ACompute naive pred 16: 100%|██████████| 50/50 [00:00<00:00, 2313.84 examples/s]
+Computing majority & weighted predictions: 100%|██████████| 5/5 [00:02<00:00,  1.65it/s]Computing majority & weighted predictions: 100%|██████████| 5/5 [00:02<00:00,  1.99it/s]
+INFO:__main__:Scoring time: 2.5344550609588623 s
+Uploading the dataset shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Creating parquet from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][ACreating parquet from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 187.27ba/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:00<00:00,  2.68it/s][A100%|██████████| 1/1 [00:00<00:00,  2.68it/s]
+Uploading the dataset shards: 100%|██████████| 1/1 [00:00<00:00,  1.67it/s]Uploading the dataset shards: 100%|██████████| 1/1 [00:00<00:00,  1.67it/s]
+INFO:root:Pushed dataset to https://huggingface.co/datasets/TheRealPilot638/Llama-3.2-1B-dvts_16_no_chunking_H200/commit/ab238a89969072377b8618a6daae5780fdf67c14
+INFO:__main__:Total runtime: 703.3206572532654
+INFO:__main__:Total power consumtion: 78.55327805555558 Wh
+INFO:__main__:Done 🔥!

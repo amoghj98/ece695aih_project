@@ -16,11 +16,13 @@ conda activate sal
 
 MAIL_TYPE=BEGIN,END,FAIL,TIME_LIMIT_90
 
+export CONFIG=recipes/Llama-3.2-1B-Instruct/beam_search.yaml
+
 for SEED in 0 1 2 3
 do
-    for e in {8..9..2}
+    for e in {2..7..2}
     do
-        N=$(echo 2^$1 | bc -l)
+        N=$(echo 2^$e | bc -l)
         # echo $N
         #
         JOB_NAME="bs_${N}"
@@ -30,10 +32,10 @@ do
         --mail-type=${MAIL_TYPE} --mail-user=${USER}@purdue.edu \
         --job-name=$JOB_NAME \
         --cpus-per-gpu=14 -A cocosys \
-        recipes/launch_array.slurm recipes/Llama-3.2-1B-Instruct/beam_search.yaml \
+        beam_search.slurm recipes/Olmo-1B-hf/beam_search.yaml \
         --n=$N \
         --seed=$SEED \
-        --hub_dataset_id=amogh98/Llama-3.2-1B-Instruct-beam_search-completions
+        --hub_dataset_id=TheRealPilot638/Olmo-1B-hf-beam-search_${N}_no_chunking_H200  
     done
 done
     
